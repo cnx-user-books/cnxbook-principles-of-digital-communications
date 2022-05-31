@@ -1,0 +1,407 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Precoding and Bandlimited Signals</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>cdcc3312-e7b2-4db0-a74b-4552e49a5896</md:uuid>
+</metadata>
+
+  <content>
+    <section id="one">
+      <title>Precoding</title>
+
+      <para id="precoding">
+
+	<!-- This is a good place for a picture -->
+
+	The data symbols are manipulated such that
+
+	<equation id="minisi">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>y</m:mi>
+		    <m:mi>k</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>k</m:ci>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/> 
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>a</m:mi>
+		      <m:mi>k</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">u</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:ci>ISI</m:ci>
+		<m:apply>
+		  <m:ci type="fn">ν</m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>k</m:ci>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </para>
+    </section>
+
+    <section id="two">
+      <title>Design of Bandlimited Modulation Signals</title>
+
+      <para id="modulationsignals">
+	Recall that modulation signals are
+
+	<equation id="modulatedsignals">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar><m:ci>n</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit><m:infinity/></m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>a</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">s</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>t</m:ci>
+		      <m:apply>
+			<m:times/>
+			<m:ci>n</m:ci>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	We can design
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">s</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	such that
+	<equation id="blargh">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">u</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:piecewise>
+		<m:piece>
+		  <m:ci>large</m:ci>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>n</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		</m:piece>
+		<m:piece>
+		  <m:mtext>zero or small</m:mtext>
+		  <m:apply>
+		    <m:neq/>
+		    <m:ci>n</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		</m:piece>
+	      </m:piecewise>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	where
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>  
+	    <m:apply>
+	      <m:ci type="fn">y</m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:ci>k</m:ci>
+		<m:ci>T</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:plus/>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>a</m:mi>
+		    <m:mi>k</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:ci type="fn">u</m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar><m:ci>n</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit><m:infinity/></m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>a</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">u</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:ci>k</m:ci>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:ci>n</m:ci>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">ν</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>k</m:ci>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	(ISI is the sum term, and once again, 
+
+	<m:math>
+	  <m:apply>
+	    <m:neq/>
+	    <m:ci>n</m:ci>
+	    <m:ci>k</m:ci>
+	  </m:apply>
+	</m:math>
+	.)
+
+	Also,
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">y</m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>T</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:conjugate/>
+		<m:ci>s</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:conjugate/>
+		<m:ci>g</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msup>
+		    <m:mi>h</m:mi>
+		    <m:mi>opt</m:mi>
+		  </m:msup>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	The signal
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">s</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+
+	can be designed to have reduced ISI.
+      </para>
+    </section>
+
+    <section id="three">
+      <title>Design Equalizers at the Receiver</title>
+
+      <para id="masstuff">
+
+	<!-- This is another good place to put some graphics -->
+	Linear equalizers or decision feedback equalizers reduce ISI
+	in the statistic
+	<m:math>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>y</m:mi>
+	      <m:mi>t</m:mi>
+	    </m:msub>
+	  </m:ci>
+	</m:math>
+      </para>
+    </section>
+
+    <section id="four">
+      <title>Maximum Likelihood Sequence Detection</title>
+
+      <para id="conclusion">
+	<!-- More diagrams -->
+
+	<equation id="somethingy">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">y</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>k</m:ci>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar><m:ci>n</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit><m:infinity/></m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci> 
+		      <m:msub>
+			<m:mi>a</m:mi>
+			<m:mi>n</m:mi> 
+		      </m:msub>
+		    </m:ci> 
+		    <m:apply> 
+		      <m:minus/>
+		      <m:apply>
+			<m:times/> 
+			<m:ci>k</m:ci> 
+			<m:ci>T</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:ci>n</m:ci> 
+			<m:ci>T</m:ci> 
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">ν</m:ci>
+		  <m:apply>
+		    <m:ci>k</m:ci> 
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>   
+	</equation>
+
+	By observing
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">y</m:ci>
+	    <m:ci>T</m:ci>
+	  </m:apply>
+	  <m:ci>,</m:ci>
+	  <m:apply>
+	    <m:ci type="fn">y</m:ci>
+	    <m:apply>
+	      <m:times/>
+	      <m:cn>2</m:cn>
+	      <m:ci>T</m:ci>
+	    </m:apply>
+	  </m:apply>
+	  <m:ci>,</m:ci>
+	  <m:ci>…</m:ci>
+	</m:math>
+
+	the date symbols are observed frequently.  Therefore, ISI can
+	be viewed as diversity to increase performance.
+
+      </para>
+    </section>
+
+  </content>
+</document>

@@ -1,0 +1,34 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+	<title>Course Description</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>6404c352-8e4a-487a-b43d-efbcd8ba0401</md:uuid>
+</metadata>
+	<content>
+		<para id="id11531869">This course explores elements of the theory and practice of digital communications. The course will 1) model and study the effects of channel impairments such as distortion, noise, interference, and fading, on the performance of communication systems; 2) introduce signal processing, modulation, and coding techniques that are used in digital communication systems. The concepts/ tools are acquired in this course: </para>
+		<para id="id11409047"><term>Signals and Systems</term>
+		</para><para id="id11866682">Classification of signals and systems</para>
+		<para id="id11866686">Orthogonal functions, Fourier series, Fourier transform</para>
+		<para id="id12215830">Spectra and filtering</para>
+		<para id="id8971728">Sampling theory, Nyquist theorem</para>
+		<para id="id8971732">Random processes, autocorrelation, power spectrum</para>
+		<para id="id11193934">Systems with random input/output</para>
+		<para id="id8239534"><term>Source Coding</term></para><para id="id10953040">Elements of compression, Huffman coding</para>
+		<para id="id10953045">Elements of quantization theory</para>
+		<para id="id12084926">Pulse code Modulation (PCM) and variations</para>
+		<para id="id10831435">Rate/bandwidth calculations in communication systems</para>
+		<para id="id10831440"><term>Communication over AWGN Channels</term></para><para id="id11811090">Signals and noise, Eb/N0</para>
+		<para id="id11738773">Receiver structure, demodulation and detection</para>
+		<para id="id11413708">Correlation receiver and matched filter</para>
+		<para id="id9237514">Detection of binary signals in AWGN</para>
+		<para id="id11931417">Optimal detection for general modulation</para>
+		<para id="id11931421">Coherent and non-coherent detection</para>
+		<para id="id11830693"><term>Communication over Band-limited AWGN Channel</term></para><para id="id11917223">ISI in band-limited channels</para>
+		<para id="id12312478">Zero-ISI condition: the Nyquist criterion</para>
+		<para id="id8971519">Raised cosine filters</para>
+		<para id="id8971523">Partial response signals</para>
+		<para id="id8600186">Equalization using zero-forcing criterion</para>
+		<para id="id11739116"><term>Channel Coding</term></para><para id="id11739121">Types of error control</para>
+		<para id="id11931237">Block codes</para>
+		<para id="id4120222">Error detection and correction</para>
+		<para id="id4120226">Convolutional codes and the Viterbi algorithm</para><para id="element-522"><term>Communication over Fading Channel</term></para><para id="element-466">Fading channels</para><para id="element-662">Characterizing mobile-radio propagation</para><para id="element-335">Signal Time-Spreading</para><para id="element-739">Mitigating the effects of fading</para><para id="element-998">Application of Viterbi equalizer in GSM system</para><para id="element-652">Application of Rake receiver in CDMA system</para>
+	</content>
+</document>

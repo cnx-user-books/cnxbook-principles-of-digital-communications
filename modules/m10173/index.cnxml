@@ -1,0 +1,468 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Channel Capacity</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>6131dfcf-ba9c-421d-8da8-6b6dc75abbd4</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      In the previous section, we discussed information sources and
+      quantified information.  We also discussed how to represent (and
+      compress) information sources in binary symbols in an efficient
+      manner.  In this section, we consider channels and will find out
+      how much information can be sent through the channel reliably.
+    </para>
+
+    <para id="para2">
+      We will first consider simple channels where the input is a
+      discrete random variable and the output is also a discrete
+      random variable.  These discrete channels could represent analog
+      channels with modulation and demodulation and detection.
+    </para>
+
+    <figure id="fig1">
+      <media id="idm6491168" alt=""><image src="../../media/Figure7-28.png" mime-type="image/png"/></media>
+    </figure>
+
+    <para id="para3">
+      Let us denote the input sequence to the channel as
+      <equation id="eq01">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">X</m:ci>
+            <m:vector>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>⋮</m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>n</m:mi>
+                </m:msub>
+              </m:ci>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci>
+            <m:msub>
+              <m:mi>X</m:mi>
+              <m:mi>i</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:ci>
+            <m:mover>
+              <m:mi>X</m:mi>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      a discrete symbol set or input alphabet.
+    </para>
+
+    <para id="para4">
+      The channel output
+      <equation id="eq02">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">Y</m:ci>
+            <m:vector>
+              <m:ci>
+                <m:msub>
+                  <m:mi>Y</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>Y</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>Y</m:mi>
+                  <m:mn>3</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>⋮</m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>Y</m:mi>
+                  <m:mi>n</m:mi>
+                </m:msub>
+              </m:ci>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci>
+            <m:msub>
+              <m:mi>Y</m:mi>
+              <m:mi>i</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:ci>
+            <m:mover>
+              <m:mi>Y</m:mi>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      a discrete symbol set or output alphabet.
+    </para>
+
+    <para id="para5">
+      The statistical properties of a channel are determined if one finds
+      <m:math>
+	<m:apply>
+	  <m:ci type="function">
+	    <m:msub>
+	      <m:mi>p</m:mi>
+	      <m:mrow>
+		<m:mi fontweight="bold">Y</m:mi>
+		<m:mo>|</m:mo>
+		<m:mi fontweight="bold">X</m:mi>
+	      </m:mrow>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:mrow>
+	      <m:mi fontweight="bold">y</m:mi>
+	      <m:mo>|</m:mo>
+	      <m:mi fontweight="bold">x</m:mi>
+	    </m:mrow>
+	  </m:ci>
+	</m:apply>
+      </m:math>
+      for all
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci type="vector">y</m:ci>
+          <m:apply>
+            <m:power/>
+	    <m:ci>
+	      <m:mover>
+		<m:mi>Y</m:mi>
+		<m:mo>¯</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      and for all
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci type="vector">x</m:ci>
+          <m:apply>
+            <m:power/>
+	    <m:ci>
+	      <m:mover>
+		<m:mi>X</m:mi>
+		<m:mo>¯</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+      A discrete channel is called a <term>discrete memoryless channel</term>
+      if
+      <equation id="eq03">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="function">
+                <m:msub>
+                  <m:mi>p</m:mi>
+                  <m:mrow>
+                    <m:mi fontweight="bold">Y</m:mi>
+                    <m:mo>|</m:mo>
+                    <m:mi fontweight="bold">X</m:mi>
+                  </m:mrow>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:mrow>
+                  <m:mi fontweight="bold">y</m:mi>
+                  <m:mo>|</m:mo>
+                  <m:mi fontweight="bold">x</m:mi>
+                </m:mrow>
+              </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:product/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>n</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="function">
+		  <m:msub>
+		    <m:mi>p</m:mi>
+		    <m:mrow>
+		      <m:msub>
+			<m:mi>Y</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		      <m:mo>|</m:mo>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:msub>
+		      <m:mi>y</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		    <m:mo>|</m:mo>
+		    <m:msub>
+		      <m:mi>x</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      for all
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci type="vector">y</m:ci>
+          <m:apply>
+            <m:power/>
+	    <m:ci>
+	      <m:mover>
+		<m:mi>Y</m:mi>
+		<m:mo>¯</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      and for all
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci type="vector">x</m:ci>
+          <m:apply>
+            <m:power/>
+	    <m:ci>
+	      <m:mover>
+		<m:mi>X</m:mi>
+		<m:mo>¯</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+    </para>
+
+    <example id="example1">
+
+      <para id="para6">
+	A binary symmetric channel (BSC) is a discrete memoryless channel with
+	binary input and binary output and
+	<m:math mode="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="function">
+                <m:msub>
+                  <m:mi>p</m:mi>
+                  <m:mrow>
+                    <m:mi>Y</m:mi>
+                    <m:mo>|</m:mo>
+                    <m:mi>X</m:mi>
+                  </m:mrow>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:mrow>
+                  <m:mi>y=0</m:mi>
+                  <m:mo>|</m:mo>
+                  <m:mi>x=1</m:mi>
+                </m:mrow>
+              </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:ci type="function">
+                <m:msub>
+                  <m:mi>p</m:mi>
+                  <m:mrow>
+                    <m:mi>Y</m:mi>
+                    <m:mo>|</m:mo>
+                    <m:mi>X</m:mi>
+                  </m:mrow>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:mrow>
+                  <m:mi>y=1</m:mi>
+                  <m:mo>|</m:mo>
+                  <m:mi>x=0</m:mi>
+                </m:mrow>
+              </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>.
+	As an example, a white Gaussian channel with antipodal signaling and 
+	matched filter receiver has probability of error of
+	<m:math>
+	  <m:apply>
+	    <m:ci type="function">Q</m:ci>
+	    <m:apply>
+	      <m:root/>
+              <m:apply>
+                <m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>N</m:mi>
+		    <m:mn>0</m:mn>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>.
+	Since the error is symmetric with respect to the transmitted bit, then
+	<equation id="eq04">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="function">
+                  <m:msub>
+                    <m:mi>p</m:mi>
+                    <m:mrow>
+                      <m:mi>Y</m:mi>
+                      <m:mo>|</m:mo>
+                      <m:mi>X</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:ci>
+                <m:ci>
+                  <m:mrow>
+                    <m:mn>0</m:mn>
+                    <m:mo>|</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                </m:ci>
+              </m:apply>
+              <m:apply>
+                <m:ci type="function">
+                  <m:msub>
+                    <m:mi>p</m:mi>
+                    <m:mrow>
+                      <m:mi>Y</m:mi>
+                      <m:mo>|</m:mo>
+                      <m:mi>X</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:ci>
+                <m:ci>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mo>|</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:ci>
+              </m:apply>
+              <m:apply>
+                <m:ci type="function">Q</m:ci>
+                <m:apply>
+                  <m:root/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>E</m:mi>
+			  <m:mi>s</m:mi>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>N</m:mi>
+			<m:mn>0</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+                </m:apply>
+              </m:apply>
+              <m:ci>ε</m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </para>
+
+      <figure id="fig2">
+	<media id="idm60464" alt=""><image src="../../media/Figure7-30.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+    <para id="para7">
+      It is interesting to note that every time a BSC is used one bit
+      is sent across the channel with probability of error of
+      <m:math><m:ci>ε</m:ci></m:math>.  The question is how much
+      information or how many bits can be sent per channel use,
+      reliably.  Before we consider the above question a few
+      definitions are essential.  These are discussed in <link document="m10178" strength="2">mutual information</link>.
+    </para>
+
+  </content>
+</document>

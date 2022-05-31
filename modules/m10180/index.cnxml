@@ -1,0 +1,1023 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Shannon's Noisy Channel Coding Theorem</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>4d1c021a-729e-47ef-9605-cb949e96f7ad</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para0">
+      It is highly recommended that the information presented in <link document="m10178">Mutual Information</link> and in <link document="m10179">Typical Sequences</link> be reviewed before
+      proceeding with this document.  An introductory module on the
+      theorem is available at <link document="m0073">Noisy Channel
+      Theorems </link>.
+    </para>
+
+    <rule type="Theorem" id="rule1"><label>Theorem</label>
+      <title>Shannon's Noisy Channel Coding</title>
+      <statement id="idm9305056">
+	<para id="para1">
+	  The capacity of a discrete-memoryless channel is given by
+	  <equation id="eq01">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:ci>C</m:ci>
+                <m:apply>
+		  <m:max/>
+		  <m:bvar>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>p</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>x</m:ci> 
+		    </m:apply>
+		  </m:bvar>
+		  <m:condition>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>p</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>x</m:ci> 
+		    </m:apply>
+		  </m:condition>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#mutualinformation"/>
+		    <m:ci>X</m:ci>
+		    <m:ci>Y</m:ci>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	  where
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#mutualinformation"/>
+	      <m:ci>X</m:ci>
+	      <m:ci>Y</m:ci>
+	    </m:apply>
+	  </m:math>
+	  is the mutual information between the channel input
+	  <m:math><m:ci>X</m:ci></m:math> and the output
+	  <m:math><m:ci>Y</m:ci></m:math>.  If the transmission rate
+	  <m:math><m:ci>R</m:ci></m:math> is less than
+	  <m:math><m:ci>C</m:ci></m:math>, then for any
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:gt/>
+              <m:ci>ε</m:ci>
+              <m:cn>0</m:cn>
+	    </m:apply>
+	  </m:math>
+	  there exists a code with block length
+	  <m:math><m:ci>n</m:ci></m:math> large enough whose error
+	  probability is less than
+	  <m:math><m:ci>ε</m:ci></m:math>.  If
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:gt/>
+              <m:ci>R</m:ci>
+              <m:ci>C</m:ci>
+	    </m:apply>
+	  </m:math>,
+	  the error probability of any code with any block length is 
+	  bounded away from zero.
+	</para>
+      </statement>
+    </rule>
+
+    <example id="example1">
+      <para id="para2">
+	If we have a binary symmetric channel with cross over
+	probability 0.1, then the capacity
+	<m:math display="inline">
+	  <m:apply>
+	    <m:approx/>
+            <m:ci>C</m:ci>
+            <m:cn>0.5</m:cn>
+	  </m:apply>
+	</m:math>
+	bits per transmission.  Therefore, it is possible to send 0.4
+	bits per channel through the channel reliably.  This means
+	that we can take 400 information bits and map them into a code
+	of length 1000 bits.  Then the whole code can be transmitted
+	over the channels.  One hundred of those bits may be detected
+	incorrectly but the 400 information bits may be decoded
+	correctly.
+      </para>
+    </example>
+
+    <para id="para3">
+      Before we consider continuous-time additive white Gaussian
+      channels, let's concentrate on discrete-time Gaussian channels
+      <equation id="eq02">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>Y</m:mi>
+                <m:mi>i</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:plus/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>i</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>η</m:mi>
+		  <m:mi>i</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where the
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>'s
+      are information bearing random variables and
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>η</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      is a Gaussian random variable with variance
+      <m:math display="inline">
+	<m:ci>
+	  <m:msubsup>
+	    <m:mi>σ</m:mi>
+	    <m:mi>η</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msubsup>
+	</m:ci>
+      </m:math>.
+      The input
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>'s are constrained to have power less than
+      <m:math><m:ci>P</m:ci></m:math>
+      <equation id="eq03">
+	<m:math display="block">
+	  <m:apply>
+	    <m:leq/>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar>
+		  <m:ci>i</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>n</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:ci>P</m:ci>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <para id="para4">
+      Consider an output block of size <m:math><m:ci>n</m:ci></m:math>
+
+      <equation id="eq04">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">Y</m:ci>
+            <m:apply>
+              <m:plus/>
+	      <m:ci type="vector">X</m:ci>
+	      <m:ci type="vector">η</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      For large <m:math><m:ci>n</m:ci></m:math>, by the Law of Large
+      Numbers,
+
+      <equation id="eq05">
+	<m:math display="block">
+	  <m:apply>
+	    <m:leq/>
+            <m:apply>
+              <m:eq/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:ci>n</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>n</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>η</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:ci>n</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>n</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:abs/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>y</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:power/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>σ</m:mi>
+		  <m:mi>η</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      This indicates that with large probability as
+      <m:math><m:ci>n</m:ci></m:math> approaches infinity, <m:math display="inline"><m:ci type="vector">Y</m:ci></m:math> will be
+      located in an <m:math><m:ci>n</m:ci></m:math>-dimensional sphere
+      of radius
+      <m:math display="inline">
+	<m:apply>
+	  <m:root/>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>σ</m:mi>
+		  <m:mi>η</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      centered about
+      <m:math display="inline"><m:ci type="vector">X</m:ci></m:math>
+      since
+      <m:math display="inline">
+	<m:apply>
+	  <m:leq/>
+          <m:apply>
+            <m:power/>
+	    <m:apply>
+	      <m:abs/>
+	      <m:apply>
+		<m:minus/>
+		<m:ci type="vector">y</m:ci>
+		<m:ci type="vector">x</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>2</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>σ</m:mi>
+		  <m:mi>η</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+            </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+    </para>
+
+    <para id="para5">
+      On the other hand since
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>'s are power constrained and
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>η</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      and
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>'s are independent
+      <equation id="eq06">
+	<m:math display="block">
+	  <m:apply>
+	    <m:leq/>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar>
+		  <m:ci>i</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>n</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>y</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:ci>P</m:ci>
+	      <m:apply>
+		<m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>σ</m:mi>
+		    <m:mi>η</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      <equation id="eq07">
+	<m:math display="block">
+	  <m:apply>
+	    <m:leq/>
+            <m:apply>
+              <m:abs/>
+	      <m:ci type="vector">Y</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:ci>n</m:ci>
+	      <m:apply>
+		<m:plus/>
+		<m:ci>P</m:ci>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>σ</m:mi>
+		      <m:mi>η</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      This mean 
+      <m:math display="inline"><m:ci type="vector">Y</m:ci></m:math>
+      is in a sphere of radius
+      <m:math display="inline">
+	<m:apply>
+	  <m:root/>
+          <m:apply>
+	    <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:plus/>
+	      <m:ci>P</m:ci>
+	      <m:apply>
+		<m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>σ</m:mi>
+		    <m:mi>η</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      centered around the origin.
+    </para>
+
+    <para id="para6">
+      How many
+      <m:math display="inline"><m:ci type="vector">X</m:ci></m:math>'s
+      can we transmit to have nonoverlapping
+      <m:math display="inline"><m:ci type="vector">Y</m:ci></m:math>
+      spheres in the output domain?  The question is how many spheres of
+      radius
+      <m:math display="inline">
+	<m:apply>
+	  <m:root/>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>σ</m:mi>
+		  <m:mi>η</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      fit in a sphere of radius
+      <m:math display="inline">
+	<m:apply>
+	  <m:root/>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:plus/>
+	      <m:ci>P</m:ci>
+	      <m:apply>
+		<m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>σ</m:mi>
+		    <m:mi>η</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+
+      <equation id="eq08">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>M</m:ci>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>σ</m:mi>
+			    <m:mi>η</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:ci>P</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>σ</m:mi>
+			  <m:mi>η</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:ci>n</m:ci>
+	      </m:apply>
+            </m:apply>
+	    <m:apply>
+              <m:power/>
+	      <m:apply>
+		<m:plus/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>P</m:ci>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>σ</m:mi>
+			<m:mi>η</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>n</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+    </para>
+
+    <figure id="fig1">
+      <media id="idm2029200" alt=""><image src="../../media/Figure7-46.png" mime-type="image/png"/></media>
+    </figure>
+
+    <exercise id="exer1">
+      <problem id="idm2027552">
+	<para id="para7">
+	  How many bits of information can one send in
+	  <m:math><m:ci>n</m:ci></m:math> uses of the channel?
+	</para>
+      </problem>
+      <solution id="idm10075088">
+	<para id="para8">
+	  <equation id="eq10">
+	    <m:math display="block">
+	      <m:apply>
+		<m:log/>
+                <m:logbase>
+                  <m:cn>2</m:cn>
+                </m:logbase>
+                <m:apply>
+                  <m:power/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:divide/>
+		      <m:ci>P</m:ci>
+		      <m:apply>
+			<m:power/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>σ</m:mi>
+			    <m:mi>η</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>n</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</para>
+      </solution>
+    </exercise>
+
+    <para id="para9">
+      The capacity of a discrete-time Gaussian channel
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci>C</m:ci>
+          <m:apply>
+            <m:times/>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:log/>
+	      <m:logbase>
+		<m:cn>2</m:cn>
+	      </m:logbase>
+	      <m:apply>
+		<m:plus/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>P</m:ci>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>σ</m:mi>
+			<m:mi>η</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      bits per channel use.
+    </para>
+
+    <para id="para10">
+      When the channel is a continuous-time, bandlimited, additive white
+      Gaussian with noise power spectral density
+      <m:math display="inline">
+	<m:apply>
+	  <m:divide/>
+          <m:ci>
+            <m:msub>
+              <m:mi>N</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+          </m:ci>
+          <m:cn>2</m:cn>
+	</m:apply>
+      </m:math>
+      and input power constraint <m:math><m:ci>P</m:ci></m:math> and
+      bandwidth <m:math><m:ci>W</m:ci></m:math>.  The system can be
+      sampled at the Nyquist rate to provide power per sample
+      <m:math><m:ci>P</m:ci></m:math> and noise power
+      <equation id="eq11">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:power/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>σ</m:mi>
+		  <m:mi>η</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+            </m:apply>
+            <m:apply>
+              <m:int/>
+	      <m:bvar>
+		<m:ci>f</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci>W</m:ci>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>W</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>N</m:mi>
+		    <m:mn>0</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:ci>W</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>N</m:mi>
+		  <m:mn>0</m:mn>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      The channel capacity
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:apply>
+            <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:cn>2</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:log/>
+	    <m:logbase>
+	      <m:cn>2</m:cn>
+	    </m:logbase>
+	    <m:apply>
+	      <m:plus/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>P</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>N</m:mi>
+		      <m:mn>0</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>W</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      bits per transmission.  Since the sampling rate is
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:cn>2</m:cn>
+          <m:ci>W</m:ci>
+	</m:apply>
+      </m:math>, then
+      <equation id="eq12">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>C</m:ci>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:ci>W</m:ci>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:log/>
+		<m:logbase>
+		  <m:cn>2</m:cn>
+		</m:logbase>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>P</m:ci>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>N</m:mi>
+			  <m:mn>0</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>W</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>
+		<m:mrow>
+		  <m:mi> bits/trans. x trans./sec</m:mi>
+		</m:mrow>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      <equation id="eq13">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>C</m:ci>
+            <m:apply>
+              <m:times/>
+	      <m:ci>W</m:ci>
+	      <m:apply>
+		<m:log/>
+		<m:logbase>
+		  <m:cn>2</m:cn>
+		</m:logbase>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>P</m:ci>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>N</m:mi>
+			  <m:mn>0</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>W</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>bits</m:ci>
+		<m:ci>sec</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <example id="example2">
+      <para id="para11">
+	The capacity of the voice band of a telephone channel can be
+	determined using the Gaussian model.  The bandwidth is 3000 Hz
+	and the signal to noise ratio is often 30 dB.  Therefore,
+	<equation id="eq14">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:approx/>
+              <m:apply>
+                <m:eq/>
+		<m:ci>C</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>3000</m:cn>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:plus/>
+		      <m:cn>1</m:cn>
+		      <m:cn>1000</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:cn>30000</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>bits</m:ci>
+		  <m:ci>sec</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	One should not expect to design modems faster than 30 Kbs
+	using this model of telephone channels.  It is also
+	interesting to note that since the signal to noise ratio is
+	large, we are expecting to transmit 10 bits/second/Hertz
+	across telephone channels.
+      </para>
+    </example>
+
+  </content>
+</document>

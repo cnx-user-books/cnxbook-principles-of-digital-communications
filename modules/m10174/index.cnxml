@@ -1,0 +1,613 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Channel Coding</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>41b2987e-0aa3-46b5-b49b-bf70c23d19fe</md:uuid>
+</metadata>
+
+  <content>
+
+    <para id="para1">
+    Channel coding is a viable method to reduce information rate
+    through the channel and increase reliability.  This goal is
+    achieved by adding redundancy to the information symbol vector
+    resulting in a longer coded vector of symbols that are
+    distinguishable at the output of the channel.  Another brief
+    explanation of channel coding is offered in <link document="m0071">Channel Coding and the Repetition Code</link>.
+    We consider only two classes of codes, <link target-id="s1">block
+    codes</link> and <link document="m10181">convolutional
+    codes</link>.
+  </para>
+
+  <section id="s1">
+    <title>Block codes</title>
+
+    <para id="para2">
+      The information sequence is divided into blocks of length
+	<m:math><m:ci>k</m:ci> </m:math>.  Each block is mapped into
+	channel inputs of length <m:math><m:ci>n</m:ci> </m:math>.
+	The mapping is independent from previous blocks, that is,
+	there is no memory from one block to another.
+    </para>
+
+    <example id="example1">
+      <para id="para3">
+        <m:math display="inline">
+          <m:apply>
+            <m:eq/>
+              <m:ci>k</m:ci>
+              <m:cn>2</m:cn>
+          </m:apply>
+        </m:math>
+        and
+        <m:math display="inline">
+          <m:apply>
+            <m:eq/>
+              <m:ci>n</m:ci>
+              <m:cn>5</m:cn>
+          </m:apply>
+        </m:math>
+
+        <equation id="eq04">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>00</m:ci>
+                <m:ci>00000</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+ 
+       <equation id="eq05">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>01</m:ci>
+                <m:ci>10100</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+
+        <equation id="eq06">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>10</m:ci>
+                <m:ci>01111</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+
+        <equation id="eq07">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>11</m:ci>
+                <m:ci>11011</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+        information sequence ⇒ codeword (channel input)
+      </para>
+
+    </example>
+
+    <para id="para4">
+      A binary block code is completely defined by
+      <m:math display="inline">
+        <m:apply>
+          <m:power/>
+            <m:cn>2</m:cn>
+            <m:ci>k</m:ci>
+        </m:apply>
+      </m:math>
+      binary sequences of length <m:math><m:ci>n</m:ci>
+	</m:math> called codewords.
+      <equation id="eq01">
+        <m:math display="block">
+          <m:apply>
+            <m:eq/>
+              <m:ci type="vector">C</m:ci>
+              <m:set>
+		<m:ci type="vector"><m:msub>
+		    <m:mi>c</m:mi>
+                    <m:mn>1</m:mn>
+		  </m:msub></m:ci>
+		<m:ci type="vector"><m:msub>
+		    <m:mi>c</m:mi>
+                    <m:mn>2</m:mn>
+		  </m:msub></m:ci>
+                <m:ci>…</m:ci>
+                <m:ci type="vector"><m:msub>
+		    <m:mi>c</m:mi>
+		    <m:msup>
+		      <m:mn>2</m:mn>
+		      <m:mi>k</m:mi>
+		    </m:msup>
+		  </m:msub></m:ci>
+              </m:set>
+          </m:apply>
+        </m:math>
+      </equation>
+      <equation id="eq02">
+        <m:math display="block">
+          <m:apply>
+            <m:in/>
+	      <m:ci type="vector"><m:msub>
+		    <m:mi>c</m:mi>
+                    <m:mi>i</m:mi>
+		  </m:msub></m:ci>
+              <m:apply>
+                <m:power/>
+                  <m:set>
+                    <m:cn>0</m:cn>
+                    <m:cn>1</m:cn>
+                  </m:set>
+                  <m:ci>n</m:ci>
+              </m:apply>
+          </m:apply>
+        </m:math>
+      </equation>
+      There are three key questions,
+	<list id="list1" list-type="enumerated">
+	  <item>How can one find "good" codewords?</item> 
+	  <item>How can one systematically map information sequences
+	    into codewords?</item>
+	  <item>How can one systematically find the corresponding
+	    information sequences from a codeword,
+	    <foreign>i.e.</foreign>, how can we decode?
+        </item>
+      </list>
+
+      These can be done if we concentrate on linear codes and utilize finite 
+      field algebra.
+    </para>
+
+    <para id="para5">
+      A block code is linear if
+      <m:math display="inline">
+        <m:apply>
+          <m:in/>
+            <m:apply>
+              <m:selector/>
+                <m:ci type="vector">c</m:ci>
+                <m:ci>i</m:ci>
+            </m:apply>
+            <m:ci type="vector">C</m:ci>
+        </m:apply>
+      </m:math>
+      and
+      <m:math display="inline">
+        <m:apply>
+          <m:in/>
+            <m:apply>
+              <m:selector/>
+                <m:ci type="vector">c</m:ci>
+                <m:ci>j</m:ci>
+            </m:apply>
+            <m:ci type="vector">C</m:ci>
+        </m:apply>
+      </m:math>
+      implies
+      <m:math display="inline">
+        <m:apply>
+          <m:in/>
+            <m:apply>
+             <m:xor/>
+                <m:apply>
+                  <m:selector/>
+                    <m:ci type="vector">c</m:ci>
+                    <m:ci>i</m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:selector/>
+                    <m:ci type="vector">c</m:ci>
+                    <m:ci>j</m:ci>
+                </m:apply>
+            </m:apply>
+            <m:ci type="vector">C</m:ci>
+        </m:apply>
+      </m:math>
+      where <m:math><m:mo>⊕</m:mo>
+	</m:math> is an elementwise modulo 2 addition.
+    </para>
+
+    <para id="para6">
+      Hamming distance is a useful measure of codeword properties
+      <equation id="eq03">
+        <m:math display="block">
+          <m:apply>
+            <m:eq/>
+              <m:apply>
+                <m:ci type="function">
+                <m:msub>
+                  <m:mi>d</m:mi>
+                  <m:mi>H</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:apply>
+                <m:selector/>
+                  <m:ci type="vector">c</m:ci>
+                  <m:ci>i</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:selector/>
+                  <m:ci type="vector">c</m:ci>
+                  <m:ci>j</m:ci>
+              </m:apply>
+            </m:apply>
+              <m:ci>
+                <m:mtext># of places that they are different</m:mtext>
+              </m:ci>
+          </m:apply>
+        </m:math>
+      </equation>
+      Denote the codeword for information sequence
+      <m:math>
+        <m:apply>
+          <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>e</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>1</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:ci>⋮</m:ci>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+            </m:vector>
+        </m:apply>
+      </m:math>
+      by
+      <m:math display="inline">
+        <m:ci>
+          <m:msub>
+            <m:mi>g</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+        </m:ci>
+      </m:math>
+      and
+      <m:math>
+        <m:apply>
+          <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>e</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:cn>1</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:ci>⋮</m:ci>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+            </m:vector>
+        </m:apply>
+      </m:math>
+      by
+      <m:math>
+        <m:ci>
+          <m:msub>
+            <m:mi>g</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+        </m:ci>
+      </m:math>,…,
+      and
+      <m:math>
+        <m:apply>
+          <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>e</m:mi>
+		<m:mi>k</m:mi>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:ci>⋮</m:ci>
+              <m:cn>0</m:cn>
+              <m:cn>1</m:cn>
+            </m:vector>
+        </m:apply>
+      </m:math>
+      by
+      <m:math>
+        <m:ci>
+          <m:msub>
+            <m:mi>g</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+        </m:ci>
+      </m:math>.  
+      Then any information sequence can be expressed as 
+      <equation id="eq08">
+        <m:math>
+          <m:apply>
+            <m:eq/>
+              <m:ci type="vector">u</m:ci>
+              <m:vector>
+                <m:ci>
+                  <m:msub>
+                    <m:mi>u</m:mi>
+                    <m:mn>1</m:mn>
+                  </m:msub>
+                </m:ci>
+                <m:ci>⋮</m:ci>
+                <m:ci>
+                  <m:msub>
+                    <m:mi>u</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                </m:ci>
+              </m:vector>
+              <m:apply>
+                <m:sum/>
+		<m:bvar>
+		  <m:ci>i</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>k</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>u</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci type="vector">
+		    <m:msub>
+		      <m:mi>e</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      and the corresponding codeword could be
+      <equation id="eq09">
+        <m:math>
+          <m:apply> 
+           <m:eq/>
+              <m:ci type="vector">c</m:ci>
+              <m:apply>
+                <m:sum/>
+                  <m:bvar>
+                    <m:ci>i</m:ci>
+                  </m:bvar>
+                  <m:lowlimit>
+                    <m:cn>1</m:cn>
+                  </m:lowlimit>
+                  <m:uplimit>
+                    <m:ci>k</m:ci>
+                  </m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>u</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci type="vector">
+		    <m:msub>
+		      <m:mi>g</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+                  </m:apply>
+              </m:apply>
+          </m:apply>
+        </m:math>
+      </equation>
+      Therefore
+      <equation id="eq10">
+        <m:math>
+          <m:apply>
+            <m:eq/>
+              <m:ci type="vector">c</m:ci>
+              <m:apply>
+                <m:times/>
+                  <m:ci type="vector">u</m:ci>
+                  <m:ci type="matrix">G</m:ci>
+              </m:apply>
+          </m:apply>
+        </m:math>
+      </equation>
+      with
+      <m:math>
+        <m:apply>
+          <m:eq/>
+            <m:ci type="vector">c</m:ci>
+            <m:apply>
+              <m:power/>
+                <m:set>
+                  <m:cn>0</m:cn>
+                  <m:cn>1</m:cn>
+                </m:set>
+                <m:ci>n</m:ci>
+            </m:apply>
+        </m:apply>
+      </m:math>
+      and
+      <m:math>
+        <m:apply>
+          <m:in/>
+            <m:ci type="vector">u</m:ci>
+            <m:apply>
+              <m:power/>
+                <m:set>
+                  <m:cn>0</m:cn>
+                  <m:cn>1</m:cn>
+                </m:set>
+                <m:ci>k</m:ci>
+            </m:apply>
+        </m:apply>
+      </m:math>
+      where
+      <m:math>
+        <m:apply>
+          <m:eq/>
+            <m:ci type="matrix">G</m:ci>
+            <m:vector>
+	      <m:ci type="vector"><m:msub>
+		  <m:mi>g</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub></m:ci>
+	      <m:ci type="vector"><m:msub>
+		  <m:mi>g</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub></m:ci>
+              <m:ci>⋮</m:ci>
+	      <m:ci type="vector"><m:msub>
+		  <m:mi>g</m:mi>
+		  <m:mi>k</m:mi>
+		</m:msub></m:ci>
+            </m:vector>
+        </m:apply>
+      </m:math>,
+      a <m:math><m:ci>k</m:ci>
+	</m:math>x<m:math><m:ci>n</m:ci>
+	</m:math> matrix and all operations are modulo 2.
+
+    </para>
+
+    <example id="example2">
+      <para id="para7">
+        In <link target-id="example1"/> with
+
+        <equation id="eq11">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>00</m:ci>
+                <m:ci>00000</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+ 
+       <equation id="eq12">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>01</m:ci>
+                <m:ci>10100</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+
+        <equation id="eq13">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>10</m:ci>
+                <m:ci>01111</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+
+        <equation id="eq14">
+          <m:math display="block">
+            <m:apply>
+              <m:tendsto/>
+                <m:ci>11</m:ci>
+                <m:ci>11011</m:ci>
+            </m:apply>
+          </m:math>
+        </equation>
+
+        <m:math display="inline">
+          <m:apply>
+            <m:eq/>
+	      <m:ci type="vector"><m:msub>
+		  <m:mi>g</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub></m:ci>
+              <m:vector>
+                <m:cn>0</m:cn>
+                <m:cn>1</m:cn>
+                <m:cn>1</m:cn>
+                <m:cn>1</m:cn>
+                <m:cn>1</m:cn>
+              </m:vector>
+          </m:apply>
+        </m:math>
+        and
+        <m:math display="inline">
+          <m:apply>
+            <m:eq/>
+	      <m:ci type="vector"><m:msub>
+		  <m:mi>g</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub></m:ci>
+              <m:vector>
+                <m:cn>1</m:cn>
+                <m:cn>0</m:cn>
+                <m:cn>1</m:cn>
+                <m:cn>0</m:cn>
+                <m:cn>0</m:cn>
+              </m:vector>
+          </m:apply>
+        </m:math>
+        and
+        <m:math>
+          <m:apply>
+            <m:eq/>
+              <m:ci type="matrix">G</m:ci>
+              <m:matrix>
+                <m:matrixrow>
+                  <m:cn>0</m:cn>
+                  <m:cn>1</m:cn>
+                  <m:cn>1</m:cn>
+                  <m:cn>1</m:cn>
+                  <m:cn>1</m:cn>
+                </m:matrixrow>
+                <m:matrixrow>
+                  <m:cn>1</m:cn>
+                  <m:cn>0</m:cn>
+                  <m:cn>1</m:cn>
+                  <m:cn>0</m:cn>
+                  <m:cn>0</m:cn>
+                </m:matrixrow>
+              </m:matrix>
+          </m:apply>
+        </m:math>
+      </para>
+    </example>
+
+    <para id="para8">
+      Additional information about coding efficiency and error are provided
+      in <link document="m0094">Block Channel Coding</link>.
+    </para>
+
+    <para id="para9">
+      Examples of good linear codes include Hamming codes, BCH codes, 
+      Reed-Solomon codes, and many more. The rate of these codes is defined as
+      <m:math>
+        <m:apply>
+          <m:divide/>
+            <m:ci>k</m:ci>
+            <m:ci>n</m:ci>
+        </m:apply>
+      </m:math>
+      and these codes have different error correction and error detection
+      properties.
+    </para>
+
+  </section>
+
+</content>
+
+</document>

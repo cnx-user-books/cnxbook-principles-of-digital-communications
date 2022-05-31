@@ -1,0 +1,984 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Detection by Correlation</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>d2cd4a07-c5d0-4d94-b845-bebb2faaab62</md:uuid>
+</metadata>
+  
+  <content>
+    
+    <!-- Most of the equations below still contain a lot of different
+    hacks to express some of the bizarre notation.  For some of the
+    stuff we are still waiting for a way to properly code it without
+    the use of presentation MathML -->
+    
+    <figure id="fig1">
+      <title>Demodulation and Detection</title>
+      <media id="idp12926288" alt=""><image src="../../media/Figure4-18.png" mime-type="image/png"/></media>
+    </figure>
+    
+    <section id="s1">
+      <title>Detection</title>
+      
+      <para id="para1">
+	Decide which
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>m</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> from the set of
+        <m:math>
+          <m:set>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:ci>…</m:ci>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mi>m</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+          </m:set>
+        </m:math>
+        signals was transmitted based on observing
+	<m:math>
+	  <m:apply> 
+	    <m:eq/>
+            <m:ci type="vector">r</m:ci>
+            <m:vector>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">r</m:ci>
+		<m:cn>1</m:cn>
+              </m:apply>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">r</m:ci>
+		<m:cn>2</m:cn>
+              </m:apply>
+              <m:ci>⋮</m:ci>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">r</m:ci>
+		<m:ci>N</m:ci>
+              </m:apply>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+	the vector composed of <link document="m10141" strength="3">demodulated
+	</link> received signal, that is, the vector of projection of the 
+        received signal onto the <m:math><m:ci>N</m:ci></m:math> bases.
+	
+	<equation id="eq01">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:mover>
+                  <m:mi>m</m:mi>
+                  <m:mo>^</m:mo>
+                </m:mover>
+              </m:ci>
+              <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+		  <m:condition>
+                    <m:apply>
+                      <m:leq/>
+                        <m:cn>1</m:cn>
+                        <m:ci>m</m:ci>
+                        <m:ci>M</m:ci>
+                    </m:apply>
+                  </m:condition>
+                  <m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:condition>
+		    <m:apply>
+		      <m:times/> <m:ci type="vector"> r</m:ci>
+		      <m:mtext> was observed</m:mtext>
+                    </m:apply>
+		  </m:condition>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mi>m</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		    <m:mtext> was transmitted </m:mtext>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	Note that
+	
+	<equation id="eq02">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              
+	      <m:mrow>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:condition>
+		    <m:ci type="vector">r</m:ci>
+		  </m:condition>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:mo>≜</m:mo>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:condition>
+		    <m:apply>
+		      <m:times/> <m:ci type="vector"> r</m:ci>
+		      <m:mtext> was observed</m:mtext>
+		    </m:apply>
+		  </m:condition>
+		  <m:apply>
+		    <m:times/> 
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi fontweight="bold">s</m:mi>
+			  <m:mi>m</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		    <m:mtext>was transmitted</m:mtext>
+		  </m:apply>
+		</m:apply>
+	      </m:mrow>
+	      
+	      
+              <m:apply>
+                <m:divide/>
+		<m:apply> 
+		  <m:times/>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>f</m:mi>
+		      <m:mrow>
+			<m:mi>r</m:mi>
+			<m:mo>|</m:mo>
+			<m:msub>
+			  <m:mi fontweight="bold">s</m:mi>
+			  <m:mi>m</m:mi>
+			</m:msub>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:selector/>
+		      <m:ci type="vector">s</m:ci>
+		      <m:ci>m</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>f</m:mi>
+		    <m:mi fontweight="bold">r</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	If
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:selector/>
+		  <m:ci type="vector">s</m:ci>
+		  <m:ci>m</m:ci>
+		</m:apply>
+		<m:mtext> was transmitted</m:mtext>
+              </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:ci>M</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>, that is information symbols are equally likely to
+	be transmitted, then
+	
+	<equation id="eq03">
+	  <m:math mode="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+                  <m:condition>
+		    <m:ci type="vector">r</m:ci>
+		  </m:condition>
+		  <m:apply>
+		    <m:selector/>
+		    <m:ci type="vector">s</m:ci>
+		    <m:ci>m</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+                  <m:condition>
+                    <m:apply>
+                      <m:leq/>
+                        <m:cn>1</m:cn>
+                        <m:ci>m</m:ci>
+                        <m:ci>M</m:ci>
+                    </m:apply>
+                  </m:condition>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>f</m:mi>
+                    <m:mrow>
+                      <m:mi fontweight="bold">r</m:mi>
+                      <m:mo>|</m:mo>
+                      <m:msub>
+                        <m:mi fontweight="bold">s</m:mi>
+                        <m:mi>m</m:mi>
+                      </m:msub>
+                    </m:mrow>
+                  </m:msub>
+                </m:ci>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>   
+	
+	Since
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">r</m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>m</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>N</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	for
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+	and for some
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>m</m:ci> 
+            <m:apply>
+	      <m:set>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+		<m:ci>…</m:ci>
+		<m:ci>M</m:ci>
+	      </m:set>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	then
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">r</m:ci>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:selector/>
+		<m:ci type="vector">s</m:ci>
+		<m:ci>m</m:ci>
+	      </m:apply>
+	      <m:ci type="vector">η</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	where
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">η</m:ci>
+            <m:vector>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">η</m:ci>
+		<m:cn>1</m:cn>
+              </m:apply>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">η</m:ci>
+		<m:cn>2</m:cn>
+              </m:apply>
+              <m:ci>⋮</m:ci>
+              <m:apply>
+                <m:selector/>
+		<m:ci type="vector">η</m:ci>
+		<m:ci>N</m:ci>
+              </m:apply>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math>
+	  <m:apply>
+	    <m:selector/>
+            <m:ci type="vector">η</m:ci>
+            <m:ci>n</m:ci>
+	  </m:apply>
+	</m:math>'s are Gaussian and independent.
+	
+	<equation id="eq04">
+	  <m:math>
+	    <m:apply>
+	      <m:forall/>
+	      <m:bvar>
+		<m:ci><m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub></m:ci>
+	      </m:bvar>
+	      <m:condition>
+		<m:apply>
+		  <m:in/>
+		  <m:ci><m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub></m:ci>
+		  <m:reals/>
+		</m:apply>
+	      </m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci type="fn">
+		  <!-- display hack -->
+		  <m:msub>
+		    <m:mi>f</m:mi>
+		    <m:mrow>
+		      <m:mi fontweight="bold">r</m:mi>
+		      <m:mo>|</m:mo>
+		      <m:msub>
+			<m:mi fontweight="bold">s</m:mi>
+			<m:mi>m</m:mi>
+		      </m:msub>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:apply>
+			  <m:divide/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>N</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>N</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:sum/>
+			  <m:bvar>
+			    <m:ci>n</m:ci>
+			  </m:bvar>
+			  <m:lowlimit>
+			    <m:cn>1</m:cn>
+			  </m:lowlimit>
+			  <m:uplimit>
+			    <m:ci>N</m:ci>
+			  </m:uplimit>
+			  <m:apply>
+			    <m:power/>
+			    <m:apply>
+			      <m:minus/>
+			      <m:apply>
+				<m:selector/>
+				<m:ci type="vector">r</m:ci>
+				<m:ci>n</m:ci>
+			      </m:apply>
+			      <m:apply>
+				<m:selector/>
+				<m:ci type="matrix">s</m:ci>
+				<m:ci>m</m:ci>
+				<m:ci>n</m:ci>
+			      </m:apply>
+			    </m:apply>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:divide/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>N</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	  <!-- Add for all r_n in R -->
+	</equation>
+	
+	<equation id="eq05">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:mover>
+                  <m:mi>m</m:mi>
+                  <m:mo>^</m:mo>
+                </m:mover>
+              </m:ci>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+                  <m:condition>
+                    <m:apply>
+                      <m:leq/>
+                        <m:cn>1</m:cn>
+                        <m:ci>m</m:ci>
+                        <m:ci>M</m:ci>
+                    </m:apply>
+                  </m:condition>
+                <m:ci type="fn">
+                  <m:msub>
+                    <!-- Hack. Fix me? -->
+                    <m:mi>f</m:mi>
+                    <m:mrow>
+                      <m:mi fontweight="bold">r</m:mi>
+                      <m:mo>|</m:mo>
+                      <m:msub>
+                        <m:mi fontweight="bold">s</m:mi>
+                        <m:mi>m</m:mi> 
+                      </m:msub>
+                    </m:mrow>
+                  </m:msub>
+                </m:ci>
+              </m:apply>
+
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+                <m:apply>
+                  <m:ln/>
+		  <m:ci type="fn">
+		    <m:msub>
+                      <!-- Hack. Fix me  -->
+		      <m:mi>f</m:mi>
+		      <m:mrow>
+			<m:mi fontweight="bold">r</m:mi>
+			<m:mo>|</m:mo>
+			<m:msub>
+			  <m:mi fontweight="bold">s</m:mi>
+			  <m:mi>m</m:mi> 
+			</m:msub>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+                </m:apply>
+              </m:apply>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+                  <m:condition>
+                    <m:apply>
+                      <m:leq/>
+                        <m:cn>1</m:cn>
+                        <m:ci>m</m:ci>
+                        <m:ci>M</m:ci>
+                    </m:apply>
+                  </m:condition>
+                <m:apply>
+                  <m:minus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>N</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:ln/>
+			<m:apply>
+			  <m:times/>
+			  <m:pi/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>N</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>N</m:mi>
+			  <m:mn>0</m:mn>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:sum/>
+		      <m:bvar>
+			<m:ci>n</m:ci>
+		      </m:bvar>
+		      <m:lowlimit>
+			<m:cn>1</m:cn>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:ci>N</m:ci>
+		      </m:uplimit>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:selector/>
+			    <m:ci type="vector">r</m:ci>
+			    <m:ci>n</m:ci>
+			  </m:apply>
+			  <m:apply>
+			    <m:selector/>
+			    <m:ci type="matrix">s</m:ci>
+			    <m:ci>m</m:ci>
+			    <m:ci>n</m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+              </m:apply>
+
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmin"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+                <m:apply>
+                  <m:sum/>
+		  <m:bvar>
+		    <m:ci>n</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>N</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:selector/>
+			<m:ci type="vector">r</m:ci>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:selector/>
+			<m:ci type="matrix">s</m:ci>
+			<m:ci>m</m:ci>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+                </m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+        where
+        <m:math>
+          <m:apply>
+            <m:ci type="fn">D</m:ci>
+            <m:ci type="vector">r</m:ci>
+            <m:apply>
+              <m:selector/>
+                <m:ci type="vector">s</m:ci>
+                <m:ci>m</m:ci>
+            </m:apply>
+          </m:apply>
+        </m:math> is the 
+        <m:math>
+          <m:ci>
+            <m:msub>
+              <m:mi>l</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+          </m:ci>
+        </m:math> distance between vectors
+        <m:math><m:ci type="vector">r</m:ci></m:math>
+        and
+        <m:math>
+          <m:apply>
+            <m:selector/>
+              <m:ci type="vector">s</m:ci>
+              <m:ci>m</m:ci>
+          </m:apply>
+        </m:math>
+        defined as
+        <m:math>
+          <m:mrow>
+            <m:apply>
+              <m:ci type="fn">D</m:ci>
+              <m:ci type="vector">r</m:ci>
+              <m:apply>
+                <m:selector/>
+                  <m:ci type="vector">s</m:ci>
+                  <m:ci>m</m:ci>
+              </m:apply>
+            </m:apply>
+            <m:mo>≜</m:mo>
+            <m:apply>
+              <m:sum/>
+	      <m:bvar><m:ci>n</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>N</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:selector/>
+		    <m:ci type="vector">r</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:selector/>
+		    <m:ci type="matrix">s</m:ci>
+		    <m:ci>m</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+          </m:mrow>
+        </m:math>
+
+	<equation id="eq029348">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:mover>
+                  <m:mi>m</m:mi>
+                  <m:mo>^</m:mo>
+                </m:mover>
+              </m:ci>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmin"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+                <m:apply>
+                  <m:ci type="fn">D</m:ci>
+                  <m:ci type="vector">r</m:ci>
+                  <m:apply>
+                    <m:selector/>
+		    <m:ci type="vector">s</m:ci>
+		    <m:ci>m</m:ci>
+                  </m:apply>
+                </m:apply>
+              </m:apply>	
+
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmin"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+                <m:apply>
+                  <m:minus/>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#norm"/>
+		      <m:ci type="vector">r</m:ci>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:scalarproduct/>
+			<m:ci type="vector">r</m:ci>
+			<m:apply>
+			  <m:selector/>
+			  <m:ci type="vector">s</m:ci>
+			  <m:ci>m</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#norm"/>
+			<m:apply>
+			  <m:selector/>
+			  <m:ci type="vector">s</m:ci>
+			  <m:ci>m</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+        where
+        <m:math>
+          <m:apply>
+            <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#norm"/>
+              <m:ci type="vector">r</m:ci>
+          </m:apply>
+        </m:math>
+        is the
+        <m:math>
+          <m:ci>
+            <m:msub>
+              <m:mi>l</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+          </m:ci>
+        </m:math>
+        norm of vector
+        <m:math><m:ci type="vector">r</m:ci></m:math>
+        defined as
+        <m:math>
+          <m:mrow>
+            <m:apply>
+              <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#norm"/>
+	      <m:ci type="vector">r</m:ci>
+            </m:apply>
+            <m:mo>≜</m:mo>
+            <m:apply>
+              <m:root/>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar><m:ci>n</m:ci></m:bvar>
+		<m:lowlimit><m:cn>1</m:cn></m:lowlimit>
+		<m:uplimit><m:ci>N</m:ci></m:uplimit>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:selector/>
+		    <m:ci type="vector">r</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+          </m:mrow>
+        </m:math>
+	
+	<equation id="eq09">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci> 
+		<m:mover>
+                  <m:mi>m</m:mi>
+                  <m:mo>^</m:mo>
+                </m:mover>
+	      </m:ci>
+              <m:apply>
+                <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#argmax"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:cn>1</m:cn>
+		    <m:ci>m</m:ci>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		</m:condition>
+                <m:apply>
+                  <m:minus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:apply>
+		      <m:scalarproduct/>
+		      <m:ci type="vector">r</m:ci>
+		      <m:apply>
+			<m:selector/>
+			<m:ci type="vector">s</m:ci>
+			<m:ci>m</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#norm"/>
+		      <m:apply>
+			<m:selector/>
+			<m:ci type="vector">s</m:ci>
+			<m:ci>m</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+                </m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	This type of receiver system is known as a
+	<term>correlation</term> (or correlator-type) receiver.
+	Examples of the use of such a system are found <link document="m10149" strength="3">here</link>. Another type of
+	receiver involves linear, time-invariant filters and is known
+	as a <link document="m10101" strength="3">matched
+	filter</link> receiver.  An analysis of the performance of a
+	correlator-type receiver using antipodal and orthogonal binary
+	signals can be found in <link document="m10106" strength="2">Performance Analysis</link>.
+      </para>
+      
+    </section>
+  </content>
+</document>

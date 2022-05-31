@@ -1,0 +1,1248 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Typical Sequences</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>a813ac0d-c28b-4c11-b372-99dec3fcf89a</md:uuid>
+</metadata>
+
+
+
+  <content>
+
+    <para id="para0">
+      If the binary symmetric channel has crossover probability
+      <m:math><m:ci>ε</m:ci></m:math> then if <m:math display="inline"><m:ci type="vector">x</m:ci></m:math> is
+      transmitted then by the Law of Large Numbers the output <m:math display="inline"><m:ci type="vector">y</m:ci></m:math> is
+      different from <m:math><m:ci type="vector">x</m:ci></m:math> in
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:ci>ε</m:ci>
+	</m:apply>
+      </m:math>
+      places if <m:math><m:ci>n</m:ci></m:math> is very large.
+      <equation id="wk">
+	<m:math display="block">
+	  <m:apply>
+	    <m:approx/>
+            <m:apply>
+              <m:ci type="fn">
+		<m:msub>
+                  <m:mi>d</m:mi>
+                  <m:mi>H</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci type="vector">x</m:ci>
+              <m:ci type="vector">y</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:ci>n</m:ci>
+	      <m:ci>ε</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      The number of sequences of length <m:math><m:ci>n</m:ci></m:math>
+      that are different from <m:math><m:ci type="vector">x</m:ci></m:math> of length
+      <m:math><m:ci>n</m:ci></m:math> at
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:ci>ε</m:ci>
+	</m:apply>
+      </m:math>
+      is
+      <equation id="eqwk2">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:csymbol definitionURL="http://www.openmath.org/cd/combinat1.ocd"/>
+              <m:ci>n</m:ci>
+              <m:apply>
+                <m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>ε</m:ci>
+              </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:factorial/>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:factorial/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:ci>ε</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:factorial/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>n</m:ci>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>n</m:ci>
+		      <m:ci>ε</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+
+    <example id="example1">
+
+      <para id="para1">
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">x</m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>ε</m:ci>
+            <m:apply>
+              <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:cn>3</m:cn>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:times/>
+	      <m:ci>n</m:ci>
+	      <m:ci>ε</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:cn>3</m:cn>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>3</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>.
+	The number of output sequences different from
+	<m:math display="inline"><m:ci type="vector">x</m:ci></m:math>
+	by one element:
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:factorial/>
+		<m:cn>3</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:factorial/>
+		  <m:cn>1</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:factorial/>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:times/>
+		<m:cn>3</m:cn>
+		<m:cn>2</m:cn>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:cn>3</m:cn>
+	  </m:apply>
+	</m:math>
+	given by
+	<m:math display="inline">
+	  <m:vector>
+	    <m:cn>1</m:cn>
+	    <m:cn>0</m:cn>
+	    <m:cn>1</m:cn>
+	  </m:vector>
+	</m:math>,
+	<m:math display="inline">
+	  <m:vector>
+	    <m:cn>0</m:cn>
+	    <m:cn>1</m:cn>
+	    <m:cn>1</m:cn>
+	  </m:vector>
+	</m:math>, and
+	<m:math display="inline">
+	  <m:vector>
+	    <m:cn>0</m:cn>
+	    <m:cn>0</m:cn>
+	    <m:cn>0</m:cn>
+	  </m:vector>
+	</m:math>.
+      </para>
+    </example>
+
+    <para id="para2">
+      Using Stirling's approximation
+      <equation id="eq01">
+	<m:math display="block">
+	  <m:apply>
+	    <m:approx/>
+            <m:apply>
+              <m:factorial/>
+	      <m:ci>n</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>n</m:ci>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:exp/>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:pi/>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>                        
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      we can approximate
+      <equation id="eq02">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:approx/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://www.openmath.org/cd/combinat1.ocd"/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:times/>
+                  <m:ci>n</m:ci>
+                  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:power/>
+                <m:cn>2</m:cn>
+                <m:apply>
+                  <m:times/>
+		  <m:cn>n</m:cn>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:ci>ε</m:ci>
+			<m:apply>
+			  <m:log/>
+			  <m:logbase>
+			    <m:cn>2</m:cn>
+			  </m:logbase>
+			  <m:ci>ε</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:cn>1</m:cn>
+			<m:ci>ε</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:apply>
+			  <m:minus/>
+			  <m:cn>1</m:cn>
+			  <m:ci>ε</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+              <m:power/>
+	      <m:cn>2</m:cn>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>H</m:mi>
+		      <m:mi>b</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      where
+      <m:math display="inline">
+	<m:apply>
+	  <m:equivalent/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>H</m:mi>
+                <m:mi>b</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:ci>ε</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:minus/>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		<m:times/>
+		<m:ci>ε</m:ci>
+		<m:apply>
+		  <m:log/>
+		  <m:logbase>
+		    <m:cn>2</m:cn>
+		  </m:logbase>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+		<m:ci>ε</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:log/>
+		<m:logbase>
+		  <m:cn>2</m:cn>
+		</m:logbase>
+		<m:apply>
+		  <m:minus/>
+		  <m:cn>1</m:cn>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      is the entropy of a binary memoryless source. For any
+      <m:math display="inline"><m:ci type="vector">x</m:ci></m:math>
+      there are
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>H</m:mi>
+		  <m:mi>b</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>ε</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      highly probable outputs that correspond to this input.
+    </para>
+
+    <para id="para3">
+      Consider the output vector
+      <m:math display="inline"><m:ci type="vector">Y</m:ci></m:math>
+      as a very long random vector with entropy
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:apply>
+            <m:ci type="fn">H</m:ci>
+            <m:ci>Y</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>.  As discussed <link document="m10162" target-id="example1">earlier</link>, the number of typical
+      sequences (or highly probably) is roughly
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci>Y</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+      Therefore,
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:ci>n</m:ci>
+	</m:apply>
+      </m:math>
+      is the total number of binary sequences,
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci>Y</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      is the number of typical sequences, and
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>H</m:mi>
+		  <m:mi>b</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>ε</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      is the number of elements in a group of possible outputs for one
+      input vector.  The maximum number of input sequences that
+      produce nonoverlapping output sequences
+      <equation id="eq04">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>M</m:ci>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>Y</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>H</m:mi>
+			<m:mi>b</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>ε</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:power/>
+	      <m:cn>2</m:cn>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>Y</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>H</m:mi>
+			<m:mi>b</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>ε</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <figure id="fig2">
+      <media id="idm1014192" alt=""><image src="../../media/Figure7-38.png" mime-type="image/png"/></media>
+    </figure>
+
+    <para id="para4">
+      The number of distinguishable input sequences of length
+      <m:math><m:ci>n</m:ci></m:math> is
+      <equation id="eq05">
+	<m:math display="block">
+	  <m:apply>
+	    <m:power/>
+            <m:cn>2</m:cn>
+            <m:apply>
+              <m:times/>
+	      <m:ci>n</m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">H</m:ci>
+		  <m:ci>Y</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>H</m:mi>
+		      <m:mi>b</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      The number of information bits that can be sent across the
+      channel reliably per <m:math><m:ci>n</m:ci></m:math> channel
+      uses
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:apply>
+            <m:minus/>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci>Y</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>H</m:mi>
+		  <m:mi>b</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>ε</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      The maximum reliable transmission rate per channel use
+      <equation id="eq06">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>R</m:ci>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:log/>
+		<m:logbase>
+		  <m:cn>2</m:cn>
+		</m:logbase>
+		<m:ci>M</m:ci>
+	      </m:apply>
+	      <m:ci>n</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>Y</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>H</m:mi>
+			<m:mi>b</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>ε</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>n</m:ci>
+            </m:apply>
+	    <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>Y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>H</m:mi>
+		    <m:mi>b</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>ε</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      The maximum rate can be increased by increasing
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>Y</m:ci>
+	</m:apply>
+      </m:math>.
+      Note that 
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>H</m:mi>
+	      <m:mi>b</m:mi>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>ε</m:ci>
+	</m:apply>
+      </m:math>
+      is only a function of the crossover probability and can not be minimized
+      any further.
+    </para>
+
+    <para id="para5">
+      The entropy of the channel output is the entropy of a binary random 
+      variable.  If the input is chosen to be uniformly distributed with
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>p</m:mi>
+                <m:mi>X</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:cn>0</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>p</m:mi>
+                <m:mi>X</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:cn>1</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:cn>2</m:cn>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+    </para>
+
+    <para id="para6">
+      Then
+      <equation id="eq08">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>p</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>0</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:plus/>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:minus/>
+		  <m:cn>1</m:cn>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:ci>ε</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>1</m:cn>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      and
+
+      <equation id="eq09">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>p</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:plus/>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:minus/>
+		  <m:cn>1</m:cn>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>1</m:cn>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:ci>ε</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      Then,
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>Y</m:ci>
+	</m:apply>
+      </m:math>
+      takes its maximum value of 1.  Resulting in a maximum rate
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci>R</m:ci>
+          <m:apply>
+            <m:minus/>
+	    <m:ci>1</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>H</m:mi>
+		  <m:mi>b</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>ε</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      when
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>p</m:mi>
+                <m:mi>X</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:cn>0</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>p</m:mi>
+                <m:mi>X</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:cn>1</m:cn>
+          </m:apply>
+          <m:apply>
+            <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:cn>2</m:cn>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+      This result says that ordinarily one bit is transmitted across a BSC with
+      reliability 
+      <m:math display="inline">
+	<m:apply>
+	  <m:minus/>
+          <m:cn>1</m:cn>
+          <m:ci>ε</m:ci>
+	</m:apply>
+      </m:math>.
+      If one needs to have probability of error to reach zero then one
+      should reduce transmission of information to 
+      <m:math display="inline">
+	<m:apply>
+	  <m:minus/>
+          <m:cn>1</m:cn>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>H</m:mi>
+                <m:mi>b</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:ci>ε</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      and add redundancy.
+    </para>
+
+    <para id="para7">
+      Recall that for Binary Symmetric Channels (BSC)
+      <equation id="eq10">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>
+                <m:mrow>
+                  <m:mi>Y</m:mi>
+                  <m:mo>|</m:mo>
+                  <m:mi>X</m:mi>
+                </m:mrow>
+              </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>x</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">H</m:ci>
+		  <m:ci>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mo>|</m:mo>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>=</m:mo>
+			<m:mn>0</m:mn>
+		      </m:mrow>
+		    </m:mrow>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>x</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>1</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">H</m:ci>
+		  <m:ci>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mo>|</m:mo>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>=</m:mo>
+			<m:mn>1</m:mn>
+		      </m:mrow>
+		    </m:mrow>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>x</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:cn>1</m:cn>
+			<m:ci>ε</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:apply>
+			  <m:minus/>
+			  <m:cn>1</m:cn>
+			  <m:ci>ε</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>ε</m:ci>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:ci>ε</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>x</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>1</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:cn>1</m:cn>
+			<m:ci>ε</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:apply>
+			  <m:minus/>
+			  <m:cn>1</m:cn>
+			  <m:ci>ε</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>ε</m:ci>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:ci>ε</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:cn>1</m:cn>
+		    <m:ci>ε</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:minus/>
+		      <m:cn>1</m:cn>
+		      <m:ci>ε</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:ci>ε</m:ci>
+		<m:apply>
+		  <m:log/>
+		  <m:logbase>
+		    <m:cn>2</m:cn>
+		  </m:logbase>
+		  <m:ci>ε</m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>H</m:mi>
+                  <m:mi>b</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>ε</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      Therefore, the maximum rate indeed was
+
+      <equation id="eq13">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>R</m:ci>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>Y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:mi>Y</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#mutualinformation"/>
+              <m:ci>X</m:ci>
+	      <m:ci>Y</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>
+
+    <example id="example2">
+      <para id="para8">
+	The maximum reliable rate for a BSC is 
+	<m:math display="inline">
+	  <m:apply>
+	    <m:minus/>
+            <m:cn>1</m:cn>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>H</m:mi>
+                  <m:mi>b</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>ε</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>.
+	The rate is 1 when
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>ε</m:ci>
+            <m:cn>0</m:cn> 
+	  </m:apply>
+	</m:math>
+	or 
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>ε</m:ci>
+            <m:cn>1</m:cn> 
+	  </m:apply>
+	</m:math>.
+	The rate is 0 when
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>ε</m:ci>
+            <m:apply>
+              <m:divide/>
+	      <m:cn>1</m:cn> 
+	      <m:cn>2</m:cn>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <figure id="fig6">
+	<media id="idp9129488" alt=""><image src="../../media/Figure7-41.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+    <para id="para9">
+      This module provides background information necessary for an 
+      understanding of <link document="m10180" strength="2">Shannon's Noisy
+	Channel Coding Theorem</link>.  It is also closely related to material
+      presented in <link document="m10178" strength="2">Mutual 
+	Information</link>.
+    </para>
+
+  </content>
+</document>

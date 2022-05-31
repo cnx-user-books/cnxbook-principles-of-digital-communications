@@ -1,0 +1,385 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Demodulation and Detection</title>
+
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9ae3640c-3f30-47aa-a883-7da2e6b457f8</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Consider the problem where signal set, 
+      <m:math>
+	<m:set>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mn>1</m:mn>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mn>2</m:mn>
+	    </m:msub>
+	  </m:ci>
+          <m:ci>…</m:ci>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mi>M</m:mi>
+	    </m:msub>
+	  </m:ci>
+	</m:set>
+      </m:math>, for
+      <m:math>
+	<m:apply>
+	  <m:in/>
+	  <m:ci>t</m:ci>
+	  <m:interval>
+	    <m:cn>0</m:cn>
+	    <m:ci>T</m:ci>
+	  </m:interval>
+	</m:apply>
+      </m:math> is used to transmit
+      <m:math>
+	<m:apply>
+	  <m:log/>
+          <m:logbase>
+            <m:cn>2</m:cn>
+          </m:logbase>
+          <m:ci>M</m:ci>
+	</m:apply>
+      </m:math>
+      bits.  The <term>modulated</term> signal
+      <m:math>
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>t</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      could be
+      <m:math>
+	<m:set>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mn>1</m:mn>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mn>2</m:mn>
+	    </m:msub>
+	  </m:ci>
+          <m:ci>…</m:ci>
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mi>M</m:mi>
+	    </m:msub>
+	  </m:ci>
+	</m:set>
+      </m:math>
+      during the interval 
+      <m:math>
+	<m:apply>
+	  <m:leq/>
+          <m:cn>0</m:cn>
+          <m:ci>t</m:ci>
+          <m:ci>T</m:ci>
+	</m:apply>
+      </m:math>.
+    </para>
+
+    <figure id="fig1">
+      <media id="idp1073584" alt=""><image src="../../media/Figure4-12.png" mime-type="image/png"/></media>
+      <caption>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>r</m:mi>
+                <m:mi>t</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:plus/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>N</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>m</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:mi>t</m:mi>
+	      </m:apply>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>N</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	for
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+	for some
+	<m:math>
+	  <m:apply>
+	    <m:in/>
+            <m:ci>m</m:ci>
+	    <m:set>
+	      <m:cn>1</m:cn>
+	      <m:cn>2</m:cn>
+	      <m:ci>…</m:ci>
+	      <m:ci>M</m:ci>
+            </m:set>
+	  </m:apply>
+	</m:math>.
+      </caption>
+    </figure>
+
+    <para id="para2">
+      Recall
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>s</m:mi>
+                <m:mi>m</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:sum/>
+	    <m:bvar>
+	      <m:ci>n</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>1</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>N</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mrow>
+		    <m:mi>m</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>ψ</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      for
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci>m</m:ci>
+          <m:set>
+	    <m:cn>1</m:cn>
+	    <m:cn>2</m:cn>
+	    <m:ci>…</m:ci>
+	    <m:ci>M</m:ci>
+          </m:set>
+	</m:apply>
+      </m:math>
+      the signals are decomposed into a set of orthonormal signals,
+      perfectly.
+    </para>
+
+    <para id="para3">
+      Noise process can also be decomposed
+      <equation id="eq1">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>N</m:mi>
+                <m:mi>t</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar>
+		  <m:ci>n</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>N</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>η</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>ψ</m:mi>
+			<m:mi>n</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>
+		<m:mover>
+		  <m:msub>
+		    <m:mi>N</m:mi>
+		    <m:mi>t</m:mi>
+		  </m:msub>
+		  <m:mo>˜</m:mo>
+		</m:mover>
+	      </m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+            <m:msub>
+              <m:mi>η</m:mi>
+              <m:mi>n</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:apply>
+            <m:int/>
+	    <m:bvar>
+	      <m:ci>t</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>0</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>T</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>N</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>ψ</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      is the projection onto the 
+      <m:math>
+	<m:ci>
+	  <m:msup>
+	    <m:mi>n</m:mi>
+	    <m:mi>th</m:mi>
+	  </m:msup>
+	</m:ci>
+      </m:math>
+      basis signal,
+      <m:math>
+	<m:ci>
+	  <m:mover>
+	    <m:msub>
+	      <m:mi>N</m:mi>
+	      <m:mi>t</m:mi>
+	    </m:msub>
+	    <m:mo>˜</m:mo>
+	  </m:mover>
+	</m:ci>
+      </m:math>
+      is the left over noise.
+    </para>
+
+    <para id="para4">
+      <emphasis>The problem of demodulation and detection </emphasis>
+      is to observe
+      <m:math>
+        <m:ci>
+          <m:msub>
+            <m:mi>r</m:mi>
+            <m:mi>t</m:mi>
+          </m:msub>
+        </m:ci>
+      </m:math>
+      for
+      <m:math>
+        <m:apply>
+          <m:leq/>
+	  <m:cn>0</m:cn>
+	  <m:ci>t</m:ci>
+	  <m:ci>T</m:ci>
+        </m:apply>
+      </m:math>
+      and decide which one of the <m:math><m:ci>M</m:ci>
+      </m:math> signals were transmitted.  Demodulation is covered
+      <link document="m10141">here</link>.  A discussion about
+      detection can be found <link document="m10091">here</link>.
+    </para>
+
+  </content>
+</document>

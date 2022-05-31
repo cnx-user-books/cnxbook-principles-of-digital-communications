@@ -1,0 +1,14 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Decision Feedback Equalizer</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>c6a7dd4e-99e4-429b-ae39-675cda188928</md:uuid>
+</metadata>
+  <content>
+    
+    <para id="id7987943">The basic limitation of a linear equalizer, such as the transversal filter, is the poor perform on channel having spectral nulls. A decision feedback equalizer (DFE) is a nonlinear equalizer that uses previous detector decision to eliminate the ISI on pulses that are currently being demodulated. In other words, the distortion on a current pulse that was caused by previous pulses is subtracted.</para>
+    <figure id="id8047542"><media id="idm2916560" alt=""><image src="../../media/graphics1-5bc2.png" mime-type="image/png" height="347" width="576"/></media>
+    <caption>Decision feedback Equalizer</caption></figure>
+    
+    <para id="id7280246">Figure 1 shows a simplified block diagram of a DFE where the forward filter and the feedback filter can each be a linear filter, such as transversal filter. The nonlinearity of the DFE stems from the nonlinear characteristic of the detector that provides an input to the feedback filter. The basic idea of a DFE is that if the values of the symbols previously detected are known, then ISI contributed by these symbols can be canceled out exactly at the output of the forward filter by subtracting past symbol values with appropriate weighting. The forward and feedback tap weights can be adjusted simultaneously to fulfill a criterion such as minimizing the MSE.</para>
+    <para id="id7280254">The advantage of a DFE implementation is the feedback filter, which is additionally working to remove ISI, operates on noiseless quantized levels, and thus its output is free of channel noise.</para>
+  </content>
+</document>

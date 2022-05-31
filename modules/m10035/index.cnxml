@@ -1,0 +1,1748 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Geometric Representation of Modulation Signals</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>bb14d583-0d26-4ba5-bb8c-93ba743c2bab</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Geometric representation of signals can provide a compact
+      characterization of signals and can simplify analysis of their
+      performance as modulation signals.
+    </para>
+
+    <para id="para2">
+      Orthonormal bases are essential in geometry.  Let
+      <m:math>
+	<m:set>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	  <m:ci>…</m:ci>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>M</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:set>
+      </m:math>
+      be a set of signals.
+    </para>
+
+    <para id="para3">
+      Define
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:divide/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:root/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>E</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+            <m:msub>
+              <m:mi>E</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+          </m:ci>
+          <m:apply>
+            <m:int/>
+	    <m:bvar>
+	      <m:ci>t</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>0</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>T</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:power/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+
+    </para>
+
+    <para id="para4">
+      Define
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>21</m:mn>
+	      </m:msub>
+	    </m:ci>
+          <m:apply>
+            <m:scalarproduct/>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>ψ</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+          </m:apply>
+          <m:apply>
+            <m:int/>
+	    <m:bvar>
+	      <m:ci>t</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>0</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>T</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:conjugate/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>ψ</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      and
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:times/>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:root/>
+		<m:ci>
+		  <m:mover>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		    <m:mo>^</m:mo>
+		  </m:mover>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>21</m:mn>
+		    </m:msub>
+		  </m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>ψ</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+	    <m:mover>
+	      <m:msub>
+                <m:mi>E</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	      <m:mo>^</m:mo>
+	    </m:mover>
+          </m:ci>
+          <m:apply>
+            <m:int/>
+	    <m:bvar>
+	      <m:ci>t</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>0</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>T</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:power/>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mn>21</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>ψ</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+
+    </para>
+
+    <para id="para5">
+      In general
+      <equation id="eq01">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>
+		    <m:mover>
+		      <m:msub>
+			<m:mi>E</m:mi>
+			<m:mi>k</m:mi>
+		      </m:msub>
+		      <m:mo>^</m:mo>
+		    </m:mover>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>k</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>j</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>k</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mi>kj</m:mi>
+			</m:msub>
+		      </m:ci>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>ψ</m:mi>
+			  <m:mi>j</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+	    <m:mover>
+	      <m:msub>
+                <m:mi>E</m:mi>
+		<m:mi>k</m:mi>
+	      </m:msub>
+	      <m:mo>^</m:mo>
+	    </m:mover>
+          </m:ci>
+          <m:apply>
+            <m:int/>
+	    <m:bvar>
+	      <m:ci>t</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>0</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>T</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:power/>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>k</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>j</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>k</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mi>kj</m:mi>
+			</m:msub>
+		      </m:ci>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>ψ</m:mi>
+			  <m:mi>j</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+
+    </para>
+
+    <para id="para6">
+      The process continues until all of the <m:math><m:ci>M</m:ci>
+      </m:math> signals are exhausted.  The results are
+      <m:math><m:ci>N</m:ci> </m:math> orthogonal signals with unit
+      energy,
+      <m:math>
+	<m:set>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>ψ</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>ψ</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	  <m:ci>…</m:ci>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>ψ</m:mi>
+		<m:mi>N</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:set>
+      </m:math>
+      where
+      <m:math>
+	<m:apply>
+	  <m:leq/>
+          <m:ci>N</m:ci>
+          <m:ci>M</m:ci>
+	</m:apply>
+      </m:math>.
+      If the signals
+      <m:math>
+	<m:set>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	  <m:ci>…</m:ci>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>M</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:set>
+      </m:math>
+      are linearly independent, then
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>N</m:ci>
+          <m:ci>M</m:ci>
+	</m:apply>
+      </m:math>.
+
+    </para>
+
+    <para id="para7">
+      The <m:math><m:ci>M</m:ci> </m:math> signals can be represented
+      as
+      <equation id="eq02">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mi>m</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:sum/>
+	      <m:bvar>
+		<m:ci>n</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>N</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>mn</m:mi>
+		    </m:msub>
+		  </m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>ψ</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      with 
+      <m:math>
+	<m:apply>
+	  <m:in/>
+          <m:ci>m</m:ci>
+          <m:set>
+            <m:cn>1</m:cn>
+            <m:cn>2</m:cn>
+            <m:ci>…</m:ci>
+            <m:ci>M</m:ci>
+          </m:set>
+	</m:apply>
+      </m:math>
+      where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>mn</m:mi>
+	      </m:msub>
+	    </m:ci>
+          <m:apply>
+            <m:scalarproduct/>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>m</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>ψ</m:mi>
+		<m:mi>n</m:mi>
+	      </m:msub>
+	    </m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      and
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+            <m:msub>
+              <m:mi>E</m:mi>
+              <m:mi>m</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:apply>
+            <m:sum/>
+	    <m:bvar>
+	      <m:ci>n</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:cn>1</m:cn>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:ci>N</m:ci>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>mn</m:mi>
+		  </m:msub>
+		</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+      The signals can be represented by
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci type="vector"><m:msub>
+	      <m:mi>s</m:mi>
+	      <m:mi>m</m:mi>
+	    </m:msub></m:ci>
+          <m:vector>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mrow><m:mi>m</m:mi><m:mn>1</m:mn>
+		</m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mrow><m:mi>m</m:mi><m:mn>2</m:mn>
+		</m:mrow>
+		</m:msub>
+	      </m:ci>
+            <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mi>mN</m:mi>
+		</m:msub>
+	      </m:ci>
+          </m:vector>
+	</m:apply>
+      </m:math>
+
+    </para>
+
+    <example id="example1">
+
+      <figure id="fig1">
+	<media id="idp1211344" alt=""><image src="../../media/Figure4-9_1.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para8">
+	<equation id="eq03">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>ψ</m:mi>
+                    <m:mn>1</m:mn>
+                  </m:msub>
+                </m:ci>
+                <m:ci>t</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:divide/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>A</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq04">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>11</m:mn>
+		  </m:msub>
+		</m:ci>
+              <m:apply>
+                <m:times/>
+		<m:ci>A</m:ci>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>T</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq05">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>21</m:mn>
+		  </m:msub>
+		</m:ci>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>A</m:ci>
+		  <m:apply>
+		    <m:root/>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq06">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>ψ</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msub>
+                </m:ci>
+                <m:ci>t</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mn>21</m:mn>
+			</m:msub>
+		      </m:ci>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>ψ</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:ci>
+		      <m:mover>
+			<m:msub>
+			  <m:mi>E</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+			<m:mo>^</m:mo>
+		      </m:mover>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	      <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>A</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>A</m:ci>
+		      <m:apply>
+			<m:root/>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:root/>
+		      <m:ci>T</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:ci>
+		      <m:mover>
+			<m:msub>
+			  <m:mi>E</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+			<m:mo>^</m:mo>
+		      </m:mover>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:cn>0</m:cn>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+
+      <figure id="fig2">
+	<media id="idp1003920" alt=""><image src="../../media/Figure4-9_2.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para9">
+	Dimension of the signal set is 1 with 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>E</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:ci>
+	    <m:apply>
+	      <m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>11</m:mn>
+		  </m:msub>
+		</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>E</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+            </m:ci>
+	    <m:apply>
+	      <m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>21</m:mn>
+		  </m:msub>
+		</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+    </example>
+
+    <example id="example2">
+
+      <figure id="fig3">
+	<media id="idp3326336" alt=""><image src="../../media/Figure4-9_3.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para10">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>m</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:ci type="fn"><m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>m</m:mi>
+		    </m:msub></m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	where
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>E</m:mi>
+                <m:mi>s</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:int/>
+	      <m:bvar>
+		<m:ci>t</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>0</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>T</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>A</m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:ci>T</m:ci>
+	      </m:apply>
+	      <m:cn>4</m:cn>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	
+      </para>
+
+      <para id="para11">
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>3</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>, and
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>4</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:cn>0</m:cn>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+
+	<equation id="eq08">
+	  <m:math>
+	    <m:apply>
+	      <m:forall/>
+	      <m:bvar>
+		<m:ci>m</m:ci>
+		<m:ci>n</m:ci>
+	      </m:bvar>
+	      <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mi>mn</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:abs/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci type="vector"><m:msub>
+			<m:mi>s</m:mi>
+			<m:mi>m</m:mi>
+		      </m:msub></m:ci>
+		    <m:ci type="vector"><m:msub>
+			<m:mi>s</m:mi>
+			<m:mi>n</m:mi>
+		      </m:msub></m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar>
+		      <m:ci>j</m:ci>
+		    </m:bvar>
+		    <m:lowlimit>
+		      <m:cn>1</m:cn>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:ci>N</m:ci>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>s</m:mi>
+			    <m:mi>mj</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>s</m:mi>
+			    <m:mi>nj</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>E</m:mi>
+			<m:mi>s</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	is the Euclidean distance between signals.
+
+      </para>
+    </example>
+
+    <example id="example3">
+      <para id="para12">
+	Set of 4 equal energy biorthogonal signals. 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:ci type="fn">s</m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msup>
+                  <m:mi>s</m:mi>
+                  <m:mo>⊥</m:mo>
+                </m:msup>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>3</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">s</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>4</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msup>
+		    <m:mi>s</m:mi>
+		    <m:mo>⊥</m:mo>
+		  </m:msup>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>.
+
+      </para>
+
+      <para id="para13">
+	The orthonormal basis
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:ci type="fn">s</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:divide/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msup>
+		    <m:mi>s</m:mi>
+		    <m:mo>⊥</m:mo>
+		  </m:msup>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	where
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>E</m:mi>
+                <m:mi>s</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:int/>
+	      <m:bvar>
+		<m:ci>t</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>0</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>T</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+
+      </para>
+
+      <para id="para14">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:apply>
+                <m:root/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>3</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+              <m:cn>0</m:cn>
+            </m:vector>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector"><m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>4</m:mn>
+	      </m:msub></m:ci>
+            <m:vector>
+              <m:cn>0</m:cn>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+            </m:vector>
+	  </m:apply>
+	</m:math>. The four signals can be geometrically represented using the
+        4-vector of projection coefficients
+        <m:math>
+	  <m:ci type="vector"><m:msub>
+	      <m:mi>s</m:mi>
+              <m:mn>1</m:mn>
+	    </m:msub></m:ci>
+        </m:math>,
+	<m:math>
+	  <m:ci type="vector"><m:msub>
+	      <m:mi>s</m:mi>
+              <m:mn>2</m:mn>
+	    </m:msub></m:ci>
+        </m:math>,
+	<m:math>
+	  <m:ci type="vector"><m:msub>
+	      <m:mi>s</m:mi>
+              <m:mn>3</m:mn>
+	    </m:msub></m:ci>
+        </m:math>, and
+	<m:math>
+	  <m:ci type="vector"><m:msub>
+	      <m:mi>s</m:mi>
+              <m:mn>4</m:mn>
+	    </m:msub></m:ci>
+        </m:math> as a set of constellation points.
+
+      </para>
+
+      <figure id="fig4">
+	<title>Signal constellation</title>
+	<media id="idm5907024" alt=""><image src="../../media/Figure4-11.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para15">
+	<equation id="eq10">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>21</m:mn>
+		  </m:msub>
+		</m:ci>
+              <m:apply>
+                <m:abs/>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci type="vector"><m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub></m:ci>
+		  <m:ci type="vector"><m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub></m:ci>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:root/>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq11">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>12</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>23</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>34</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>14</m:mn>
+		  </m:msub>
+		</m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq12">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>13</m:mn>
+		  </m:msub>
+		</m:ci>
+              <m:apply>
+                <m:abs/>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci type="vector"><m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub></m:ci>
+		  <m:ci type="vector"><m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>3</m:mn>
+		    </m:msub></m:ci>
+		</m:apply>
+	      </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq13">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>13</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>d</m:mi>
+		    <m:mn>24</m:mn>
+		  </m:msub>
+		</m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Minimum distance
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mi>min</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:root/>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+
+      </para>
+    </example>
+
+  </content>
+</document>

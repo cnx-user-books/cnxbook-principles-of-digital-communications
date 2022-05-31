@@ -1,0 +1,324 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Mutual Information</title>
+
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>cd2e2dd8-278c-4437-9a1f-ee86a06ecc30</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Recall that
+      <equation id="eq01">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="function">H</m:ci>
+              <m:ci>X</m:ci>
+              <m:ci>Y</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar>
+		  <m:ci>x</m:ci>
+		</m:bvar>
+		<m:domainofapplication>
+		  <m:ci>x</m:ci>
+		</m:domainofapplication>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>y</m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>y</m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+		      <m:bvar>
+			<m:ci>X</m:ci>
+		      </m:bvar>
+		      <m:bvar>
+			<m:ci>Y</m:ci>
+		      </m:bvar>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+		      <m:bvar>
+			<m:ci>X</m:ci>
+		      </m:bvar>
+		      <m:bvar>
+			<m:ci>Y</m:ci>
+		      </m:bvar>
+			<m:ci>x</m:ci>
+			<m:ci>y</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      <equation id="eq02"> 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="function">H</m:ci>
+		<m:ci>Y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="function">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>Y</m:mi>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="function">H</m:ci>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="function">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:mi>Y</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>
+
+    <definition id="def1">
+      <term>Mutual Information</term>
+
+      <meaning id="idp7972704">
+	The mutual information between two discrete random variables
+	is denoted by
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#mutualinformation"/>
+	    <m:ci>X</m:ci>
+	    <m:ci>Y</m:ci>
+	  </m:apply>
+	</m:math>
+	and defined as
+	<equation id="eq03">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#mutualinformation"/>
+		<m:ci>X</m:ci>
+		<m:ci>Y</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:ci type="function">H</m:ci>
+		  <m:ci>X</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="function">H</m:ci>
+		  <m:ci>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mo>|</m:mo>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	Mutual information is a useful concept to measure the amount
+	of information shared between input and output of noisy
+	channels.
+      </meaning>
+    </definition>
+
+    <para id="para2">
+      In our previous discussions it became clear that when the
+      channel is noisy there may not be reliable communications.
+      Therefore, the limiting factor could very well be reliability
+      when one considers noisy channels.  Claude E. Shannon in 1948
+      changed this paradigm and stated a theorem that presents the
+      rate (speed of communication) as the limiting factor as opposed
+      to reliability.
+    </para>
+
+    <example id="example1">
+      <para id="para3">
+	Consider a discrete memoryless channel with four possible
+	inputs and outputs.
+      </para>
+
+      <figure id="fig1">
+	<media id="idp742416" alt=""><image src="../../media/Figure7-32.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para4">
+	Every time the channel is used, one of the four symbols will
+	be transmitted.  Therefore, 2 bits are sent per channel use.
+	The system, however, is very unreliable.  For example, if "a"
+	is received, the receiver can not determine, reliably, if "a"
+	was transmitted or "d".  However, if the transmitter and
+	receiver agree to only use symbols "a" and "c" and never use
+	"b" and "d", then the transmission will always be reliable,
+	but 1 bit is sent per channel use.  Therefore, the rate of
+	transmission was the limiting factor and not reliability.
+      </para>
+    </example>
+
+    <para id="para5">
+      This is the essence of Shannon's noisy channel coding theorem,
+      <foreign>i.e.</foreign>, using only those inputs whose
+      corresponding outputs are disjoint (<foreign>e.g.</foreign>, far apart).  The
+      concept is appealing, but does not seem possible with binary
+      channels since the input is either zero or one.  It may work if
+      one considers a vector of binary inputs referred to as the
+      extension channel.
+    </para>
+
+    <para id="para6">
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci type="vector">X input vector</m:ci>
+          <m:apply>
+            <m:in/>
+	    <m:vector>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>n</m:mi>
+		</m:msub>
+	      </m:ci>
+	    </m:vector>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:mover>
+		  <m:mi>X</m:mi>
+		  <m:mo>¯</m:mo>
+		</m:mover>
+	      </m:ci>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+          </m:apply>
+          <m:apply>
+            <m:power/>
+	    <m:set>
+	      <m:cn>0</m:cn>
+	      <m:cn>1</m:cn>
+	    </m:set>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+    </para>
+
+    <para id="para7">
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci type="vector">Y output vector</m:ci>
+          <m:apply>
+            <m:in/>
+	    <m:vector>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>Y</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>Y</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>Y</m:mi>
+		  <m:mi>n</m:mi>
+		</m:msub>
+	      </m:ci>
+	    </m:vector>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:mover>
+		  <m:mi>Y</m:mi>
+		  <m:mo>¯</m:mo>
+		</m:mover>
+	      </m:ci>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+          </m:apply>
+          <m:apply>
+            <m:power/>
+	    <m:set>
+	      <m:cn>0</m:cn>
+	      <m:cn>1</m:cn>
+	    </m:set>
+	    <m:ci>n</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+    </para>
+
+    <figure id="fig2">
+      <media id="idp242544" alt=""><image src="../../media/Figure7-34.png" mime-type="image/png"/></media>
+    </figure>
+
+    <para id="para8">
+      This module provides a description of the basic information
+      necessary to understand <link document="m10180" strength="2">Shannon's Noisy Channel Coding Theorem</link>.
+      However, for additional information on typical sequences, please
+      refer to <link document="m10179" strength="2">Typical
+      Sequences</link>.
+    </para>
+
+  </content>
+</document>

@@ -1,0 +1,2469 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Second-order Description</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>446b23a0-f6e2-4ccf-9d6d-fff8d2a7d16c</md:uuid>
+</metadata>
+
+  <content>
+
+    <section id="s2">
+      <title>Second-order description</title>
+
+      <para id="para11">
+	Practical and incomplete statistics
+
+      <definition id="def5">
+	<term>Mean</term>
+	<meaning id="idm932016">
+	  The mean function of a random process 
+	  
+	  <m:math>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mi>t</m:mi>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+	  
+	  is defined as the expected value of
+	  
+	  <m:math>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mi>t</m:mi>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+	  
+	  for all <m:math><m:ci>t</m:ci></m:math>'s.
+	  
+	    <equation id="eq20">
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>μ</m:mi>
+			<m:msub>
+			  <m:mi>X</m:mi>
+			  <m:mi>t</m:mi>
+			</m:msub>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mi>t</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:piecewise>
+		    <m:piece>
+		      <m:apply>
+			<m:int/>
+			<m:bvar>
+			  <m:ci>x</m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			  </m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			<m:infinity/>
+			</m:uplimit>
+			<m:apply>
+			  <m:times/>
+			  <m:ci>x</m:ci>
+			  <m:apply>
+			    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">f</m:csymbol>
+			    <m:bvar>
+			      <m:ci><m:msub>
+				  <m:mi>X</m:mi>
+				  <m:mi>t</m:mi>
+				</m:msub></m:ci>
+			    </m:bvar>
+			    <m:ci>x</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:ci>continuous</m:ci>
+		    </m:piece>
+		    <m:piece>
+		      <m:apply>
+			<m:sum/>
+			<m:bvar>
+			  <m:ci>k</m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			  </m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			  <m:infinity/>
+			</m:uplimit>
+			<m:apply>
+			  <m:times/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mi>k</m:mi>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			    <m:bvar>
+			      <m:ci><m:msub>
+				<m:mi>X</m:mi>
+				<m:mi>t</m:mi>
+			      </m:msub></m:ci>
+			    </m:bvar>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mi>k</m:mi>
+			      </m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+                    </m:apply>
+		      <m:ci>discrete</m:ci>
+		    </m:piece>
+		  </m:piecewise>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    
+	  </meaning>
+	</definition>
+
+	<definition id="def6">
+	  <term>Autocorrelation</term>
+	  <meaning id="idm1731376">
+	    The autocorrelation function of the random process
+	    
+	    <m:math display="inline">
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+	    </m:math>
+	  
+	    is defined as
+	    <equation id="eq21">
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mi>X</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>X</m:mi>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>2</m:mn>
+			  </m:msub>
+			</m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:conjugate/>
+			<m:ci>
+			  <m:msub>
+			  <m:mi>X</m:mi>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:piecewise>
+		    <m:piece>
+		      <m:apply>
+			<m:int/>
+			<m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			  </m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			  <m:infinity/>
+			</m:uplimit>
+			<m:apply>
+			  <m:int/>
+			  <m:bvar>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>1</m:mn>
+			    </m:msub>
+			    </m:ci>
+			  </m:bvar>
+			  <m:lowlimit>
+			    <m:apply>
+			      <m:minus/>
+			      <m:infinity/>
+			    </m:apply>
+			  </m:lowlimit>
+			  <m:uplimit>
+			    <m:infinity/>
+			  </m:uplimit>
+			  <m:apply>
+			    <m:times/>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			      </m:msub>
+			    </m:ci>
+			    <m:apply>
+			      <m:conjugate/>
+			      <m:ci>
+				<m:msub>
+				  <m:mi>x</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub>
+			      </m:ci>
+			    </m:apply>
+			    <m:apply>
+			      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">f</m:csymbol>
+			      <m:bvar>
+				  <m:ci><m:msub>
+				      <m:mi>X</m:mi>
+				      <m:msub>
+					<m:mi>t</m:mi>
+					<m:mn>2</m:mn>
+				      </m:msub>
+				    </m:msub></m:ci>
+			      </m:bvar>
+			      <m:bvar>
+				  <m:ci><m:msub>
+				      <m:mi>X</m:mi>
+				      <m:msub>
+					<m:mi>t</m:mi>
+					<m:mn>1</m:mn>
+				      </m:msub>
+				    </m:msub></m:ci>
+			      </m:bvar>
+			      <m:ci>
+				<m:msub>
+				  <m:mi>x</m:mi>
+				  <m:mn>2</m:mn>
+				</m:msub>
+			      </m:ci>
+			      <m:ci>
+				<m:msub>
+				  <m:mi>x</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub>
+			      </m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:ci>continuous</m:ci>
+		    </m:piece>
+		    <m:piece>
+		      <m:apply>
+			<m:sum/>
+			<m:bvar>
+			  <m:ci>k</m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			</m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			  <m:infinity/>
+			</m:uplimit>
+			<m:apply>
+			  <m:sum/>
+			  <m:bvar>
+			  <m:ci>l</m:ci>
+			  </m:bvar>
+			  <m:lowlimit>
+			    <m:apply>
+			      <m:minus/>
+			      <m:infinity/>
+			    </m:apply>
+			  </m:lowlimit>
+			  <m:uplimit>
+			  <m:infinity/>
+			  </m:uplimit>
+			  <m:apply>
+			    <m:times/>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mi>l</m:mi>
+			    </m:msub>
+			    </m:ci>
+			    <m:apply>
+			      <m:conjugate/>
+			      <m:ci>
+			      <m:msub>
+				  <m:mi>x</m:mi>
+				  <m:mi>k</m:mi>
+				</m:msub>
+			      </m:ci>
+			    </m:apply>
+			    <m:apply>
+			      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			      <m:bvar>
+				  <m:ci><m:msub>
+				      <m:mi>X</m:mi>
+				      <m:msub>
+					<m:mi>t</m:mi>
+					<m:mn>2</m:mn>
+				      </m:msub>
+				    </m:msub></m:ci>
+			      </m:bvar>
+			      <m:bvar>
+				  <m:ci><m:msub>
+				      <m:mi>X</m:mi>
+				      <m:msub>
+					<m:mi>t</m:mi>
+					<m:mn>1</m:mn>
+				      </m:msub>
+				    </m:msub></m:ci>
+			      </m:bvar>
+			      <m:ci>
+				<m:msub>
+				<m:mi>x</m:mi>
+				  <m:mi>l</m:mi>
+			      </m:msub>
+			      </m:ci>
+			      <m:ci>
+				<m:msub>
+				  <m:mi>x</m:mi>
+				  <m:mi>k</m:mi>
+				</m:msub>
+			      </m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:ci>discrete</m:ci>
+		    </m:piece>
+		  </m:piecewise>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    
+	  </meaning>
+	</definition>
+	</para>
+	
+	<rule id="rule1" type="Fact"><label>Fact</label>
+	  
+	  <statement id="idm8793760">
+	    <para id="para12">
+	      If
+	      <m:math display="inline">
+		<m:ci>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mi>t</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:math>
+	      
+	      is second-order stationary, then
+
+	      <m:math display="inline">
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>R</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		</m:ci>
+		</m:apply>
+	      </m:math>
+	      
+	      only depends on 
+	      
+	      <m:math display="inline">
+		<m:apply>
+		  <m:minus/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+                    <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:math>.
+	    </para>
+	  </statement>
+	  
+	  <proof id="idp625328">
+	    <para id="para13">
+	      <equation id="eq22">
+		<m:math display="block">
+		  <m:apply>
+		    <m:eq/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>R</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:times/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>X</m:mi>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:conjugate/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:msub>
+			      <m:mi>t</m:mi>
+				<m:mn>1</m:mn>
+			      </m:msub>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar>
+		      <m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mn>1</m:mn>
+			  </m:msub>
+			</m:ci>
+		      </m:bvar>
+		      <m:lowlimit>
+			<m:apply>
+			<m:minus/>
+			  <m:infinity/>
+			</m:apply>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:infinity/>
+		      </m:uplimit>
+		    <m:apply>
+			<m:int/>
+			<m:bvar>
+			  <m:ci>
+			    <m:msub>
+			    <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			  </m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			  <m:infinity/>
+			</m:uplimit>
+			<m:apply>
+			  <m:times/>
+			<m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:conjugate/>
+			    <m:ci>
+			    <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>1</m:mn>
+			    </m:msub>
+			    </m:ci>
+			  </m:apply>
+			  <m:apply>
+			    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">f</m:csymbol>
+			    <m:bvar>
+			      <m:ci><m:msub>
+				  <m:mi>X</m:mi>
+				  <m:msub>
+				    <m:mi>t</m:mi>
+				    <m:mn>2</m:mn>
+				  </m:msub>
+				</m:msub></m:ci>
+			    </m:bvar>
+			    <m:bvar>
+			      <m:ci><m:msub>
+				  <m:mi>X</m:mi>
+				  <m:msub>
+				    <m:mi>t</m:mi>
+				    <m:mn>1</m:mn>
+				  </m:msub>
+				</m:msub></m:ci>
+			    </m:bvar>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>2</m:mn>
+			      </m:msub>
+			    </m:ci>
+			    <m:ci>
+			    <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>1</m:mn>
+			      </m:msub>
+			    </m:ci>
+			</m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:math>
+	      </equation>
+
+	      <equation id="eq23">
+		<m:math display="block">
+		  <m:apply>
+		    <m:eq/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>R</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+                    </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+                    </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mn>1</m:mn>
+			  </m:msub>
+			</m:ci>
+		      </m:bvar>
+		      <m:lowlimit>
+			<m:apply>
+			  <m:minus/>
+			  <m:infinity/>
+			</m:apply>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:infinity/>
+		    </m:uplimit>
+		      <m:apply>
+			<m:int/>
+			<m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:bvar>
+			<m:lowlimit>
+			  <m:apply>
+			    <m:minus/>
+			    <m:infinity/>
+			  </m:apply>
+			</m:lowlimit>
+			<m:uplimit>
+			  <m:infinity/>
+			</m:uplimit>
+		      <m:apply>
+			<m:times/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mn>2</m:mn>
+			  </m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:conjugate/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">f</m:csymbol>
+			  <m:bvar>
+			    <m:ci><m:msub>
+				<m:mi>X</m:mi>
+				<m:mrow>
+				  <m:msub>
+				    <m:mi>t</m:mi>
+				    <m:mn>2</m:mn>
+				  </m:msub>
+				  <m:mo>-</m:mo>
+				  <m:msub>
+				    <m:mi>t</m:mi>
+				    <m:mn>1</m:mn>
+				  </m:msub>
+				</m:mrow>
+			      </m:msub></m:ci>
+			  </m:bvar>
+			  <m:bvar>
+			    <m:ci><m:msub>
+				<m:mi>X</m:mi>
+				<m:mn>0</m:mn>
+			      </m:msub></m:ci>
+			  </m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+                      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mi>X</m:mi>
+		      </m:msub>
+                    </m:ci>
+                    <m:apply>
+                      <m:minus/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+		      </m:ci>
+                    </m:apply>
+                    <m:cn>0</m:cn>
+                  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+
+	  </para>
+	</proof>
+      </rule>
+
+      <para id="para14">
+	If
+	<m:math display="inline">
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>R</m:mi>
+		<m:mi>X</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>t</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>t</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>
+	depends on
+
+	<m:math display="inline">
+	  <m:apply>
+	    <m:minus/>
+            <m:ci>
+              <m:msub>
+                <m:mi>t</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>
+              <m:msub>
+                <m:mi>t</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:ci>
+	  </m:apply>
+	</m:math>
+
+	only, then we will represent the autocorrelation with only one variable
+
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>τ</m:ci>
+            <m:apply>
+              <m:minus/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+
+
+	<equation id="eq24">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>R</m:mi>
+                    <m:mi>X</m:mi>
+                  </m:msub>
+                </m:ci>
+                <m:ci>τ</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>R</m:mi>
+                    <m:mi>X</m:mi>
+                  </m:msub>
+                </m:ci>
+                <m:apply>
+                  <m:minus/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:ci>
+ 		  <m:ci>
+		    <m:msub>
+		      <m:mi>t</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+                </m:apply>
+              </m:apply>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>R</m:mi>
+                    <m:mi>X</m:mi>
+                  </m:msub>
+                </m:ci>
+                <m:ci>
+                  <m:msub>
+                    <m:mi>t</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msub>
+                </m:ci>
+                <m:ci>
+                  <m:msub>
+                    <m:mi>t</m:mi>
+                    <m:mn>1</m:mn>
+                  </m:msub>
+                </m:ci>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+
+	<list id="list1" list-type="enumerated">
+	  <title>Properties</title>
+	  <item><m:math display="inline">
+	      <m:apply>
+		<m:geq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>R</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item><m:math display="inline">
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>R</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:conjugate/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mi>X</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math display="inline">
+	      <m:apply>
+		<m:leq/>
+		<m:apply>
+		  <m:abs/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mi>X</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>R</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	</list>
+      </para>
+
+      <example id="example">
+	<para id="para15">
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>t</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:apply>
+                <m:cos/>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>           
+		    <m:ci>
+		      <m:msub>
+			<m:mi>f</m:mi>
+			<m:mn>0</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">Θ</m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+
+	  and
+
+	  <m:math display="inline"><m:ci type="fn">Θ</m:ci></m:math>
+	  is uniformly distributed between
+	  <m:math display="inline"><m:cn>0</m:cn></m:math>
+	  and
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:times/>
+              <m:cn>2</m:cn>
+              <m:pi/>           
+	    </m:apply>
+	  </m:math>.
+
+	  The mean function
+
+	  <equation id="eq25">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>μ</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>t</m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>t</m:mi>
+		    </m:msub>
+		  </m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:cos/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>f</m:mi>
+			    <m:mn>0</m:mn>
+			  </m:msub>
+			</m:ci>
+			<m:ci>t</m:ci>
+		      </m:apply>
+		      <m:ci>Θ</m:ci>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:apply>
+                  <m:int/>
+		  <m:bvar>
+		    <m:ci>θ</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:cos/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>f</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>t</m:ci>
+			</m:apply>
+			<m:ci>θ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</para>
+
+	<para id="para16">
+	  The autocorrelation function
+
+	  <equation id="eq26">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>R</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:apply>
+                    <m:plus/>
+		    <m:ci>t</m:ci>
+		    <m:ci>τ</m:ci>
+                  </m:apply>
+                  <m:ci>t</m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mrow>
+			  <m:mi>t</m:mi>
+			  <m:mo>+</m:mo>
+			  <m:mi>τ</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:conjugate/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>X</m:mi>
+			  <m:mi>t</m:mi>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:cos/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>f</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:plus/>
+			    <m:ci>t</m:ci>
+			    <m:ci>τ</m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:ci>Θ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:cos/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>f</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>t</m:ci>
+			</m:apply>
+			<m:ci>Θ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:apply>
+                  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:cos/>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>f</m:mi>
+			      <m:mn>0</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>τ</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:cos/>
+			<m:apply>
+			  <m:plus/>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:pi/>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>f</m:mi>
+				<m:mn>0</m:mn>
+			      </m:msub>
+			    </m:ci>
+			    <m:apply>
+			      <m:plus/>
+			      <m:apply>
+				<m:times/>
+				<m:cn>2</m:cn>
+				<m:ci>t</m:ci>
+			      </m:apply>
+			      <m:ci>τ</m:ci>
+			    </m:apply>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:ci>Θ</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:apply>
+                  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:apply>
+		      <m:cos/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>f</m:mi>
+			    <m:mn>0</m:mn>
+			  </m:msub>
+			</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar>
+			<m:ci>θ</m:ci>
+		      </m:bvar>
+		      <m:lowlimit>
+			<m:cn>0</m:cn>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>             
+			</m:apply>
+		      </m:uplimit>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:cos/>
+			  <m:apply>
+			    <m:plus/>
+			    <m:apply>
+			      <m:times/>
+			      <m:cn>2</m:cn>
+			      <m:pi/>
+			      <m:ci>
+				<m:msub>
+				  <m:mi>f</m:mi>
+				  <m:mn>0</m:mn>
+				</m:msub>
+			      </m:ci>
+			      <m:apply>
+				<m:plus/>
+				<m:apply>
+				  <m:times/>
+				  <m:cn>2</m:cn>
+				  <m:ci>t</m:ci>
+				</m:apply>
+				<m:ci>τ</m:ci>
+			      </m:apply>
+			    </m:apply>
+			    <m:apply>
+			      <m:times/>
+			      <m:cn>2</m:cn>
+			      <m:ci>θ</m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+			<m:apply>
+			  <m:divide/>
+			  <m:cn>1</m:cn>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:pi/>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+                <m:apply>
+                   <m:times/>
+		  <m:cn type="rational">1<m:sep/>2</m:cn>
+		  <m:apply>
+		    <m:cos/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+ 		      <m:ci>
+			<m:msub>
+			  <m:mi>f</m:mi>
+			  <m:mn>0</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  Not a function of <m:math><m:ci>t</m:ci></m:math> since the
+	  second term in the right hand side of the equality in
+	  <link target-id="eq26"/> is zero.
+	</para>
+
+      </example>
+
+
+      <example id="example5">
+	<para id="para17">
+	  Toss a fair coin every <m:math><m:ci>T</m:ci></m:math>
+	  seconds. Since
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mi>t</m:mi>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+
+	  is a discrete valued random process, the statistical characteristics
+	  can be captured by the pmf and the mean function is written as
+
+	  <equation id="eq30">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>μ</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>t</m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>t</m:mi>
+		    </m:msub>
+		  </m:ci>
+                </m:apply>
+                <m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:cn>-1</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+                </m:apply>
+                <m:cn>0</m:cn>
+ 	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  <equation id="eq31">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>R</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+		      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                 </m:apply>
+                 <m:apply>
+                  <m:sum/>
+		  <m:bvar>
+		    <m:ci>k</m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>k</m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar>
+		      <m:ci>l</m:ci>
+		    </m:bvar>
+		  <m:domainofapplication>
+		      <m:ci>l</m:ci>
+		    </m:domainofapplication>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>x</m:mi>
+			  <m:mi>k</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>x</m:mi>
+			  <m:mi>l</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			<m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:msub>
+				<m:mi>t</m:mi>
+				<m:mn>2</m:mn>
+			      </m:msub>
+			    </m:msub>
+			  </m:ci>
+			</m:bvar>
+			<m:bvar>
+			  <m:ci>
+			      <m:msub>
+				<m:mi>X</m:mi>
+				<m:msub>
+				  <m:mi>t</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub>
+			      </m:msub>
+			  </m:ci>
+			</m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>k</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>l</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+		<m:apply>
+                  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>1</m:cn>
+		    <m:cn>1</m:cn>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>-1</m:cn>
+		    <m:cn>-1</m:cn>
+		    <m:cn type="rational">1<m:sep/>2</m:cn>
+		  </m:apply>
+                </m:apply>
+                <m:cn>1</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	  when 
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:leq/>
+              <m:apply>
+                <m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>T</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:lt/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>t</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>n</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		  <m:ci>T</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+
+	  and
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:leq/>
+              <m:apply>
+                <m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>T</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:lt/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>t</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>n</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		  <m:ci>T</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+
+	  <equation id="eq33">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>R</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>1</m:cn>
+		    <m:cn>1</m:cn>
+		    <m:cn type="rational">1<m:sep/>4</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>-1</m:cn>
+		    <m:cn>-1</m:cn>
+		    <m:cn type="rational">1<m:sep/>4</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>-1</m:cn>
+		    <m:cn>1</m:cn>
+		    <m:cn type="rational">1<m:sep/>4</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>1</m:cn>
+		    <m:cn>-1</m:cn>
+		    <m:cn type="rational">1<m:sep/>4</m:cn>
+		  </m:apply>
+                </m:apply>
+                <m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  when
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:leq/>
+              <m:apply>
+                <m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>T</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:lt/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>t</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>n</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		  <m:ci>T</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+
+	  and
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:leq/>
+              <m:apply>
+                <m:times/>
+		<m:ci>m</m:ci>
+		<m:ci>T</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:lt/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>t</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>m</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		  <m:ci>T</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	  with
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:neq/>
+              <m:ci>n</m:ci>
+              <m:ci>m</m:ci>
+	    </m:apply>
+	  </m:math>
+
+	  <equation id="eq34">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>R</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                </m:apply>
+                <m:piecewise>
+                  <m:piece>
+                    <m:cn>1</m:cn>
+                    <m:apply>
+                      <m:and/>
+		      <m:apply>
+			<m:leq/>
+			<m:apply>
+			  <m:times/>
+			  <m:ci>n</m:ci>
+			  <m:ci>T</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:lt/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:times/>
+			    <m:apply>
+			      <m:plus/>
+			      <m:ci>n</m:ci>
+			      <m:cn>1</m:cn>
+			    </m:apply>
+			    <m:ci>T</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:leq/>
+			<m:apply>
+			  <m:times/>
+			  <m:ci>n</m:ci>
+			  <m:ci>T</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:lt/>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:times/>
+			    <m:apply>
+			      <m:plus/>
+			      <m:ci>n</m:ci>
+			      <m:cn>1</m:cn>
+			    </m:apply>
+			    <m:ci>T</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+                    </m:apply>
+                  </m:piece>
+                  <m:otherwise>
+                    <m:cn>0</m:cn>
+                  </m:otherwise>
+                </m:piecewise>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  A function of
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>t</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+
+	  and
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>t</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>.
+	</para>
+      </example>
+
+
+      <definition id="def7">
+	<term>Wide Sense Stationary</term>
+	<meaning id="idp116992">
+	  A process is said to be wide sense stationary if
+
+	  <m:math display="inline">
+	      <m:ci>
+		<m:msub>
+		  <m:mi>μ</m:mi>
+		  <m:mi>X</m:mi>
+		</m:msub>
+	      </m:ci>
+	  </m:math>
+	  is constant and
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>R</m:mi>
+		  <m:mi>X</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:math>
+
+	  is only a function of
+
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:minus/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>t</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>t</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+	    </m:apply>
+	  </m:math>.
+	</meaning>
+      </definition>
+
+      <rule id="rule2" type="fact"><label>Fact</label>
+	<statement id="idp4491216">
+	  <para id="para18">
+	    If
+
+	    <m:math display="inline">
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>t</m:mi>
+		</m:msub>
+	      </m:ci>
+	    </m:math>
+	    is strictly stationary, then it is wide sense stationary.  The
+	    converse is not necessarily true.
+	  </para>
+	</statement>
+      </rule>
+
+
+      <definition id="def8">
+	<term>Autocovariance</term>
+	<meaning id="idp257584">
+	  Autocovariance of a random process is defined as
+
+	  <equation id="eq35">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>C</m:mi>
+                      <m:mi>X</m:mi>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>X</m:mi>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>2</m:mn>
+			  </m:msub>
+			</m:msub>
+ 		      </m:ci>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub>
+			    <m:mi>μ</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>2</m:mn>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:conjugate/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>X</m:mi>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub>
+			      <m:mi>μ</m:mi>
+			      <m:mi>X</m:mi>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>t</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+		<m:apply>
+                  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mi>X</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>μ</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:conjugate/>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub>
+			    <m:mi>μ</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>1</m:mn>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	</meaning>
+      </definition>
+
+      <para id="para19">
+	The variance of
+
+	<m:math display="inline">
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mi>t</m:mi>
+	    </m:msub>
+	  </m:ci>
+	</m:math>
+
+	is
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">Var</m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>t</m:mi>
+                </m:msub>
+              </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>C</m:mi>
+                  <m:mi>X</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </para>
+
+
+      <para id="para20">
+	Two processes defined on one experiment (<link target-id="fig5"/>).
+
+      <figure id="fig5">
+	<media id="idm9031824" alt=""><image src="../../media/Figure3-10.png" mime-type="image/png"/></media>
+      </figure>
+
+      <definition id="def9">
+	<term>Crosscorrelation</term>
+	<meaning id="idm2071088">
+	  The crosscorrelation function of a pair of random processes
+	  is defined as
+
+	  <equation id="eq37">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>R</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>Y</m:mi>
+			</m:mrow>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:conjugate/>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>Y</m:mi>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>1</m:mn>
+			  </m:msub>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+                <m:apply>
+                  <m:int/>
+		  <m:bvar>
+		    <m:ci>y</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>x</m:ci>
+		    </m:bvar>
+		    <m:lowlimit>
+		      <m:apply>
+			<m:minus/>
+			<m:infinity/>
+		      </m:apply>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:infinity/>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">f</m:csymbol>
+			<m:bvar>
+			  <m:ci><m:msub>
+			      <m:mi>X</m:mi>
+			      <m:msub>
+				  <m:mi>t</m:mi>
+				  <m:mn>2</m:mn>
+				</m:msub>
+			    </m:msub></m:ci>
+			</m:bvar>
+			<m:bvar>
+			  <m:ci><m:msub>
+			      <m:mi>Y</m:mi>
+			      <m:msub>
+				  <m:mi>t</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub>
+			    </m:msub></m:ci>
+			</m:bvar>
+			<m:ci>x</m:ci>
+			<m:ci>y</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  <equation id="eq38">
+	    <m:math display="block">
+	      <m:apply>
+		<m:eq/>
+                <m:apply>
+                  <m:ci type="fn">
+                    <m:msub>
+                      <m:mi>C</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>Y</m:mi>
+			</m:mrow>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msub>
+                  </m:ci>
+                  <m:ci>
+                    <m:msub>
+                      <m:mi>t</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                  </m:ci>
+                </m:apply>
+                <m:apply>
+                  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>R</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>Y</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>t</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>μ</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>t</m:mi>
+			  <m:mn>2</m:mn>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:conjugate/>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub>
+			    <m:mi>μ</m:mi>
+			    <m:mi>Y</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>t</m:mi>
+			    <m:mn>1</m:mn>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+                </m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	  
+	</meaning>
+      </definition>
+
+
+      <definition id="def10">
+	<term>Jointly Wide Sense Stationary</term>
+	<meaning id="idm1326192">
+	  The random processes
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mi>t</m:mi>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+
+	  and
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>Y</m:mi>
+		<m:mi>t</m:mi>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>
+
+	  are said to be jointly wide sense stationary if
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>R</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>Y</m:mi>
+			</m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>t</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:math>
+
+	  is a function of
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:minus/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>t</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>t</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+	    </m:apply>
+	  </m:math>
+
+	  only and
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>μ</m:mi>
+		  <m:mi>X</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	  </m:math>
+
+	  and
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>μ</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	  </m:math>
+	  are constant.
+	</meaning>
+
+      </definition>
+      </para>
+    </section>
+  </content>
+</document>

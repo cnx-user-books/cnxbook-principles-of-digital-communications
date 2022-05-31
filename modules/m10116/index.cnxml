@@ -1,0 +1,833 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Signalling</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>54d33b0c-b1b3-4478-b123-c3814f57fd72</md:uuid>
+</metadata>
+
+  <content>
+
+    <example id="example1">
+
+      <para id="para1">
+	Data symbols are "1" or "0" and data rate is
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+	Hertz.
+
+      </para>
+
+      <figure id="fig1">
+        <title>Pulse amplitude modulation (PAM)</title>
+        <media id="idm635696" alt=""><image src="../../media/Figure4-2_1.png" mime-type="image/png"/></media>
+      </figure>
+
+      <figure id="fig2">
+        <title>Pulse position modulation</title>
+        <media id="idm173136" alt=""><image src="../../media/Figure4-2_2.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+    <example id="example2">
+      <title>Example</title>
+
+      <para id="para2">
+	Data symbols are "1" or "0" and the data rate is
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>2</m:cn>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+	Hertz.
+
+      </para>
+
+      <figure id="fig3">
+	<media id="idp413232" alt=""><image src="../../media/Figure4-3.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para3">
+	This strategy is an alternative to PAM with half the period,
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+            <m:ci>T</m:ci>
+            <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+      <figure id="fig4">
+	<media id="idm1724272" alt=""><image src="../../media/Figure4-4.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para4">
+	Relevant measures are energy of modulated signals
+	<equation id="eq01">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>E</m:mi>
+                  <m:mi>m</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:apply>
+                <m:forall/>
+                  <m:condition>
+                    <m:apply>
+                      <m:in/>
+                        <m:ci>m</m:ci>
+                        <m:set>
+                          <m:cn>1</m:cn>
+                          <m:cn>2</m:cn>
+                          <m:ci>…</m:ci>
+                          <m:ci>M</m:ci>
+                        </m:set>
+                    </m:apply>
+                  </m:condition>                 
+
+              <m:apply>
+                <m:int/>
+		<m:bvar>
+		  <m:ci>t</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>T</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mi>m</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+              </m:apply>
+               </m:apply> 
+
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and how different they are in terms of inner products.
+
+	<equation id="eq02">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:scalarproduct/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>m</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:int/>
+		<m:bvar>
+		  <m:ci>t</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>T</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mi>m</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:conjugate/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mi>n</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	for
+
+	<m:math>
+	  <m:apply>
+	    <m:in/>
+            <m:ci>m</m:ci>
+            <m:set>
+              <m:cn>1</m:cn>
+              <m:cn>2</m:cn>
+              <m:ci>…</m:ci>
+              <m:ci>M</m:ci>
+            </m:set>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math>
+	  <m:apply>
+	    <m:in/>
+            <m:ci>n</m:ci>
+            <m:set>
+              <m:cn>1</m:cn>
+              <m:cn>2</m:cn>
+              <m:ci>…</m:ci>
+              <m:ci>M</m:ci>
+            </m:set>
+	  </m:apply>
+	</m:math>.
+
+      </para>
+    </example>
+
+    <definition id="antipodef">
+      <term>antipodal</term>
+
+      <meaning id="idp184608">
+	Signals
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	are antipodal if
+	<m:math> 
+	  <m:apply>
+	    <m:forall/>
+            <m:bvar>
+              <m:ci>t</m:ci>
+            </m:bvar>
+	    <m:condition>
+	      <m:apply>
+		<m:in/>
+		<m:ci>t</m:ci>
+		<m:interval>
+		  <m:cn>0</m:cn>
+		  <m:ci>T</m:ci>
+		</m:interval>
+	      </m:apply>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+      </meaning>
+    </definition>
+
+    <definition id="orthodef">
+      <term>orthogonal</term>
+
+      <meaning id="idm13270128">
+	Signals
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,…,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>M</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	are orthogonal if
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:scalarproduct/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mi>m</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mi>n</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+            <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+	for
+	<m:math>
+	  <m:apply>
+	    <m:neq/>
+            <m:ci>m</m:ci>
+            <m:ci>n</m:ci>
+	  </m:apply>
+	</m:math>.
+
+      </meaning>
+    </definition>
+
+    <definition id="biorthodef">
+      <term>biorthogonal</term>
+
+      <meaning id="idm10185472">
+	Signals
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,…,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mi>M</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	are biorthogonal if
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,…,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>s</m:mi>
+		<m:mfrac>
+		  <m:mi>M</m:mi>
+		  <m:mn>2</m:mn>
+		</m:mfrac>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	are orthogonal and
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mi>m</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mrow>
+		      <m:mfrac>
+			<m:mi>M</m:mi>
+			<m:mn>2</m:mn>
+		      </m:mfrac>
+		      <m:mo>+</m:mo>
+		      <m:mi>m</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	for some
+	<m:math>
+	  <m:apply>
+	    <m:in/>
+            <m:ci>m</m:ci>
+            <m:set>
+	      <m:cn>1</m:cn>
+	      <m:cn>2</m:cn>
+	      <m:ci>…</m:ci>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>M</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:set>
+	  </m:apply>
+	</m:math>.
+	
+      </meaning>
+    </definition>
+
+    <para id="para5">
+      It is quite intuitive to expect that the smaller (the more
+      negative) the inner products,
+      <m:math>
+	<m:apply>
+	  <m:scalarproduct/>
+          <m:ci>
+            <m:msub>
+              <m:mi>s</m:mi>
+              <m:mi>m</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:ci>
+            <m:msub>
+              <m:mi>s</m:mi>
+              <m:mi>n</m:mi>
+            </m:msub>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      for all
+      <m:math>
+	<m:apply>
+	  <m:neq/>
+          <m:ci>m</m:ci>
+          <m:ci>n</m:ci>
+	</m:apply>
+      </m:math>,
+      the better the signal set.
+    </para>
+
+    <definition id="simpldef">
+      <term>Simplex signals</term>
+
+      <meaning id="idm9773184">
+	Let
+	<m:math>
+	  <m:set>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	    <m:ci>…</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mi>M</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	  </m:set>
+	</m:math>
+	be a set of orthogonal signals with equal energy.  The signals
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:mover>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+		<m:mo>˜</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>,…,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:mover>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mi>M</m:mi>
+		</m:msub>
+		<m:mo>˜</m:mo>
+	      </m:mover>
+	    </m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>
+	are simplex signals if
+
+	<equation id="eq03">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+		  <m:mover>
+		    <m:msub>
+                      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		    <m:mo>˜</m:mo>
+		  </m:mover>
+                </m:ci>
+                <m:ci>t</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:ci>M</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar>
+		      <m:ci>k</m:ci>
+		    </m:bvar>
+		    <m:lowlimit>
+		      <m:cn>1</m:cn>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:ci>M</m:ci>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mi>k</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </meaning>
+    </definition>
+
+    <para id="para6">
+      If the energy of orthogonal signals is denoted by
+
+      <equation id="eq04">
+	<m:math>
+	  <m:apply>
+            <m:forall/>
+            <m:bvar>
+              <m:ci>m</m:ci>
+            </m:bvar>
+            <m:condition>
+              <m:apply>
+                <m:in/>
+                <m:ci>m</m:ci>
+                <m:set>
+                  <m:cn>1</m:cn>
+                  <m:cn>2</m:cn>
+                  <m:ci>...</m:ci>
+                  <m:ci>M</m:ci>
+                </m:set>
+              </m:apply>
+             </m:condition>
+            <m:apply>
+	    <m:eq/>
+            <m:ci>
+              <m:msub>
+                <m:mi>E</m:mi>
+                <m:mi>s</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:int/>
+	      <m:bvar>
+		<m:ci>t</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>0</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>T</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+          </m:apply>
+	</m:math>
+      </equation>
+
+      then the energy of simplex signals
+
+      <equation id="eq05">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>
+	      <m:msub>
+		<m:mi>E</m:mi>
+		<m:mover>
+                  <m:mi>s</m:mi>
+		  <m:mo>˜</m:mo>
+		</m:mover>
+	      </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:ci>M</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>E</m:mi>
+		  <m:mi>s</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      and
+
+      <equation id="eq06">
+	<m:math>
+	  <m:apply>
+	    <m:forall/>
+	    <m:condition>
+	      <m:apply>
+		<m:neq/>
+		<m:ci>m</m:ci>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:scalarproduct/>
+		<m:ci>
+		  <m:mover>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>m</m:mi>
+		    </m:msub>
+		    <m:mo>˜</m:mo>
+		  </m:mover>
+		</m:ci>
+		<m:ci>
+		  <m:mover>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		    <m:mo>˜</m:mo>
+		  </m:mover>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>-1</m:cn>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>M</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>E</m:mi>
+		    <m:mover>
+		      <m:mi>s</m:mi>
+		      <m:mo>˜</m:mo>
+		    </m:mover>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>
+
+    <para id="para7">
+      It is conjectured that among all possible <m:math><m:ci>M</m:ci>
+      </m:math>-ary signals with equal energy, the simplex signal set
+      results in the smallest probability of error when used to
+      transmit information through an additive white Gaussian noise
+      channel.
+    </para>
+
+    <para id="para8">
+      The <link document="m10035">geometric representation of
+      signals</link> can provide a compact description of signals and
+      can simplify performance analysis of communication systems using
+      the signals.
+    </para>
+
+    <para id="para9">
+      Once signals have been modulated, the receiver must <link document="m10054">detect and demodulate</link> the signals
+      despite interference and noise and decide which of the set of
+      possible transmitted signals was sent.
+
+    </para>
+  </content>
+</document>

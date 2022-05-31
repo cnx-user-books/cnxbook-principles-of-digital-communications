@@ -1,0 +1,107 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Diversity-Combining Techniques</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>a9f2e7b9-e28c-49d5-a061-81d8ef866f39</md:uuid>
+</metadata>
+  <content>
+    <para id="id4407232">The most common techniques for combining diversity signals are <term>selection</term>, <term>feedback</term>, <term>maximal ratio</term>, and <term>equal gain</term>. </para>
+    <para id="id4345779"><term>Selection</term> combining used in spatial diversity systems involves the sampling of 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mi>M</m:mi></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{M} {}</m:annotation></m:semantics></m:math> antenna signals, and sending the largest one to the demodulator. Selection-diversity combining is relatively easy to implement but not optimal because it does not make use of all the received signals simultaneously.</para>
+    <para id="id4558259">With <term>feedback</term> or scanning diversity, the 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mi>M</m:mi></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{M} {}</m:annotation></m:semantics></m:math> signals are scanned in a fixed sequence until one is found that exceeds a given threshold. This one becomes the chosen signal until it falls below the established threshold, and the scanning process starts again. The error performance of this technique is somewhat inferior to the other methods, but feedback is quite simple to implement.</para>
+    <para id="id4816772">In <term>maximal-ratio</term> combining, the signals from all of the 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mi>M</m:mi></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{M} {}</m:annotation></m:semantics></m:math> branches are weighted according to their individual SNRs and then summed. The individual signals must be cophased before being summed.</para>
+    <para id="id4746219">Maximal-ratio combining produces an average SNR 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:msub><m:mi>γ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>M</m:mi></m:mrow></m:mstyle></m:msub><m:mo>¯</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {overline  {γ rSub { size 8{M} } }} } {}</m:annotation></m:semantics></m:math> equal to the sum of the individual average SNRs, as shown below:</para>
+    <para id="id4362173">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mover accent="true">
+                        <m:msub>
+                          <m:mi>γ</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>M</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo>¯</m:mo>
+                      </m:mover>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mrow>
+                        <m:munderover>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>i</m:mi>
+                                <m:mo stretchy="false">=</m:mo>
+                                <m:mn>1</m:mn>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>M</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munderover>
+                        <m:mover accent="true">
+                          <m:msub>
+                            <m:mi>γ</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo>¯</m:mo>
+                        </m:mover>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:munderover>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>i</m:mi>
+                              <m:mo stretchy="false">=</m:mo>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>M</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munderover>
+                      <m:mi>Γ</m:mi>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mi fontstyle="italic">MΓ</m:mi>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {overline  {γ rSub { size 8{M} } }} = Sum cSub { size 8{i=1} }  cSup { size 8{M} }  { {overline  {γ rSub { size 8{i} } }} } = Sum cSub { size 8{i=1} }  cSup { size 8{M} }  {Γ} =MΓ} {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id5075150">where we assume that each branch has the same average SNR given by 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mover accent="true"><m:msub><m:mi>γ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>i</m:mi></m:mrow></m:mstyle></m:msub><m:mo>¯</m:mo></m:mover><m:mo stretchy="false">=</m:mo><m:mi>Γ</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {overline  {γ rSub { size 8{i} } }} =Γ} {}</m:annotation></m:semantics></m:math>. </para>
+    <para id="id4350380">Thus, maximal-ratio combining can produce an acceptable average SNR, even when none of the individual i 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mi>γ</m:mi></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{γ} {}</m:annotation></m:semantics></m:math> is acceptable. It uses each of the 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mi>M</m:mi></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{M} {}</m:annotation></m:semantics></m:math> branches in a cophased and weighted manner such that the largest possible SNR is available at the receiver. </para>
+    <para id="id4767034"><term>Equal-gain</term> combining is similar to maximal-ratio combining except that the weights are all set to unity. The possibility of achieving an acceptable output SNR from a number of unacceptable inputs is still retained. The performance is marginally inferior to maximal ratio combining.</para>
+  </content>
+</document>

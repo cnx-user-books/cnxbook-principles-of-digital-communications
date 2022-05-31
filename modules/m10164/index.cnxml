@@ -1,0 +1,1575 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Entropy</title>
+
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>3f95b42c-64de-4d55-8fd2-252d75aa87d4</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Information sources take very different forms.  Since the
+      information is not known to the destination, it is then best
+      modeled as a random process, discrete-time or continuous time.
+    </para>
+
+    <para id="para2">Here are a few examples:
+      <list id="list1" list-type="bulleted">
+	<item>Digital data source (<foreign>e.g.</foreign>, a text)
+	  can be modeled as a discrete-time and discrete valued random
+	  process
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mn>1</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>,
+	  <m:math display="inline">
+	    <m:ci>
+	      <m:msub>
+		<m:mi>X</m:mi>
+		<m:mn>2</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>, …,
+	  where
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:in/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>i</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:set>
+                <m:ci>A</m:ci>
+                <m:ci>B</m:ci>
+                <m:ci>C</m:ci>
+                <m:ci>D</m:ci>
+                <m:ci>E</m:ci>
+                <m:ci>…</m:ci>
+              </m:set>
+	    </m:apply>
+	  </m:math>
+	  with a particular
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>p</m:mi>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:math>,
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>p</m:mi>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:math>, …, 
+	  and a specific
+	  <m:math display="inline">
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>p</m:mi>
+		<m:mrow>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>,
+	  <m:math display="inline">
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>p</m:mi>
+		<m:mrow>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>3</m:mn>
+		  </m:msub>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>, …,
+	  and
+	  <m:math display="inline">
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>p</m:mi>
+		<m:mrow>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>3</m:mn>
+		  </m:msub>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>,
+	  <m:math display="inline">
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>p</m:mi>
+		<m:mrow>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>3</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>4</m:mn>
+		  </m:msub>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>, …, <foreign>etc.</foreign>
+	</item>
+	<item>
+	  Video signals can be modeled as a continuous time random
+	  process.  The power spectral density is bandlimited to
+	  around 5 MHz (the value depends on the standards used to
+	  raster the frames of image).
+	</item>
+	<item>
+	  Audio signals can be modeled as a continuous-time random
+	  process.  It has been demonstrated that the power spectral
+	  density of speech signals is bandlimited between 300 Hz and
+	  3400 Hz.  For example, the speech signal can be modeled as a
+	  Gaussian process with the <link target-id="fig1">shown</link>
+	  power spectral density over a small observation period.
+	</item>
+      </list>
+    </para>
+
+    <figure id="fig1">
+      <media id="idm1631472" alt=""><image src="../../media/Figure7-5.png" mime-type="image/png"/></media>
+    </figure>
+
+    <para id="para3">
+      These analog information signals are bandlimited.  Therefore, if
+      sampled faster than the Nyquist rate, they can be reconstructed
+      from their sample values.
+    </para>
+
+    <example id="example1">
+      <para id="para4">
+	A speech signal with bandwidth of 3100 Hz can be sampled at
+	the rate of 6.2 kHz.  If the samples are quantized with a 8
+	level quantizer then the speech signal can be represented with
+	a binary sequence with the rate of
+	<equation id="eq01">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:times/>
+		<m:cn type="e-notation">6.2<m:sep/>3</m:cn>
+		<m:apply>
+		  <m:log/>
+		  <m:logbase>
+		    <m:cn>2</m:cn>
+		  </m:logbase>
+		  <m:cn>8</m:cn>
+		</m:apply>
+              </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>18600</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>bits</m:ci>
+		  <m:ci>sample</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>samples</m:ci>
+		  <m:ci>sec</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>18.6</m:cn>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>kbits</m:ci>
+		  <m:ci>sec</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </para>
+      
+      <figure id="fig2">
+	<media id="idm8643504" alt=""><image src="../../media/Figure7-6.png" mime-type="image/png"/></media>
+      </figure>
+      
+      <para id="para5">
+	The sampled real values can be quantized to create a discrete-time
+	discrete-valued random process.  Since any bandlimited analog
+	information signal can be converted to a sequence of discrete
+	random variables, we will continue the discussion only for discrete
+	random variables.
+      </para>
+    </example>
+    
+    <example id="example2">
+      <para id="para6">
+	The random variable
+	<m:math display="inline"><m:ci type="vector">x</m:ci></m:math>
+	takes the value of 0 with probability 0.9 and the value of 1 with
+	probability 0.1.  The statement that 
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">x</m:ci>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+	carries more information than the statement that
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">x</m:ci>
+            <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>.
+	The reason is that
+	<m:math display="inline"><m:ci type="vector">x</m:ci></m:math>
+	is expected to be 0, therefore, knowing that
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">x</m:ci>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+	is more surprising news!!  An intuitive definition of
+	information measure should be larger when the probability is
+	small.
+      </para>
+    </example>
+    
+    <example id="example3">
+      <para id="para7">
+	The information content in the statement about the temperature
+	and pollution level on July 15th in Chicago should be the sum
+	of the information that July 15th in Chicago was hot and
+	highly polluted since pollution and temperature could be
+	independent.
+	<equation id="eq02">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">I</m:ci>
+                <m:ci>hot</m:ci>
+                <m:ci>high</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:plus/>
+		<m:apply>
+		  <m:ci type="fn">I</m:ci>
+		  <m:ci>hot</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">I</m:ci>
+		  <m:ci>high</m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </para>
+    </example>
+
+    <para id="para8">
+      An intuitive and meaningful measure of information should have
+      the following properties:
+      <list id="list2" list-type="enumerated">
+        <item>
+	  Self information should decrease with increasing probability.
+        </item>
+        <item>
+	  Self information of two independent events should be their
+          sum.
+        </item>
+        <item>
+	  Self information should be a continuous function of the
+          probability.
+        </item>
+      </list>
+      The only function satisfying the above conditions is the -log of
+      the probability.
+    </para>
+    
+    <definition id="def1">
+      <term>Entropy</term>
+
+      <meaning id="idp49600">
+	The entropy (average self information) of a discrete random
+	variable <m:math><m:ci>X</m:ci></m:math> is a function of its
+	probability mass function and is defined as
+	<equation id="eq03">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">H</m:ci>
+                <m:ci>X</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>N</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+		      <m:bvar>
+			<m:ci>X</m:ci>
+		      </m:bvar>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>x</m:mi>
+			  <m:mi>i</m:mi>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+		      <m:bvar>
+			<m:ci>X</m:ci>
+		      </m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where <m:math><m:ci>N</m:ci></m:math> is the number of
+	possible values of <m:math><m:ci>X</m:ci></m:math> and
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+	      <m:bvar>
+		<m:ci>X</m:ci>
+	      </m:bvar>
+              <m:ci>
+                <m:msub>
+                  <m:mi>x</m:mi>
+                  <m:mi>i</m:mi>
+                </m:msub>
+              </m:ci>
+            </m:apply>
+            <m:apply>
+              <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+              <m:apply>
+                <m:eq/>
+		<m:ci>X</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>x</m:mi>
+		    <m:mi>i</m:mi>
+		  </m:msub>
+		</m:ci>
+              </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>.  If log is base 2 then the unit of entropy is bits.
+	Entropy is a measure of uncertainty in a random variable and a
+	measure of information it can reveal.
+      </meaning>
+
+      <meaning id="idm8090384">
+	A more basic explanation of entropy is provided in
+	<link document="m0070" strength="2">another module</link>.
+      </meaning>
+    </definition>
+
+    <example id="example4">
+      <para id="para9">
+	If a source produces binary information 
+	<m:math display="inline">
+	  <m:set>
+	    <m:cn>0</m:cn>
+	    <m:cn>1</m:cn>
+	  </m:set>
+	</m:math>
+	with probabilities
+	<m:math display="inline"><m:ci>p</m:ci></m:math>
+	and
+	<m:math display="inline">
+	  <m:apply>
+	    <m:minus/>
+            <m:cn>1</m:cn>
+            <m:ci>p</m:ci>
+	  </m:apply>
+	</m:math>.
+	The entropy of the source is
+	<equation id="eq04">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">H</m:ci>
+                <m:ci>X</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>p</m:ci>
+		    <m:apply>
+		      <m:log/>
+		      <m:logbase>
+			<m:cn>2</m:cn>
+		      </m:logbase>
+		      <m:ci>p</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:cn>1</m:cn>
+		    <m:ci>p</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:minus/>
+		      <m:cn>1</m:cn>
+		      <m:ci>p</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	If
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+            <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+	then
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>X</m:ci>
+            </m:apply>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>,
+	if
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+	then
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>X</m:ci>
+            </m:apply>
+            <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>,
+	if
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+	    <m:cn type="rational">1<m:sep/>2</m:cn>
+	  </m:apply>
+	</m:math>
+	then
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>X</m:ci>
+            </m:apply>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math> bits.
+	The source has its largest entropy if
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+	    <m:cn type="rational">1<m:sep/>2</m:cn>
+	  </m:apply>
+	</m:math>
+	and the source provides no new information if
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+            <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+	or
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>p</m:ci>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+      <figure id="fig3">
+	<media id="idp864752" alt=""><image src="../../media/Figure7-10.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+    <example id="example5">
+      <para id="para10">
+	An analog source is modeled as a continuous-time random
+	process with power spectral density bandlimited to the band
+	between 0 and 4000 Hz.  The signal is sampled at the Nyquist
+	rate.  The sequence of random variables, as a result of
+	sampling, are assumed to be independent.  The samples are
+	quantized to 5 levels
+	<m:math display="inline">
+	  <m:set>
+	    <m:cn>-2</m:cn>
+	    <m:cn>-1</m:cn>
+	    <m:cn>0</m:cn>
+	    <m:cn>1</m:cn>
+	    <m:cn>2</m:cn>
+	  </m:set>
+	</m:math>.
+	The probability of the samples taking the quantized values are
+	<m:math display="inline">
+	  <m:set>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>2</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>4</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>8</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>16</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn>
+              <m:cn>16</m:cn>
+	    </m:apply>
+	  </m:set>
+	</m:math>,
+	respectively.  The entropy of the random variables are
+	<equation id="eq05">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">H</m:ci>
+                <m:ci>X</m:ci>
+              </m:apply>
+
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:minus/>
+		      
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:times/>
+                          <m:apply>
+                            <m:divide/>
+			    <m:cn>1</m:cn>
+			    <m:cn>2</m:cn>
+                          </m:apply>
+                          <m:apply>
+                            <m:log/>
+			    <m:logbase>
+			      <m:cn>2</m:cn>
+			    </m:logbase>
+			    <m:apply>
+			      <m:divide/>
+			      <m:cn>1</m:cn>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+                          </m:apply>
+			</m:apply>
+		      </m:apply>
+
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:divide/>
+                          <m:cn>1</m:cn>
+                          <m:cn>4</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:log/> 
+			  <m:logbase>
+                            <m:cn>2</m:cn>
+                          </m:logbase>
+                          <m:apply>
+                            <m:divide/>
+			    <m:cn>1</m:cn>
+			    <m:cn>4</m:cn>
+                          </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+
+		    <m:apply>
+		      <m:times/>
+                      <m:apply>
+                        <m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>8</m:cn>
+                      </m:apply>
+                      <m:apply>
+                        <m:log/> 
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:apply>
+			  <m:divide/>
+			  <m:cn>1</m:cn>
+			  <m:cn>8</m:cn>
+			</m:apply>
+                      </m:apply>
+		    </m:apply>
+		  </m:apply>
+
+                  <m:apply>
+                    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>16</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:log/> 
+		      <m:logbase>
+			<m:cn>2</m:cn>
+		      </m:logbase>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>16</m:cn>
+		      </m:apply>
+		    </m:apply>
+                  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>16</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/> 
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>16</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply> 
+              </m:apply>
+
+              <m:apply>
+                <m:plus/>
+		
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase> 
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>4</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>	    
+		    <m:cn>4</m:cn>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>8</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:cn>8</m:cn>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>16</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:cn>16</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>16</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:cn>16</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    
+	    <m:apply>
+                <m:plus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>3</m:cn>
+		  <m:cn>8</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>4</m:cn>
+		  <m:cn>8</m:cn>
+		</m:apply>
+              </m:apply>
+	    <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>15</m:cn>
+		  <m:cn>8</m:cn>
+		</m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>bits</m:ci>
+		<m:ci>sample</m:ci>
+	      </m:apply>
+              </m:apply>
+	  </m:apply>
+	  </m:math>
+	</equation>
+
+	There are 8000 samples per second.  Therefore, the source
+	produces
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:times/>
+	      <m:cn>8000</m:cn>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>15</m:cn>
+		<m:cn>8</m:cn>
+	      </m:apply>
+            </m:apply>
+	  <m:apply>
+	    <m:times/>
+            <m:cn>15000</m:cn>
+	    <m:apply>
+	      <m:divide/>
+	      <m:ci>bits</m:ci>
+	      <m:ci>sec</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:apply>
+      </m:math> of information.
+      </para>
+    </example>
+    
+    <definition id="def2">
+      <term>Joint Entropy</term>
+      <meaning id="idp2162720">
+	The joint entropy of two discrete random variables
+	(<m:math><m:ci>X</m:ci></m:math>,
+	<m:math><m:ci>Y</m:ci></m:math>) is defined by
+	<equation id="eq08">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">H</m:ci>
+                <m:ci>X</m:ci>
+                <m:ci>Y</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>i</m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar>
+		      <m:ci>j</m:ci>
+		    </m:bvar>
+		    <m:domainofapplication>
+		      <m:ci>j</m:ci>
+		    </m:domainofapplication>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			<m:bvar>
+			  <m:ci>X</m:ci>
+			</m:bvar>
+			<m:bvar>
+			  <m:ci>Y</m:ci>
+			</m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>y</m:mi>
+			    <m:mi>j</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:apply>
+			  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			  <m:bvar>
+			    <m:ci>X</m:ci>
+			  </m:bvar>
+			  <m:bvar>
+			    <m:ci>Y</m:ci>
+			  </m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mi>i</m:mi>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>y</m:mi>
+			      <m:mi>j</m:mi>
+			    </m:msub>
+		   	  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </meaning>
+    </definition>
+
+    <para id="para11">
+      The joint entropy for a random vector
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci type="vector">X</m:ci>
+          <m:vector>
+            <m:ci>
+              <m:msub>
+                <m:mi>X</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>
+              <m:msub>
+                <m:mi>X</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>…</m:ci>
+            <m:ci>
+              <m:msub>
+                <m:mi>X</m:mi>
+                <m:mi>n</m:mi>
+              </m:msub>
+            </m:ci>
+          </m:vector>
+	</m:apply>
+      </m:math> is defined as
+      <equation id="eq09">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci type="vector">X</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar>
+		  <m:ci> 
+		    <m:msub>
+		      <m:mi>x</m:mi> 
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:domainofapplication>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>x</m:mi> 
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		</m:domainofapplication>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>x</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>x</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>…</m:ci>
+		    <m:apply>
+		      <m:sum/>
+		      <m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>n</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:bvar>
+		      <m:domainofapplication>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>n</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:domainofapplication>
+		      <m:apply>
+			<m:times/>
+<!-- is this a probability density function?-->
+			<m:apply>
+			  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			  <m:bvar>
+			    <m:ci type="vector">X</m:ci>
+			  </m:bvar>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>…</m:ci>
+			  <m:ci>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mi>n</m:mi>
+			    </m:msub>
+			  </m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:log/>
+			  <m:apply>
+			    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			    <m:bvar>
+			      <m:ci type="vector">X</m:ci>
+			    </m:bvar>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>1</m:mn>
+			      </m:msub>
+			    </m:ci>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mn>2</m:mn>
+			      </m:msub>
+			    </m:ci>
+			    <m:ci>…</m:ci>
+			    <m:ci>
+			      <m:msub>
+				<m:mi>x</m:mi>
+				<m:mi>n</m:mi>
+			      </m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>
+
+    <definition id="def3">
+      <term>Conditional Entropy</term>
+      <meaning id="idp1387952">
+	The conditional entropy of the random variable
+	<m:math><m:ci>X</m:ci></m:math> given the random variable
+	<m:math><m:ci>Y</m:ci></m:math> is defined by
+
+	<equation id="eq10">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci><m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mo>|</m:mo>
+		  <m:mi>Y</m:mi>
+		</m:mrow></m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>i</m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar>
+		      <m:ci>j</m:ci>
+		    </m:bvar>
+		    <m:domainofapplication>
+		      <m:ci>j</m:ci>
+		    </m:domainofapplication>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#pdf">p</m:csymbol>
+			<m:bvar>
+			  <m:ci>X</m:ci>
+			</m:bvar>
+			<m:bvar>
+			  <m:ci>Y</m:ci>
+			</m:bvar>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>y</m:mi>
+			    <m:mi>j</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub>
+			      <m:mi>p</m:mi>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mo>|</m:mo>
+				<m:mi>Y</m:mi>
+			      </m:mrow>
+			    </m:msub>
+			  </m:ci>
+			<m:ci><m:mrow>
+			    <m:msub>
+			      <m:mi>x</m:mi>
+			      <m:mi>i</m:mi>
+			    </m:msub>
+			    <m:mo>|</m:mo>
+			    <m:msub>
+			      <m:mi>y</m:mi>
+			      <m:mi>j</m:mi>
+			    </m:msub>
+			  </m:mrow></m:ci>
+		      </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	  </m:math>
+	</equation>
+      </meaning>
+
+    </definition>
+
+    <para id="para12">
+      It is easy to show that
+
+      <equation id="eq11">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci type="vector">X</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		    <m:mo>|</m:mo>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+	      <m:ci>…</m:ci>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		    <m:mo>|</m:mo>
+		  <m:mrow>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		    <m:mi>…</m:mi>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>n-1</m:mi>
+		    </m:msub>
+		  </m:mrow>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      and
+      <equation id="eq12">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>X</m:ci>
+              <m:ci>Y</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>Y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>Y</m:mi>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:mrow>
+		    <m:mi>Y</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      If
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      …,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>n</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      are mutually independent it is easy to show that
+      <equation id="eq13">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci type="vector">X</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:sum/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>n</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mi>i</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <definition id="def4">
+      <term>Entropy Rate</term>
+      <meaning id="idp424672">
+	The entropy rate of a stationary discrete-time random process
+	is defined by
+	<equation id="eq14">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>H</m:ci>
+              <m:apply>
+                <m:limit/>
+		<m:bvar>
+		  <m:ci>n</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:infinity/>
+		</m:lowlimit>
+		<m:apply>
+		  <m:ci type="fn">H</m:ci>
+		  <m:ci>
+		    <m:mrow>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mi>n</m:mi>
+		      </m:msub>
+		      <m:mo>|</m:mo>
+		    <m:mrow>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		      <m:mi>…</m:mi>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mi>n</m:mi>
+		      </m:msub>
+		    </m:mrow>
+		    </m:mrow>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	The limit exists and is equal to
+	<equation id="eq15">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>H</m:ci>
+              <m:apply>
+                <m:limit/>
+		<m:bvar>
+		  <m:ci>n</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:infinity/>
+		</m:lowlimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>…</m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>X</m:mi>
+			<m:mi>n</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	The entropy rate is a measure of the uncertainty of
+	information content per output symbol of the source.
+      </meaning>
+
+    </definition>
+
+    <para id="para13">
+      Entropy is closely tied to <link document="m10175" strength="2">source coding</link>.  The extent to which a
+	source can be compressed is related to its entropy.  In 1948,
+	Claude E. Shannon introduced a theorem which related the
+	entropy to the number of bits per second required to represent
+	a source without much loss.
+    </para>
+
+  </content>
+</document>

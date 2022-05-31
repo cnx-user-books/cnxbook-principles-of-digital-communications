@@ -1,0 +1,120 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Convolutional Codes</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>788e5931-031f-4c9d-958e-f937c3c34a0b</md:uuid>
+</metadata>
+
+  <content>
+
+    <para id="para">
+      Convolutional codes are one type of code used for 
+      <link document="m10174">channel coding</link>.
+      Another type of code used is
+      <link document="m10174" target-id="s1">block coding</link>.
+    </para>
+
+    <section id="s1">
+      <title>Convolutional codes</title>
+
+      <para id="para0">
+	In convolutional codes, each block of
+	<m:math><m:ci>k</m:ci></m:math> bits is mapped into a block of
+	<m:math><m:ci>n</m:ci></m:math> bits but these
+	<m:math><m:ci>n</m:ci></m:math> bits are not only determined
+	by the present <m:math><m:ci>k</m:ci></m:math> information
+	bits but also by the previous information bits. This
+	dependence can be captured by a finite state machine.
+      </para>
+
+      <example id="example1">
+	<para id="para1">
+	  A rate
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:divide/>
+              <m:cn>1</m:cn> 
+             <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math>
+	  convolutional coder
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>k</m:ci>
+              <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>,
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>n</m:ci>
+              <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math>
+	  with memory length 2 and constraint length 3.
+	</para>
+
+	<figure id="fig1">
+	  <media id="idp9836880" alt=""><image src="../../media/Figure7-55.png" mime-type="image/png"/></media>
+	</figure>
+
+	<para id="para2">
+	  Since the length of the shift register is 2, there are 4
+	  different rates.  The behavior of the convolutional coder
+	  can be captured by a 4 state machine. States: <code display="inline">00,
+	  01, 10, 11</code>,
+	</para>
+
+	<para id="para3">
+	  For example, arrival of information bit
+	  <code display="inline">0</code> transitions from state
+	  <code display="inline">10</code> to state <code display="inline">01</code>.
+	</para>
+
+	<para id="para4">
+	  The encoding and the decoding process can be realized in
+	  trellis structure.
+	</para>
+
+	<figure id="fig2">
+	  <media id="idp10476912" alt=""><image src="../../media/Figure7-56.png" mime-type="image/png"/></media>
+	</figure>
+
+	<para id="para5">
+	  If the input sequence is
+	</para>
+	<code display="block" id="idp723936">     1 1 0 0</code>
+	<para id="para5a">
+	  the output sequence would be
+	</para>
+	<code display="block" id="idp10556128">     11 10 10 11</code>
+	<para id="para5b">
+	  The transmitted codeword is then <code display="inline">11 10 10
+	    11</code>.  If there is one error on the channel
+	  <code display="inline">11 <emphasis>0</emphasis>0 10 11</code>
+	</para>
+
+	<figure id="fig3">
+	  <media id="idp10172624" alt=""><image src="../../media/Figure7-57.png" mime-type="image/png"/></media>
+	</figure>
+
+	<para id="para6">
+	  Starting from state <code display="inline">00</code> the Hamming
+	  distance between the possible paths and the received
+	  sequence is measured.  At the end, the path with minimum
+	  distance to the received sequence is chosen as the correct
+	  trellis path.  The information sequence will then be
+	  determined.
+	</para>
+
+      </example>
+
+      <para id="para7">
+	Convolutional coding lends itself to very efficient trellis
+	based encoding and decoding.  They are very practical and
+	powerful codes.
+      </para>
+    </section>
+
+  </content>
+</document>

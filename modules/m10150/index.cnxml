@@ -1,0 +1,718 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Examples with Matched Filters</title>
+
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>113e71af-0ce3-4742-9149-e0cdf30c2b25</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para0">
+      The theory and rationale behind matched filter receivers can be
+      found in <link document="m10101">Matched Filters</link>.
+    </para>
+
+    <example id="example1">
+      <figure id="fig1">
+	<media id="idm933088" alt=""><image src="../../media/Figure4-27_1.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para1">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> for 
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <para id="para2">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>s</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math> for 
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <para id="para3">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:ci>T</m:ci>
+	      <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math> for
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <para id="para4">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>t</m:ci>
+            </m:apply>
+            <m:apply>
+              <m:plus/>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>T</m:ci>
+	      </m:apply>
+	      <m:ci>t</m:ci>
+            </m:apply>
+	  </m:apply>
+	</m:math> for 
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+
+      </para>
+
+      <figure id="fig2">
+	<media id="idm10530192" alt=""><image src="../../media/Figure4-27_2.png" mime-type="image/png"/></media>
+      </figure>
+
+      <para id="para5">	
+	<equation id="eq01">
+	  <m:math>
+	    <m:apply>
+	      <m:forall/>
+	      <m:bvar><m:ci>t</m:ci></m:bvar>
+	      <m:condition>
+		<m:apply>
+		  <m:leq/>
+		  <m:cn>0</m:cn>
+		  <m:ci>t</m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:condition>
+
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:mover>
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		      <m:mo>˜</m:mo>
+		    </m:mover>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>τ</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>s</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>h</m:mi>
+			  <m:mn>1</m:mn>
+			</m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>t</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	<equation id="breakup">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:mover>
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		    <m:mo>˜</m:mo>
+		  </m:mover>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>τ</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>t</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>τ</m:ci>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>T</m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    <m:apply>
+	      <m:plus/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#evaluateat"/>
+		<m:interval>
+		  <m:cn>0</m:cn>
+		  <m:ci>t</m:ci>
+		</m:interval>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>T</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>τ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#evaluateat"/>
+		<m:interval>
+		  <m:cn>0</m:cn>
+		  <m:ci>t</m:ci>
+		</m:interval>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>3</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>τ</m:ci>
+		    <m:cn>3</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>t</m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>T</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>t</m:ci>
+		  <m:cn>3</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	  </m:math>
+	</equation>
+	
+
+	<equation id="eq03">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+		  <m:mover>
+		    <m:msub>
+                      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		    <m:mo>˜</m:mo>
+		  </m:mover>
+                </m:ci>
+                <m:ci>T</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:divide/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>T</m:ci>
+		  <m:cn>3</m:cn>
+		</m:apply>
+		<m:cn>3</m:cn>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+
+      <para id="para6">
+	Compared to the correlator-type demodulation
+
+	<equation id="eq04">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">
+                  <m:msub>
+                    <m:mi>ψ</m:mi>
+                    <m:mn>1</m:mn>
+                  </m:msub>
+                </m:ci>
+                <m:ci>t</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:divide/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>s</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>E</m:mi>
+		      <m:mi>s</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq05">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>s</m:mi>
+		  <m:mn>11</m:mn>
+		</m:msub>
+	      </m:ci>
+              <m:apply>
+                <m:int/>
+		<m:bvar>
+		  <m:ci>τ</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>T</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>ψ</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq06">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:int/>
+		<m:bvar>
+		  <m:ci>τ</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>t</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>s</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>ψ</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>E</m:mi>
+			<m:mi>s</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>τ</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>t</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>τ</m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>E</m:mi>
+			<m:mi>s</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>3</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>t</m:ci>
+		  <m:cn>3</m:cn>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+
+      <figure id="fig3">
+	<media id="idm370064" alt=""><image src="../../media/Figure4-28.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+    <example id="example2">
+      <para id="para7">
+	Assume binary data is transmitted at the rate of
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:ci>T</m:ci>
+	  </m:apply> 
+	</m:math> Hertz.
+      </para>
+
+      <para id="para8">
+	<m:math>
+	  <m:apply>
+	    <m:implies/>
+            <m:apply>
+              <m:implies/>
+	      <m:cn>0</m:cn>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>b</m:ci>
+		<m:cn>1</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">s</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math> for
+	
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <para id="para9">
+	<m:math>
+	  <m:apply>
+	    <m:implies/>
+            <m:apply>
+              <m:implies/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>b</m:ci>
+		<m:cn>-1</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>s</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">s</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+	  for  
+	<m:math>
+	  <m:apply>
+	    <m:leq/>
+            <m:cn>0</m:cn>
+            <m:ci>t</m:ci>
+            <m:ci>T</m:ci>
+	  </m:apply>
+	</m:math>
+
+	<equation id="eq17">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>t</m:mi>
+                </m:msub>
+              </m:ci>
+              <m:apply>
+                <m:sum/>
+		<m:bvar>
+		  <m:ci>i</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>P</m:ci>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>P</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>b</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">s</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>t</m:ci>
+		      <m:apply>
+			<m:times/>
+			<m:ci>i</m:ci>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+
+      <figure id="fig4">
+	<media id="idm10818800" alt=""><image src="../../media/Figure4-29.png" mime-type="image/png"/></media>
+      </figure>
+
+    </example>
+
+  </content>
+</document>

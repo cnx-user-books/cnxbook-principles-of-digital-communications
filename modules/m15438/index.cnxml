@@ -1,0 +1,11 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+	<title>Resources</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>454670b0-4266-4aba-918c-9492b0a9dbef</md:uuid>
+</metadata>
+	<content>
+		<para id="id5589706"><term>Connexions</term>:
+	<link url="http://cnx.org/">http://cnx.org/</link></para><para id="id5589720"><term>MIT’s OpenCourseWare</term>:
+	<link url="http://ocw.mit.edu/index.html">http://ocw.mit.edu/index.html</link></para><para id="id5589734"><term>Computer resource</term>: Matlab and Simulink</para><para id="id5589390"><term>Textbook(s)</term>:</para><para id="id5589395">Required:</para>
+		<para id="id5589399">[1] Bernard Sklar, <emphasis>Digital Communications: Fundamentals and Applications</emphasis>, 2nd edition, 2001, Prentice Hall.</para><para id="id5589414">Recommended:</para>
+		<para id="id5589418">[2] John Proakis, <emphasis>Digital Communications</emphasis>, 4th edition, 2001, McGraw-Hill.</para><para id="id5589433">[3] Bruce Carlson et al., <emphasis>Communication Systems: An Introduction to Signals and Noise in Electrical Communication</emphasis>, 4th edition, 2001, McGraw-Hill.</para><para id="id5589449">[4] Rogger E. Ziemer, Roger W. Peterson, <emphasis>Introduction to Digital Communication</emphasis>, 2nd edition, 2000, Prenctice Hall.</para></content>
+</document>

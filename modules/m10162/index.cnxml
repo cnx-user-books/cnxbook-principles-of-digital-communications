@@ -1,0 +1,67 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+    <title>Information Theory and Coding</title>
+
+    <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>34a80bf1-167a-4d6b-8b83-310c434ebfe6</md:uuid>
+</metadata>
+
+    <content>
+      <para id="para1">
+	In the previous chapters, we considered the problem of digital
+	transmission over different channels.  Information sources are
+	not often digital, and in fact, many sources are
+	analog. Although many channels are also analog, it is still more
+	efficient to convert analog sources into digital data and
+	transmit over analog channels using digital transmission
+	techniques.  There are two reasons why digital transmission
+	could be more efficient and more reliable than analog
+	transmission:
+	<list id="list1" list-type="enumerated">
+	  <item>
+	    Analog sources could be compressed to digital form
+	    efficiently.
+	  </item>
+	  <item>
+	    Digital data can be transmitted over noisy channels
+	    reliably.
+	  </item>
+	</list>
+	There are several key questions that need to be addressed:
+	<list id="list2" list-type="enumerated">
+	  <item>How can one model information?</item>
+	  <item>How can one quantify information?</item>
+	  <item>
+	    If information can be measured, does its information
+	    quantity relate to how much it can be compressed?
+	  </item>
+	  <item>
+	    Is it possible to determine if a particular channel can
+	    handle transmission of a source with a particular
+	    information quantity?
+	  </item>
+	</list>
+      </para>
+
+      <figure id="fig1">
+	<media id="idp1023632" alt=""><image src="../../media/Figure7-2.png" mime-type="image/png"/></media>
+      </figure>
+
+      <example id="example1">
+	<para id="para2">
+	  The information content of the following sentences: "Hello,
+	  hello, hello." and "There is an exam today." are not the
+	  same.  Clearly the second one carries more information.  The
+	  first one can be compressed to "Hello" without much loss of
+	  information.
+	</para>
+      </example>
+
+      <para id="para3">
+	In other modules, we will quantify information and find
+	efficient representation of information (<link document="m10164">Entropy</link>).  We will also quantify
+	<link document="m10173">how much </link> information can be
+	transmitted through channels, reliably.  <link document="m10174">Channel coding</link> can be used to reduce
+	information rate and increase reliability.
+      </para>
+
+    </content>
+  </document>

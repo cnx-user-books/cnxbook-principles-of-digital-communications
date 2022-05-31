@@ -1,0 +1,1422 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Source Coding</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>5466c2b4-e57a-4734-9af0-3682659ce95a</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      As mentioned earlier, how much a source can be compressed should
+      be related to its <link document="m10164" strength="2">entropy</link>.  In 1948, Claude E. Shannon
+      introduced three theorems and developed very rigorous
+      mathematics for digital communications.  In one of the three
+      theorems, Shannon relates entropy to the minimum number of bits
+      per second required to represent a source without much loss (or
+      distortion).
+    </para>
+
+    <para id="para2">
+      Consider a source that is modeled by a discrete-time and discrete-valued
+      random process 
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      …,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>n</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      …
+      where
+      <m:math display="inline">
+	<m:apply>
+	  <m:in/>
+          <m:ci>
+            <m:msub>
+              <m:mi>x</m:mi>
+              <m:mi>i</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:set>
+            <m:ci>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+            </m:ci>
+            <m:ci>…</m:ci>
+            <m:ci>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>N</m:mi>
+              </m:msub>
+            </m:ci>
+          </m:set>
+	</m:apply>
+      </m:math>
+
+      and define
+
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:apply>
+            <m:ci type="fn">
+              <m:msub>
+                <m:mi>p</m:mi>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>i</m:mi>
+                </m:msub>
+              </m:msub>
+            </m:ci>
+            <m:apply>
+              <m:eq/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>x</m:mi>
+		  <m:mi>i</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mi>j</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+          </m:apply>
+          <m:ci>
+            <m:msub>
+              <m:mi>p</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      for
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci>j</m:ci>
+          <m:ci>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>,</m:mi>
+              <m:mn>2</m:mn>
+              <m:mi>,</m:mi>
+              <m:mi>…</m:mi>
+              <m:mi>,</m:mi>
+              <m:mi>N</m:mi>
+            </m:mrow>
+          </m:ci>
+	</m:apply>
+      </m:math>,
+      where it is assumed that
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,…
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>n</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      are mutually independent and identically distributed.
+    </para>
+
+    <para id="para3">
+      Consider a sequence of length <m:math><m:ci>n</m:ci></m:math>
+      <equation id="eq01">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">X</m:ci>
+            <m:vector>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msub>
+              </m:ci>
+              <m:ci>⋮</m:ci>
+              <m:ci>
+                <m:msub>
+                  <m:mi>X</m:mi>
+                  <m:mi>n</m:mi>
+                </m:msub>
+              </m:ci>
+            </m:vector>
+	  </m:apply>
+	</m:math>
+      </equation>
+      The symbol
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>a</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      can occur with probability
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>p</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>.  Therefore, in a sequence of length
+      <m:math><m:ci>n</m:ci></m:math>, on the average,
+      <m:math>
+	<m:ci>
+	  <m:msub>
+	    <m:mi>a</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math> will appear
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:ci>
+            <m:msub>
+              <m:mi>p</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      times with high probabilities if <m:math><m:ci>n</m:ci></m:math>
+      is very large.
+    </para>
+
+    <para id="para4">
+      Therefore,
+      <equation id="eq02">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">P</m:ci>
+              <m:apply>
+                <m:eq/>
+		<m:ci type="vector">X</m:ci>
+		<m:ci type="vector">x</m:ci>
+              </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>p</m:mi>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>x</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>p</m:mi>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>x</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:ci>…</m:ci>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>p</m:mi>
+		    <m:msub>
+		      <m:mi>X</m:mi>
+		      <m:mi>n</m:mi>
+		    </m:msub>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>x</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub>
+		</m:ci>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      <equation id="eq03">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:approx/>
+	      <m:apply>
+		<m:ci type="fn">P</m:ci>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci type="vector">X</m:ci>
+		  <m:ci type="vector">x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mn>1</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mn>2</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply> 
+		<m:ci>…</m:ci>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>N</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mi>N</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:product/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>N</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>p</m:mi>
+		    <m:mi>i</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci>
+            <m:msub>
+              <m:mi>p</m:mi>
+              <m:mi>i</m:mi>
+            </m:msub>
+          </m:ci>
+          <m:apply>
+            <m:ci type="fn">P</m:ci>
+            <m:apply>
+              <m:eq/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>X</m:mi>
+		  <m:mi>j</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mi>i</m:mi>
+		</m:msub>
+	      </m:ci>
+            </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      for all <m:math><m:ci>j</m:ci></m:math> and for all
+      <m:math><m:ci>i</m:ci></m:math>.
+
+    </para>
+
+    <para id="para5">
+      A typical sequence
+      <m:math display="inline">
+	<m:ci type="vector">X</m:ci>
+      </m:math>
+      may look like
+      <equation id="eq20">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci type="vector">X</m:ci>
+	    <m:vector> 
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mi>N</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>2</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>5</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>1</m:mn>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>⋮</m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mi>N</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>a</m:mi>
+		  <m:mn>6</m:mn>
+		</m:msub>
+	      </m:ci>
+	    </m:vector>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>a</m:mi>
+	    <m:mi>i</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      appears
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:ci>
+            <m:msub>
+              <m:mi>p</m:mi>
+              <m:mi>i</m:mi>
+            </m:msub>
+          </m:ci>
+	</m:apply>
+      </m:math>
+      times with large probability.  This is referred to as a <term>typical
+	sequence</term>.  The probability of 
+      <m:math display="inline">
+	<m:ci type="vector">X</m:ci>
+      </m:math>
+      being a typical sequence is
+      <equation id="eq06">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:approx/>
+	      <m:apply>
+		<m:ci type="fn">P</m:ci>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci type="vector">X</m:ci>
+		  <m:ci type="vector">x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:product/>
+		<m:bvar>
+		  <m:ci>i</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>N</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:product/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>N</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:apply>
+		  <m:power/>
+		  <m:cn>2</m:cn>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	    <m:apply>
+              <m:product/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>N</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:log/>
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:power/>
+	      <m:cn>2</m:cn>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>N</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>p</m:mi>
+			<m:mi>i</m:mi>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:log/>
+		      <m:logbase>
+			<m:cn>2</m:cn>
+		      </m:logbase>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>p</m:mi>
+			  <m:mi>i</m:mi>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	    <m:apply>
+              <m:power/>
+	      <m:cn>2</m:cn>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>n</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where 
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>X</m:ci>
+	</m:apply>
+      </m:math>
+      is the entropy of the random variables
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>,…,
+      <m:math display="inline">
+	<m:ci>
+	  <m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mi>n</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math>.
+    </para>
+
+    <para id="para6">
+      For large <m:math><m:ci>n</m:ci></m:math>, almost all the output
+      sequences of length <m:math><m:ci>n</m:ci></m:math> of the
+      source are equally probably with
+      <m:math display="inline">
+	<m:apply>
+	  <m:approx/>
+          <m:ci>probability</m:ci>
+          <m:apply>
+            <m:power/>
+	    <m:cn>2</m:cn>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:apply>
+		  <m:ci type="fn">H</m:ci>
+		  <m:ci>X</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>.
+      These are typical sequences. The probability of nontypical sequences are
+      negligible.  There are
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:ci>N</m:ci>
+          <m:ci>n</m:ci>
+	</m:apply>
+      </m:math>
+      different sequences of length <m:math><m:ci>n</m:ci></m:math>
+      with alphabet of size <m:math><m:ci>N</m:ci></m:math>.  The
+      probability of typical sequences is almost 1.
+      <equation id="eq09">
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:sum/>
+	      <m:bvar>
+		<m:ci>k</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci># of typical seq.</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>n</m:ci>
+		    <m:apply>
+		      <m:ci type="fn">H</m:ci>
+		      <m:ci>X</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+            </m:apply>
+            <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>
+
+    <figure id="fig1">
+      <media id="idp1000336" alt=""><image src="../../media/Figure7-17.png" mime-type="image/png"/></media>
+    </figure>
+
+    <example id="example1">
+
+      <para id="para7">
+	Consider a source with alphabet {A,B,C,D} with probabilities {
+	<m:math display="inline">
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>,
+	<m:math display="inline">
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:cn>4</m:cn>
+	  </m:apply>
+	</m:math>,
+	<m:math display="inline">
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:cn>8</m:cn>
+	  </m:apply>
+	</m:math>,
+	<m:math display="inline">
+	  <m:apply>
+	    <m:divide/>
+            <m:cn>1</m:cn>
+            <m:cn>8</m:cn>
+	  </m:apply>
+	</m:math>}.
+	Assume 
+	<m:math display="inline">
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mn>1</m:mn>
+	    </m:msub>
+	  </m:ci>
+	</m:math>,
+	<m:math display="inline">
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mn>2</m:mn>
+	    </m:msub>
+	  </m:ci>
+	</m:math>,…,
+	<m:math display="inline">
+	  <m:ci>
+	    <m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mn>8</m:mn>
+	    </m:msub>
+	  </m:ci>
+	</m:math>
+	is an independent and identically distributed sequence with
+	<m:math display="inline">
+	  <m:apply>
+	    <m:in/>
+            <m:ci>
+              <m:msub>
+                <m:mi>X</m:mi>
+                <m:mi>i</m:mi>
+              </m:msub>
+            </m:ci>
+            <m:set>
+              <m:ci>A</m:ci>
+              <m:ci>B</m:ci>
+              <m:ci>C</m:ci>
+              <m:ci>D</m:ci>
+            </m:set>
+	  </m:apply>
+	</m:math>
+	with the above probabilities.
+	<equation id="eq10">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:ci type="fn">H</m:ci>
+                <m:ci>X</m:ci>
+              </m:apply>
+              <m:apply>
+                <m:minus/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:divide/>
+			  <m:cn>1</m:cn>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:log/>
+			  <m:logbase>
+			    <m:cn>2</m:cn>
+			  </m:logbase>
+			  <m:apply>
+			    <m:divide/>
+			    <m:cn>1</m:cn>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>4</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:log/>
+			<m:logbase>
+			  <m:cn>2</m:cn>
+			</m:logbase>
+			<m:apply>
+			  <m:divide/>
+			  <m:cn>1</m:cn>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>8</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:log/>
+		      <m:logbase>
+			<m:cn>2</m:cn> 
+		      </m:logbase>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>8</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>8</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:log/> 
+		    <m:logbase>
+		      <m:cn>2</m:cn>
+		    </m:logbase>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>8</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+	      <m:apply>
+                <m:plus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>2</m:cn>
+		  <m:cn>4</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>3</m:cn>
+		  <m:cn>8</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>3</m:cn>
+		  <m:cn>8</m:cn>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:divide/>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>4</m:cn>
+		  <m:cn>4</m:cn>
+		  <m:cn>6</m:cn>
+		</m:apply>
+		<m:cn>8</m:cn>
+              </m:apply>
+              <m:apply>
+                <m:divide/>
+		<m:cn>14</m:cn>
+		<m:cn>8</m:cn>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+
+      <para id="para8">
+	The number of typical sequences of length 8
+	<equation id="eq12">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+              <m:apply>
+                <m:power/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>8</m:cn>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>14</m:cn>
+		    <m:cn>8</m:cn>
+		  </m:apply>
+		</m:apply>
+              </m:apply>
+              <m:apply>
+                <m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>14</m:cn>
+              </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+      </para>
+
+      <para id="para9">
+	The number of nontypical sequences
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:power/>
+		<m:cn>4</m:cn>
+		<m:cn>8</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>14</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:minus/>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>16</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>14</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>14</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>4</m:cn>
+		<m:cn>1</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:apply>
+              <m:times/>
+	      <m:cn>3</m:cn>
+	      <m:apply>
+		<m:power/>
+		<m:cn>2</m:cn>
+		<m:cn>14</m:cn>
+	      </m:apply>
+            </m:apply>
+	  </m:apply>
+	</m:math>
+      </para>
+
+      <para id="para10">
+	Examples of typical sequences include those with A appearing
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:times/>
+	      <m:cn>8</m:cn>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:cn>4</m:cn>
+	  </m:apply>
+	</m:math>
+	times, B appearing
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:times/>
+	      <m:cn>8</m:cn>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>4</m:cn>
+	      </m:apply>
+            </m:apply>
+            <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>
+	times, <foreign>etc.</foreign> {A,D,B,B,A,A,C,A},
+	{A,A,A,A,C,D,B,B} and much more.
+      </para>
+
+      <para id="para11">
+	Examples of nontypical sequences of length 8: {D,D,B,C,C,A,B,D},
+	{C,C,C,C,C,B,C,C} and much more.  Indeed, these definitions and
+	arguments are valid when n is very large.  The probability of a 
+	source output to be in the set of typical sequences is 1 when
+	<m:math display="inline">
+	  <m:apply>
+	    <m:tendsto/>
+            <m:ci>n</m:ci>
+            <m:infinity/>
+	  </m:apply>
+	</m:math>.
+	The probability of a source output to be in the set of nontypical
+	sequences approaches 0 as
+	<m:math display="inline">
+	  <m:apply>
+	    <m:tendsto/>
+            <m:ci>n</m:ci>
+            <m:infinity/>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+    </example>
+
+    <para id="para12">
+      The essence of source coding or data compression is that as
+      <m:math display="inline">
+	<m:apply>
+	  <m:tendsto/>
+          <m:ci>n</m:ci>
+          <m:infinity/>
+	</m:apply>
+      </m:math>, nontypical sequences never appear as the output of
+      the source.  Therefore, one only needs to be able to represent
+      typical sequences as binary codes and ignore nontypical
+      sequences. Since there are only
+      <m:math display="inline">
+	<m:apply>
+	  <m:power/>
+          <m:cn>2</m:cn>
+          <m:apply>
+            <m:times/>
+	    <m:ci>n</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci>X</m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      typical sequences of length <m:math><m:ci>n</m:ci></m:math>, it takes
+      <m:math display="inline">
+	<m:apply>
+	  <m:times/>
+          <m:ci>n</m:ci>
+          <m:apply>
+            <m:ci type="fn">H</m:ci>
+            <m:ci>X</m:ci>
+          </m:apply>
+	</m:apply>
+      </m:math>
+      bits to represent them on the average.  On the average it takes
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>X</m:ci>
+	</m:apply>
+      </m:math>
+      bits per source output to represent a simple source that produces
+      independent and identically distributed outputs.
+    </para>
+
+    <rule id="rule1" type="Theorem"><label>Theorem</label>
+<title>Shannon's Source-Coding</title>
+      <statement id="idp1877936">
+	<para id="para13">
+	  A source that produced independent and identically
+	  distributed random variables with entropy
+	  <m:math><m:ci>H</m:ci></m:math> can be encoded with
+	  arbitrarily small error probability at any rate
+	  <m:math><m:ci>R</m:ci></m:math> in bits per source output if
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:geq/>
+              <m:ci>R</m:ci>
+              <m:ci>H</m:ci>
+	    </m:apply>
+	  </m:math>.
+	  Conversely, if
+	  <m:math display="inline">
+	    <m:apply>
+	      <m:lt/>
+              <m:ci>R</m:ci>
+              <m:ci>H</m:ci>
+	    </m:apply>
+	  </m:math>,
+	  the error probability will be bounded away from zero, independent of
+	  the complexity of coder and decoder.
+	</para>
+      </statement>
+
+    </rule>
+
+    <para id="para14">
+      The source coding theorem proves existence of source coding techniques
+      that achieve rates close to the entropy but does not provide any
+      algorithms or ways to construct such codes.
+    </para>
+
+    <para id="para15">
+      If the source is not i.i.d. (independent and identically distributed),
+      but it is stationary with memory, then a similar theorem applies with 
+      the entropy
+      <m:math display="inline">
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>X</m:ci>
+	</m:apply>
+      </m:math>
+      replaced with the entropy rate
+      <m:math display="inline">
+	<m:apply>
+	  <m:eq/>
+          <m:ci>H</m:ci>
+          <m:apply>
+            <m:limit/>
+	    <m:bvar>
+	      <m:ci>n</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:infinity/>
+	    </m:lowlimit>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:ci>
+		<m:mrow>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mi>n</m:mi>
+		  </m:msub>
+		  <m:mi>|</m:mi>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>1</m:mn>
+		  </m:msub>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mn>2</m:mn>
+		  </m:msub>
+		  <m:mi>…</m:mi>
+		  <m:msub>
+		    <m:mi>X</m:mi>
+		    <m:mi>n-1</m:mi>
+		  </m:msub>
+		</m:mrow>
+	      </m:ci>
+	    </m:apply>
+          </m:apply>
+	</m:apply>
+      </m:math>
+    </para>
+
+    <para id="para16">
+      In the case of a source with memory, the more the source
+      produces outputs the more one knows about the source and the
+      more one can compress.
+    </para>
+
+    <example id="example2">
+
+      <para id="para17">
+	The English language has 26 letters, with space it becomes an
+	alphabet of size 27.  If modeled as a memoryless source (no
+	dependency between letters in a word) then the entropy is
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:apply>
+              <m:ci type="fn">H</m:ci>
+              <m:ci>X</m:ci>
+            </m:apply>
+            <m:cn>4.03</m:cn>
+	  </m:apply>
+	</m:math>
+	bits/letter.
+      </para>
+
+      <para id="para18">
+	If the dependency between letters in a text is captured in a model
+	the entropy rate can be derived to be 
+	<m:math display="inline">
+	  <m:apply>
+	    <m:eq/>
+            <m:ci>H</m:ci>
+            <m:cn>1.3</m:cn>
+	  </m:apply>
+	</m:math>
+	bits/letter.  Note that a non-information theoretic representation
+	of a text may require 5 bits/letter since
+	<m:math display="inline">
+	  <m:apply>
+	    <m:power/>
+            <m:cn>2</m:cn>
+            <m:cn>5</m:cn>
+	  </m:apply>
+	</m:math>
+	is the closest power of 2 to 27.  Shannon's results indicate
+	that there may be a compression algorithm with the rate of 1.3
+	bits/letter.
+      </para>
+    </example>
+
+    <para id="para19">
+      Although Shannon's results are not constructive, there are a
+      number of source coding algorithms for discrete time discrete
+      valued sources that come close to Shannon's bound.  One such
+      algorithm is the <link document="m10176" strength="2">Huffman
+      source coding algorithm</link>.  Another is the Lempel and Ziv
+      algorithm.
+    </para>
+
+    <para id="para20">
+      Huffman codes and Lempel and Ziv apply to compression problems
+      where the source produces discrete time and discrete valued
+      outputs.  For cases where the source is analog there are
+      powerful compression algorithms that specify all the steps from
+      sampling, quantizations, and binary representation.  These are
+      referred to as waveform coders.  JPEG, MPEG, vocoders are a few
+      examples for image, video, and voice, respectively.
+    </para>
+
+  </content>
+</document>

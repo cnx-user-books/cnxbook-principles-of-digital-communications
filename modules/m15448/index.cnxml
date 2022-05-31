@@ -1,0 +1,24 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Calendar</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>0211a40f-fcf9-4287-b7e4-9e3bc7fc515a</md:uuid>
+</metadata>
+  <content>
+    <para id="id5245915">Week 1: Overview of signals and spectra </para>
+    <para id="id5245931">Week 2: Source coding</para>
+    <para id="id5245938">Week 3: Receiver structure, demodulation and detection</para>
+    <para id="id5245947">Week 4: Correlation receiver and matched filter. Detection of binary signals in AWGN</para>
+    <para id="id5245962">Week 5: Optimal detection for general modulation. Coherent and non-coherent detection (I)</para>
+    <para id="id5231259">Week 6: Coherent and non-coherent detection (II)</para>
+    <para id="id5231278">Week 7: ISI in band-limited channels. Zero-ISI condition: the Nyquist criterion</para>
+    <para id="id5231287">Week 8: Mid-term exam</para>
+    <para id="id5231297">Week 9: Raised cosine filters. Partial response signals</para>
+    <para id="id5231319">Week 10: Channel equalization</para>
+    <para id="id5231333">Week 11: Channel coding. Block codes</para>
+    <para id="id5231345">Week 12: Convolutional codes </para>
+    <para id="id5231360">Week 13: Viterbi algorithm </para>
+    <para id="id5231375">Week 14: Fading channel. Characterizing mobile-radio propagation</para>
+    <para id="id5231395">Week 15: Mitigating the effects of fading</para>
+    <para id="id5231404">Week 16: Applications of Viterbi equalizer and Rake receiver in GSM and CDMA systems</para>
+    <para id="id5231421">Week 17: Final exam </para>
+  </content>
+</document>

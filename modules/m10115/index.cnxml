@@ -1,0 +1,44 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Data Transmission and Reception</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>5020904d-e66a-41d0-8598-ea44570dd968</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      We will develop the idea of <term>data transmission</term> by first 
+      considering simple channels.  In additional modules, we will consider
+      more practical channels; <term>baseband</term> channels with
+      <term>bandwidth</term> constraints and <term>passband</term> channels.
+    </para>
+
+    <figure id="fig1">
+      <title>Simple additive white Gaussian channels</title>
+      <media id="idm664912" alt=""><image src="../../media/Figure4-1.png" mime-type="image/png"/></media>
+      <caption>
+	<m:math>
+	  <m:ci><m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mi>t</m:mi>
+	    </m:msub></m:ci>
+	</m:math>
+	carries data,
+	<m:math>
+	  <m:ci><m:msub>
+	      <m:mi>N</m:mi>
+	      <m:mi>t</m:mi>
+	    </m:msub></m:ci>
+	</m:math>
+	is a white Gaussian random process.
+      </caption>
+    </figure>
+
+    <para id="para2">
+      The concept of using different types of modulation for transmission
+      of data is introduced in the module <link document="m10116">Signalling</link>.  The problem of
+      demodulation and detection of signals is discussed in <link document="m10054">Demodulation and Detection</link>.
+
+    </para>
+
+  </content>
+</document>
