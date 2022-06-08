@@ -1,0 +1,209 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Modulation Types for Fading Channels</title>
+  <metadata>
+  <md:content-id>m26813</md:content-id><md:title>Modulation Types for Fading Channels</md:title>
+  <md:abstract/>
+  <md:uuid>dce45859-15d1-460e-86b3-eb5ea9128fbf</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6041382">An amplitude-based signaling scheme such as <emphasis>amplitude shift keying (ASK)</emphasis> or <emphasis>quadrature amplitude modulation (QAM)</emphasis> is inherently vulnerable to performance degradation in a fading environment. Thus, for fading channels, the preferred choice for a signaling scheme is a frequency or phase-based modulation type.</para>
+    <para id="id6041452">In considering <emphasis>orthogonal FSK</emphasis> modulation for fading channels, the use of <emphasis>MFSK</emphasis> with M = 8 or larger is useful because its error performance is better than binary signaling. In slow <emphasis>Rayleigh fading</emphasis> channels, <emphasis>binary DPSK</emphasis> and <emphasis>8-FSK</emphasis> perform within 0.1 dB of each other. </para>
+    <para id="id6041552">In considering <emphasis>PSK</emphasis> modulation for fading channels, higher-order modulation alphabets perform poorly. <emphasis>MPSK</emphasis> with M = 8 or larger should be avoided. </para>
+    <para id="id6041598"><term>Example: Phase Variations in a Mobile Communication System</term></para>
+    <para id="id6041603">The <emphasis>Doppler</emphasis> spread 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>d</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mi>V</m:mi><m:mo stretchy="false">/</m:mo><m:mi>λ</m:mi></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{f rSub { size 8{d} } = {V} slash {λ} } {}</m:annotation></m:semantics></m:math> shows that the fading rate is a direct function of velocity. <term>Table 1</term> shows the <emphasis>Doppler</emphasis> spread versus vehicle speed at carrier frequencies of 900 MHz and 1800 MHz. Calculate the phase variation per symbol for the case of signaling with <emphasis>QPSK</emphasis> modulation at the rate of 24.3 kilosymbols/s.</para>
+    <para id="id6041874">Assume that the carrier frequency is 1800 MHz and that the velocity of the vehicle is 50 miles/hr (80 km/hr). Repeat for a vehicle speed of 100 miles/hr.</para>
+    <para id="id6041880"><title>Table 1</title></para>
+    <table id="id6041943" summary=""><tgroup cols="5">
+        <colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <colspec colnum="5" colname="c5"/>
+        <tbody>
+          <row>
+            <entry namest="c1" nameend="c2">Velocity</entry>
+            <entry/>
+            <entry>Doppler (Hz)</entry>
+            <entry>Doppler (Hz)</entry>
+          </row>
+          <row>
+            <entry>miles/hr</entry>
+            <entry namest="c2" nameend="c3">km/hr</entry>
+            <entry>900 Mhz (λ = 33cm)</entry>
+            <entry>1800 Mhz (λ = 16.6cm)</entry>
+          </row>
+          <row>
+            <entry>3</entry>
+            <entry namest="c2" nameend="c3">5</entry>
+            <entry>4</entry>
+            <entry>8</entry>
+          </row>
+          <row>
+            <entry>20</entry>
+            <entry namest="c2" nameend="c3">32</entry>
+            <entry>27</entry>
+            <entry>54</entry>
+          </row>
+          <row>
+            <entry>50</entry>
+            <entry namest="c2" nameend="c3">60</entry>
+            <entry>66</entry>
+            <entry>132</entry>
+          </row>
+          <row>
+            <entry>80</entry>
+            <entry namest="c2" nameend="c3">108</entry>
+            <entry>106</entry>
+            <entry>212</entry>
+          </row>
+          <row>
+            <entry>120</entry>
+            <entry namest="c2" nameend="c3">192</entry>
+            <entry>160</entry>
+            <entry>320</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para id="id6042678"><term>Solution</term></para>
+    <para id="id6042682">At a velocity of 100 miles/hr:</para>
+    <para id="id6042719">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi fontstyle="italic">Δθ</m:mi>
+                    <m:mo stretchy="false">/</m:mo>
+                    <m:mtext>symbol</m:mtext>
+                  </m:mrow>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mfrac>
+                      <m:msub>
+                        <m:mi>f</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>d</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:msub>
+                        <m:mi>R</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>t</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mfrac>
+                    <m:mo stretchy="false">×</m:mo>
+                    <m:msup>
+                      <m:mtext>360</m:mtext>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>o</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msup>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {Δθ} slash {"symbol"} = {  {f rSub { size 8{d} } }  over  {R rSub { size 8{t} } } }  times "360" rSup { size 8{o} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6042967">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow/>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:mtext>132</m:mtext>
+                        <m:mtext> Hz</m:mtext>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:mtext>24</m:mtext>
+                        <m:mtext>.</m:mtext>
+                        <m:mrow>
+                          <m:mn>3</m:mn>
+                          <m:mo stretchy="false">×</m:mo>
+                          <m:msup>
+                            <m:mtext>10</m:mtext>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mn>3</m:mn>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msup>
+                        </m:mrow>
+                        <m:mtext> symbols/s</m:mtext>
+                      </m:mrow>
+                    </m:mfrac>
+                    <m:mo stretchy="false">×</m:mo>
+                    <m:msup>
+                      <m:mtext>360</m:mtext>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>o</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msup>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {}= {  {"132"" Hz"}  over  {"24" "." 3 times "10" rSup { size 8{3} } " symbols/s"} }  times "360" rSup { size 8{o} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6043225">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow/>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:msup>
+                      <m:mn>2</m:mn>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>o</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msup>
+                    <m:mo stretchy="false">/</m:mo>
+                    <m:mtext>symbol</m:mtext>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {}= {2 rSup { size 8{o} } } slash {"symbol"} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6043455">At a velocity of 100 miles/hr: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mi fontstyle="italic">Δθ</m:mi><m:mo stretchy="false">/</m:mo><m:mtext>symbol</m:mtext></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:msup><m:mn>4</m:mn><m:mstyle fontsize="8pt"><m:mrow><m:mi>o</m:mi></m:mrow></m:mstyle></m:msup><m:mo stretchy="false">/</m:mo><m:mtext>symbol</m:mtext></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {Δθ} slash {"symbol"} = {4 rSup { size 8{o} } } slash {"symbol"} } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6043624">Thus, it should be clear why MPSK with a value of M &gt; 4 is not generally used to transmit information in a multipath environment.</para>
+  </content>
+</document>

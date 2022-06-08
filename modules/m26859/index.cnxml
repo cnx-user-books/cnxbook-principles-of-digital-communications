@@ -1,0 +1,458 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+	<title>The Fourier Transform</title>
+	<metadata>
+  <md:content-id>m26859</md:content-id><md:title>The Fourier Transform</md:title>
+  <md:abstract/>
+  <md:uuid>beb0aaec-febd-4913-af66-307636e6e293</md:uuid>
+</metadata>
+
+<content>
+		<para id="id19511726">
+		</para>
+		<section id="id5457614">
+			<title>The Fourier Transform</title>
+			<para id="id11334242">Many practical problems in signal analysis involve either infinitely long or
+   very long signals where the Fourier series is not appropriate. For these
+   cases, the Fourier transform (FT) and its inverse (IFT) have been developed.
+   This transform has been used with great success in virtually all quantitative
+   areas of science and technology where the concept of frequency is important.
+   While the Fourier series was used before Fourier worked on it, the Fourier
+   transform seems to be his original idea. It can be derived as an extension of
+   the Fourier series by letting the length increase to infinity or the Fourier
+   transform can be independently defined and then the Fourier series shown to be
+   a special case of it. The latter approach is the more general of the two, but the former is more intuitive
+   <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/><cite target-id="md59dbe5c1067a3050a90ea91f191045757"/>.
+</para>
+			<section id="id18975229">
+				<title>Definition of the Fourier Transform</title>
+				<para id="id8916341">
+   The Fourier transform (FT) of a real-valued (or complex) function of the
+   real-variable
+   <m:math display="inline">
+						<m:mrow>
+							<m:mi>t</m:mi>
+						</m:mrow>
+					</m:math>
+   is defined by
+   
+<equation id="md5547d9b61ebf6828f37f3f1616b06eb94">
+						<m:math display="block" mode="display">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>X</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>ω</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mrow>
+									<m:msubsup>
+										<m:mo form="prefix" largeop="true">∫</m:mo>
+										<m:mrow>
+											<m:mo form="prefix">−</m:mo>
+											<m:mi>∞</m:mi>
+										</m:mrow>
+										<m:mi>∞</m:mi>
+									</m:msubsup>
+									<m:mrow>
+										<m:mrow>
+											<m:mi>x</m:mi>
+											<m:mo/>
+											<m:mrow>
+												<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+												<m:mi>t</m:mi>
+												<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+											</m:mrow>
+										</m:mrow>
+										<m:mo/>
+										<m:msup>
+											<m:mi>e</m:mi>
+											<m:mrow>
+												<m:mrow>
+													<m:mo form="prefix">−</m:mo>
+													<m:mi>j</m:mi>
+												</m:mrow>
+												<m:mo/>
+												<m:mi>ω</m:mi>
+												<m:mo/>
+												<m:mi>t</m:mi>
+											</m:mrow>
+										</m:msup>
+										<m:mo/>
+										<m:mrow>
+											<m:mo form="prefix">ⅆ</m:mo>
+											<m:mi>t</m:mi>
+										</m:mrow>
+									</m:mrow>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+					</equation>
+   giving a complex valued function of the real variable
+   <m:math display="inline">
+						<m:mrow>
+							<m:mi>ω</m:mi>
+						</m:mrow>
+					</m:math>
+   representing frequency. The inverse Fourier transform (IFT) is given by
+   
+<equation id="md57db183c15847634a301761dc8b88e035">
+						<m:math display="block" mode="display">
+							<m:mrow>
+								<m:mrow>
+									<m:mrow>
+										<m:mi>x</m:mi>
+										<m:mo/>
+										<m:mrow>
+											<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+											<m:mi>t</m:mi>
+											<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+										</m:mrow>
+									</m:mrow>
+									<m:mo form="infix">=</m:mo>
+									<m:mrow>
+										<m:mfrac>
+											<m:mn>1</m:mn>
+											<m:mrow>
+												<m:mn>2</m:mn>
+												<m:mo/>
+												<m:mi>π</m:mi>
+											</m:mrow>
+										</m:mfrac>
+										<m:mo/>
+										<m:mrow>
+											<m:msubsup>
+												<m:mo form="prefix" largeop="true">∫</m:mo>
+												<m:mrow>
+													<m:mo form="prefix">−</m:mo>
+													<m:mi>∞</m:mi>
+												</m:mrow>
+												<m:mi>∞</m:mi>
+											</m:msubsup>
+											<m:mrow>
+												<m:mrow>
+													<m:mi>X</m:mi>
+													<m:mo/>
+													<m:mrow>
+														<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+														<m:mi>ω</m:mi>
+														<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+													</m:mrow>
+												</m:mrow>
+												<m:mo/>
+												<m:msup>
+													<m:mi>e</m:mi>
+													<m:mrow>
+														<m:mi>j</m:mi>
+														<m:mo/>
+														<m:mi>ω</m:mi>
+														<m:mo/>
+														<m:mi>t</m:mi>
+													</m:mrow>
+												</m:msup>
+												<m:mo/>
+												<m:mrow>
+													<m:mo form="prefix">ⅆ</m:mo>
+													<m:mi>ω</m:mi>
+												</m:mrow>
+											</m:mrow>
+										</m:mrow>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">.</m:mo>
+							</m:mrow>
+						</m:math>
+					</equation>
+   Because of the infinite limits on both integrals, the question of convergence
+   is important. There are useful practical signals that do not have Fourier
+   transforms if only classical functions are allowed because of problems with
+   convergence. The use of delta functions (distributions) in both the time and
+   frequency domains allows a much larger class of signals to be represented
+   <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/>.
+</para>
+			</section>
+			<section id="id19512331">
+				<title>Examples of the Fourier Transform</title>
+				<para id="id19510570">
+   Deriving a few basic transforms and using the properties allows a large class
+   of signals to be easily studied. Examples of modulation, sampling, and others
+   will be given.
+</para>
+				<list id="id12119770" list-type="bulleted">
+					<item>
+      
+         If
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>x</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>t</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mrow>
+									<m:mi>δ</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>t</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+         then
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>X</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>ω</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mn>1</m:mn>
+							</m:mrow>
+						</m:math>
+					</item>
+					<item>
+      
+         If
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>x</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>t</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mn>1</m:mn>
+							</m:mrow>
+						</m:math>
+         then
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>X</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>ω</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mrow>
+									<m:mn>2</m:mn>
+									<m:mo/>
+									<m:mi>π</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mi>δ</m:mi>
+										<m:mo/>
+										<m:mrow>
+											<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+											<m:mi>ω</m:mi>
+											<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+										</m:mrow>
+									</m:mrow>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+					</item>
+					<item>
+      
+         If
+         <m:math display="inline">
+							<m:mrow>
+								<m:mi>x</m:mi>
+								<m:mo/>
+								<m:mrow>
+									<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+									<m:mi>t</m:mi>
+									<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+         is an infinite sequence of delta functions spaced
+         <m:math display="inline">
+							<m:mrow>
+								<m:mi>T</m:mi>
+							</m:mrow>
+						</m:math>
+         apart,
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>x</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>t</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mrow>
+									<m:munderover>
+										<m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+										<m:mrow>
+											<m:mi>n</m:mi>
+											<m:mo form="infix">=</m:mo>
+											<m:mrow>
+												<m:mo form="prefix">−</m:mo>
+												<m:mi>∞</m:mi>
+											</m:mrow>
+										</m:mrow>
+										<m:mi>∞</m:mi>
+									</m:munderover>
+									<m:mrow>
+										<m:mi>δ</m:mi>
+										<m:mo/>
+										<m:mrow>
+											<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+											<m:mrow>
+												<m:mi>t</m:mi>
+												<m:mo form="infix">−</m:mo>
+												<m:mrow>
+													<m:mi>n</m:mi>
+													<m:mo/>
+													<m:mi>T</m:mi>
+												</m:mrow>
+											</m:mrow>
+											<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+										</m:mrow>
+									</m:mrow>
+								</m:mrow>
+							</m:mrow>
+						</m:math>,
+         its transform is  also an infinite sequence of delta functions of weight
+         <m:math display="inline">
+							<m:mrow>
+								<m:mn>2</m:mn>
+								<m:mo/>
+								<m:mrow>
+									<m:mi>π</m:mi>
+									<m:mo form="infix">/</m:mo>
+									<m:mi>T</m:mi>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+         spaced
+         <m:math display="inline">
+							<m:mrow>
+								<m:mn>2</m:mn>
+								<m:mo/>
+								<m:mrow>
+									<m:mi>π</m:mi>
+									<m:mo form="infix">/</m:mo>
+									<m:mi>T</m:mi>
+								</m:mrow>
+							</m:mrow>
+						</m:math>
+         apart,
+         <m:math display="inline">
+							<m:mrow>
+								<m:mrow>
+									<m:mi>X</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+										<m:mi>ω</m:mi>
+										<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+									</m:mrow>
+								</m:mrow>
+								<m:mo form="infix">=</m:mo>
+								<m:mrow>
+									<m:mn>2</m:mn>
+									<m:mo/>
+									<m:mi>π</m:mi>
+									<m:mo/>
+									<m:mrow>
+										<m:munderover>
+											<m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+											<m:mrow>
+												<m:mi>k</m:mi>
+												<m:mo form="infix">=</m:mo>
+												<m:mrow>
+													<m:mo form="prefix">−</m:mo>
+													<m:mi>∞</m:mi>
+												</m:mrow>
+											</m:mrow>
+											<m:mi>∞</m:mi>
+										</m:munderover>
+										<m:mrow>
+											<m:mi>δ</m:mi>
+											<m:mo/>
+											<m:mrow>
+												<m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+												<m:mrow>
+													<m:mi>ω</m:mi>
+													<m:mo form="infix">−</m:mo>
+													<m:mrow>
+														<m:mn>2</m:mn>
+														<m:mo/>
+														<m:mi>π</m:mi>
+														<m:mo/>
+														<m:mrow>
+															<m:mi>k</m:mi>
+															<m:mo form="infix">/</m:mo>
+															<m:mi>T</m:mi>
+														</m:mrow>
+													</m:mrow>
+												</m:mrow>
+												<m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+											</m:mrow>
+										</m:mrow>
+									</m:mrow>
+								</m:mrow>
+							</m:mrow>
+						</m:math>.
+      
+   </item>
+					<item>
+      
+         Other interesting and illustrative examples can be found in
+         <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/><cite target-id="md59dbe5c1067a3050a90ea91f191045757"/>.
+      
+   </item>
+				</list>
+				<para id="id19510438">Note the Fourier transform takes a function of continuous time into a function
+   of continuous frequency, neither function being periodic. If "distribution"
+   or "delta functions" are allowed, the Fourier transform of a periodic
+   function will be a infinitely long string of delta functions with weights that
+   are the Fourier series coefficients.
+</para><para id="id19510448">
+				</para>
+			</section>
+		</section>
+	</content>
+	<bib:file><bib:entry id="md56efa61ac814aaa15937e00fd4ad01f80">
+			<bib:book><bib:author>A. Papoulis</bib:author>
+				<bib:title>The Fourier Integral and Its Applications</bib:title>
+				<bib:publisher>McGraw-Hill</bib:publisher>
+				<bib:year>1962</bib:year>
+			</bib:book>
+		</bib:entry><bib:entry id="md59dbe5c1067a3050a90ea91f191045757">
+			<bib:book><bib:author>R. N. Bracewell</bib:author>
+				<bib:title>The Fourier Transform and Its Applications</bib:title>
+				<bib:publisher>McGraw-Hill</bib:publisher>
+				<bib:year>1985</bib:year>
+				<bib:address>New York</bib:address>
+				<bib:edition>Third</bib:edition>
+			</bib:book>
+		</bib:entry></bib:file></document>

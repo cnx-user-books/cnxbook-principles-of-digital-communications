@@ -1,0 +1,19 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Purpose of the Course</title>
+  <metadata>
+  <md:content-id>m26836</md:content-id><md:title>Purpose of the Course</md:title>
+  <md:abstract/>
+  <md:uuid>d52b6db3-6be3-4bce-b316-a26043dd7f41</md:uuid>
+</metadata>
+
+<content>
+    <para id="id11331981"><term>Title:</term> Principles of Digital Communications</para>
+    <para id="id10564080"><term>Credits:</term> 3 (4 hours/week, 15 weeks/semester)</para>
+    <para id="id11053348"><term>Course Rationale:</term> </para>
+    <para id="id8670382">Wireless communication is fundamentally the art of communicating information without</para>
+    <para id="id12233962">wires. In principle, wireless communication encompasses any number of techniques including underwater acoustic communication, radio communication, and satellite communication, among others. The term was coined in the early days of radio, fell out of fashion for about fifty years, and was rediscovered during the cellular telephony revolution. Wireless now implies communication using electromagnetic waves - placing it within the domain of electrical engineering. Wireless communication techniques can be classified as either analog or digital. The first commercial systems were analog including AM radio, FM radio, television, and first generation cellular systems. Analog communication is gradually being replaced with digital communication. The fundamental difference between the two is that in digital communication, the source is assumed to be digital. Every major wireless system being developed and deployed is built around digital communication including cellular communication, wireless local area networking, personal area networking, and high-definition television. Thus this course will focus on digital wireless communication.</para>
+    <para id="id12181433">This course is a required core course in communications engineering which introduces principles of digital communications while reinforcing concepts learned in analog communications systems. It is intended to provide a comprehensive coverage of digital communication systems for last year undergraduate students, first year graduate students and practicing engineers.</para>
+    <para id="id8701860"><term>Pre-requisites:</term>
+	<emphasis>Communication Systems</emphasis>. Thorough knowledge of <emphasis>Signals and Systems</emphasis>, <emphasis>Linear Algebra</emphasis>, <emphasis>Digital Signal Processing</emphasis>, and <emphasis>Probability Theory and Stochastic Processes</emphasis> is essential.</para>
+  </content>
+</document>

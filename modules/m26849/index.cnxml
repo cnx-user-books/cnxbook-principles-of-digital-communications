@@ -1,0 +1,611 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+	<title>Signal Classifications and Properties</title>
+	<metadata>
+  <md:content-id>m26849</md:content-id><md:title>Signal Classifications and Properties</md:title>
+  <md:abstract/>
+  <md:uuid>19eacd74-3e69-4ab0-984b-248e7911ed34</md:uuid>
+</metadata>
+
+<content>
+		<section id="intro">
+			<title>Introduction</title>
+			<para id="para1">This module will lay out some of the fundamentals of signal
+	classification.  This is basically a list of definitions and
+	properties that are fundamental to the discussion of signals
+	and systems.        </para></section>
+		<section id="sec2">
+			<title>Classifications of Signals</title>
+			<para id="p1_sec2">Along with the classification of signals below, it is also
+	important to understand the <link document="m10213" strength="3">Classification of Systems</link>.
+      </para><section id="sect1">
+				<title>Continuous-Time vs. Discrete-Time</title>
+				<para id="para2">As the names suggest, this classification is determined by
+	  whether or not the time axis (x-axis) is
+	  <term>discrete</term> (countable) or <term>continuous</term>
+	  .  A continuous-time signal will
+	  contain a value for all real numbers along the time axis.
+	  In contrast to this, a discrete-time signal is often created by
+	  using the sampling
+	  theorem to sample a continuous signal, so it will
+	  only have values at equally spaced intervals along the time
+	  axis.
+	</para><figure id="fig1">
+					<media id="id1166738729696" alt=""><image src="../../media/sigclass1.png" mime-type="image/png"/></media>
+				</figure>
+			</section>
+			<section id="sect2">
+				<title>Analog vs. Digital</title>
+				<para id="para3">
+	  The difference between <term>analog</term> and
+	  <term>digital</term> is similar to the difference between
+	  continuous-time and discrete-time.  In this case, however,
+	  the difference is with respect to the value of the function
+	  (y-axis) (<link target-id="fig2"/>).  Analog corresponds to a
+	  continuous y-axis, while digital corresponds to a discrete
+	  y-axis.  An easy example of a digital signal is a binary
+	  sequence, where the values of the function can only be one
+	  or zero.
+	</para>
+				<figure id="fig2">
+					<media id="id1166739203453" alt=""><image src="../../media/sigclass2.png" mime-type="image/png"/></media>
+				</figure>
+			</section>
+			<section id="sect3">
+				<title>Periodic vs. Aperiodic</title>
+				<para id="para4"><term>Periodic signals</term>
+	  repeat with some <term>period</term>
+					<m:math><m:ci>T</m:ci></m:math>, while aperiodic, or
+	  nonperiodic, signals do not.  We can
+	  define a periodic function through the following
+	  mathematical expression, where <m:math><m:ci>t</m:ci>
+					</m:math> can be any number and <m:math><m:ci>T</m:ci>
+					</m:math> is a positive constant:
+
+	  <equation id="per">
+						<m:math>
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:ci>t</m:ci>
+								</m:apply>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:apply>
+										<m:plus/>
+										<m:ci>T</m:ci>
+										<m:ci>t</m:ci>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+	  
+	  The <term>fundamental period</term> of our function, 
+	  <m:math><m:apply>
+							<m:ci type="fn">f</m:ci>
+							<m:ci>t</m:ci>
+						</m:apply>
+					</m:math>, is the smallest value of <m:math><m:ci>T</m:ci>
+					</m:math> that the still allows <link target-id="per" strength="3"/> to be true.
+
+	</para><figure id="fig3" orient="vertical">
+					<subfigure id="fig3a">
+						<media id="id1166734241401" alt=""><image src="../../media/sigclass3.png" mime-type="image/png"/></media>
+						<caption>A periodic signal with period
+	      <m:math>
+								<m:ci>
+									<m:msub>
+										<m:mi>T</m:mi>
+										<m:mn>0</m:mn>
+									</m:msub>
+								</m:ci>
+							</m:math>
+						</caption>
+					</subfigure>
+					<subfigure id="fig3b">
+						<media id="id1166737173680" alt=""><image src="../../media/sigclass4.png" mime-type="image/png"/></media>
+						<caption>An aperiodic signal</caption>
+					</subfigure>
+				</figure>
+			</section>
+			<section id="sect4">
+				<title>Causal vs. Anticausal vs. Noncausal</title>
+				<para id="para5">
+					<term>Causal</term> signals are signals that are zero for
+	  all negative time, while <term>anticausal</term> are signals
+	  that are zero for all positive time.  <term>Noncausal</term>
+	  signals are signals that have nonzero values in both
+	  positive and negative time (<link target-id="fig4"/>).
+	</para>
+				<figure id="fig4" orient="vertical">
+					<subfigure id="fig4a">
+						<media id="id1166732972535" alt=""><image src="../../media/sigclass5.png" mime-type="image/png"/></media>
+						<caption>A causal signal</caption>
+					</subfigure>
+					<subfigure id="fig4b">
+						<media id="id1166737099192" alt=""><image src="../../media/sigclass6.png" mime-type="image/png"/></media>
+						<caption>An anticausal signal</caption>
+					</subfigure>
+					<subfigure id="fig4c">
+						<media id="id8920330" alt=""><image src="../../media/sigclass7.png" mime-type="image/png"/></media>
+						<caption>A noncausal signal</caption>
+					</subfigure>
+				</figure>
+			</section>
+			<section id="sect5">
+				<title>Even vs. Odd</title>
+				<para id="para6">
+	  An <term>even signal</term> is any signal
+	  <m:math><m:ci>f</m:ci></m:math> such that
+	  <m:math>
+						<m:apply>
+							<m:eq/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:apply>
+									<m:minus/>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+						</m:apply>
+					</m:math>.  Even signals can be easily spotted as they are
+	  <emphasis>symmetric</emphasis> around the vertical axis.  An
+	  <term>odd signal</term>, on the other hand, is a signal
+	  <m:math><m:ci>f</m:ci></m:math> such that
+	  <m:math>
+						<m:apply>
+							<m:eq/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:apply>
+								<m:minus/>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:apply>
+										<m:minus/>
+										<m:ci>t</m:ci>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:apply>
+					</m:math> (<link target-id="fig5"/>).
+	</para>
+				<figure id="fig5" orient="vertical">
+					<subfigure id="fig5a">
+						<media id="id3869244" alt=""><image src="../../media/sigclass8.png" mime-type="image/png"/></media>
+						<caption>An even signal</caption>
+					</subfigure>
+					<subfigure id="fig5b">
+						<media id="id1166731629092" alt=""><image src="../../media/sigclass9.png" mime-type="image/png"/></media>
+						<caption>An odd signal</caption>
+					</subfigure>
+				</figure>
+				<para id="para7">
+	  Using the definitions of even and odd signals, we can show
+	  that any signal can be written as a combination of an even and
+	  odd signal.  That is, every signal has an odd-even
+	  decomposition.  To demonstrate this, we have to look no
+	  further than a single equation.
+	  <equation id="eqn1">
+						<m:math>
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:ci>t</m:ci>
+								</m:apply>
+								<m:apply>
+									<m:plus/>
+									<m:apply>
+										<m:times/>
+										<m:apply>
+											<m:divide/>
+											<m:cn>1</m:cn>
+											<m:cn>2</m:cn>
+										</m:apply>
+										<m:apply>
+											<m:plus/>
+											<m:apply>
+												<m:ci type="fn">f</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+											<m:apply>
+												<m:ci type="fn">f</m:ci>
+												<m:apply>
+													<m:minus/>
+													<m:ci>t</m:ci>
+												</m:apply>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+									<m:apply>
+										<m:times/>
+										<m:apply>
+											<m:divide/>
+											<m:cn>1</m:cn>
+											<m:cn>2</m:cn>
+										</m:apply>
+										<m:apply>
+											<m:minus/>
+											<m:apply>
+												<m:ci type="fn">f</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+											<m:apply>
+												<m:ci type="fn">f</m:ci>
+												<m:apply>
+													<m:minus/>
+													<m:ci>t</m:ci>
+												</m:apply>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+	  By multiplying and adding this expression out, it can be shown
+	  to be true.  Also, it can be shown that
+	  <m:math>
+						<m:apply>
+							<m:plus/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:apply>
+									<m:minus/>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+						</m:apply>
+					</m:math>
+	  fulfills the requirement of an even function, while
+	  <m:math>
+						<m:apply>
+							<m:minus/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:apply>
+									<m:minus/>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+						</m:apply>
+					</m:math>
+	  fulfills the requirement of an odd function (<link target-id="fig6"/>).
+	</para>
+				<example id="exa1">
+					<figure id="fig6" orient="vertical">
+						<subfigure id="fig6a">
+							<media id="id1166736532529" alt=""><image src="../../media/sigclass10.png" mime-type="image/png"/></media>
+							<caption>The signal we will decompose using odd-even
+		decomposition</caption>
+						</subfigure>
+						<subfigure id="fig6b">
+							<media id="id8598015" alt=""><image src="../../media/sigclass11.png" mime-type="image/png"/></media>
+							<caption>Even part:
+		<m:math>
+									<m:apply>
+										<m:eq/>
+										<m:apply>
+											<m:ci type="fn">e</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+										<m:apply>
+											<m:times/>
+											<m:apply>
+												<m:divide/>
+												<m:cn>1</m:cn>
+												<m:cn>2</m:cn>
+											</m:apply>
+											<m:apply>
+												<m:plus/>
+												<m:apply>
+													<m:ci type="fn">f</m:ci>
+													<m:ci>t</m:ci>
+												</m:apply>
+												<m:apply>
+													<m:ci type="fn">f</m:ci>
+													<m:apply>
+														<m:minus/>
+														<m:ci>t</m:ci>
+													</m:apply>
+												</m:apply>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+								</m:math>
+							</caption>
+						</subfigure>
+						<subfigure id="fig6c">
+							<media id="id1166736362656" alt=""><image src="../../media/sigclass12.png" mime-type="image/png"/></media>
+							<caption>Odd part:
+		<m:math>
+									<m:apply>
+										<m:eq/>
+										<m:apply>
+											<m:ci type="fn">o</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+										<m:apply>
+											<m:times/>
+											<m:apply>
+												<m:divide/>
+												<m:cn>1</m:cn>
+												<m:cn>2</m:cn>
+											</m:apply>
+											<m:apply>
+												<m:minus/>
+												<m:apply>
+													<m:ci type="fn">f</m:ci>
+													<m:ci>t</m:ci>
+												</m:apply>
+												<m:apply>
+													<m:ci type="fn">f</m:ci>
+													<m:apply>
+														<m:minus/>
+														<m:ci>t</m:ci>
+													</m:apply>
+												</m:apply>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+								</m:math>
+							</caption>
+						</subfigure>
+						<subfigure id="fig6d">
+							<media id="id1166731502539" alt=""><image src="../../media/sigclass13.png" mime-type="image/png"/></media>
+							<caption>Check:
+		<m:math>
+									<m:apply>
+										<m:eq/>
+										<m:apply>
+											<m:plus/>
+											<m:apply>
+												<m:ci type="fn">e</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+											<m:apply>
+												<m:ci type="fn">o</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+										</m:apply>
+										<m:apply>
+											<m:ci type="fn">f</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:math>
+							</caption>
+						</subfigure>
+					</figure>
+				</example>
+			</section>
+			<section id="randet">
+				<title>Deterministic vs. Random</title>
+				<para id="p1_ran">A <term>deterministic signal</term> is a signal in which
+	  each value of the signal is fixed and can be determined by a
+	  mathematical expression, rule, or table.  Because of this
+	  the future values of the signal can be calculated from past
+	  values with complete confidence.  On the other hand, a
+	  <term>random
+	  signal</term> has a lot of uncertainty about its
+	  behavior.  The future values of a random signal cannot be
+	  accurately predicted and can usually only be guessed based
+	  on the <term>averages</term>
+	  of sets of signals.
+	</para><figure id="fig_det" orient="vertical">
+					<subfigure id="figdeta">
+						<media id="id1166733228501" alt=""><image src="../../media/ran_sin.png" mime-type="image/png"/></media>
+						<caption>Deterministic Signal</caption>
+					</subfigure>
+					<subfigure id="figdetb">
+						<media id="id1166734426800" alt=""><image src="../../media/ran_nos.png" mime-type="image/png"/></media>
+						<caption>Random Signal</caption>
+					</subfigure>
+				</figure>
+			</section>
+			<section id="rightleft">
+				<title>Right-Handed vs. Left-Handed</title>
+				<para id="p1_rl">
+	  A <term>right-handed</term> signal and
+	  <term>left-handed</term> signal are those signals whose
+	  value is zero between a given variable and positive or
+	  negative infinity.  Mathematically speaking, a right-handed
+	  signal is defined as any signal where 
+	  <m:math display="inline">
+						<m:apply>
+							<m:eq/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:cn>0</m:cn>
+						</m:apply>
+					</m:math> for 
+	  <m:math display="inline">
+						<m:apply>
+							<m:lt/>
+							<m:apply>
+								<m:lt/>
+								<m:ci>t</m:ci>
+								<m:ci>
+									<m:msub>
+										<m:mi>t</m:mi>
+										<m:mn>1</m:mn>
+									</m:msub>
+								</m:ci>
+							</m:apply>
+							<m:infinity/>
+						</m:apply>
+					</m:math>, and a left-handed signal is defined as any signal where 
+	  <m:math display="inline">
+						<m:apply>
+							<m:eq/>
+							<m:apply>
+								<m:ci type="fn">f</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+							<m:cn>0</m:cn>
+						</m:apply>
+					</m:math> for 
+	  <m:math display="inline">
+						<m:apply>
+							<m:gt/>
+							<m:apply>
+								<m:gt/>
+								<m:ci>t</m:ci>
+								<m:ci>
+									<m:msub>
+										<m:mi>t</m:mi>
+										<m:mn>1</m:mn>
+									</m:msub>
+								</m:ci>
+							</m:apply>
+							<m:apply>
+								<m:minus/>
+								<m:infinity/>
+							</m:apply>
+						</m:apply>
+					</m:math>.  See (<link target-id="figLR"/>) for an example.  Both
+	  figures "begin" at 
+	  <m:math display="inline">
+						<m:ci>
+							<m:msub>
+								<m:mi>t</m:mi>
+								<m:mn>1</m:mn>
+							</m:msub>
+						</m:ci>
+					</m:math> and then extends to positive or negative infinity
+	  with mainly nonzero values.
+
+	<figure id="figLR" orient="vertical">
+						<subfigure id="figLRa">
+							<media id="id1166734279865" alt=""><image src="../../media/sigp_R.png" mime-type="image/png"/></media>
+							<caption>Right-handed signal</caption>
+						</subfigure>
+						<subfigure id="figLRb">
+							<media id="id1166734121947" alt=""><image src="../../media/sigp_L.png" mime-type="image/png"/></media>
+							<caption>Left-handed signal</caption>
+						</subfigure>
+					</figure>
+				</para>
+			</section>
+			<section id="finvsinf">
+				<title>Finite vs. Infinite Length</title>
+				<para id="p1_fi">
+	  As the name applies, signals can be characterized as to
+	  whether they have a finite or infinite length set of
+	  values.  Most finite length signals are used when dealing
+	  with discrete-time signals or a given sequence of values.
+	  Mathematically speaking, 
+	  <m:math display="inline">
+						<m:apply>
+							<m:ci type="fn">f</m:ci>
+							<m:ci>t</m:ci>
+						</m:apply>
+					</m:math> is a <term>finite-length signal</term> if it is
+	  <emphasis>nonzero</emphasis> over a finite interval
+
+	  <m:math display="block">
+						<m:apply>
+							<m:lt/>
+							<m:apply>
+								<m:lt/>
+								<m:ci>
+									<m:msub>
+										<m:mi>t</m:mi>
+										<m:mn>1</m:mn>
+									</m:msub>
+								</m:ci>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+							<m:ci>
+								<m:msub>
+									<m:mi>t</m:mi>
+									<m:mn>2</m:mn>
+								</m:msub>
+							</m:ci>
+						</m:apply>
+					</m:math>
+
+	  where 
+	  <m:math display="inline">
+						<m:apply>
+							<m:gt/>
+							<m:ci>
+								<m:msub>
+									<m:mi>t</m:mi>
+									<m:mn>1</m:mn>
+								</m:msub>
+							</m:ci>
+							<m:apply>
+								<m:minus/>
+								<m:infinity/>
+							</m:apply>
+						</m:apply>
+					</m:math> and 
+	  <m:math display="inline">
+						<m:apply>
+							<m:lt/>
+							<m:ci>
+								<m:msub>
+									<m:mi>t</m:mi>
+									<m:mn>2</m:mn>
+								</m:msub>
+							</m:ci>
+							<m:infinity/>
+						</m:apply>
+					</m:math>.  An example can be seen in <link target-id="figFin"/>.
+	  Similarly, an <term>infinite-length signal</term>,
+	  <m:math display="inline">
+						<m:apply>
+							<m:ci type="fn">f</m:ci>
+							<m:ci>t</m:ci>
+						</m:apply>
+					</m:math>, is defined as nonzero over all real numbers: 
+
+	    <m:math display="block">
+						<m:apply>
+							<m:leq/>
+							<m:apply>
+								<m:leq/>
+								<m:infinity/>
+								<m:apply>
+									<m:ci type="fn">f</m:ci>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+							<m:apply>
+								<m:minus/>
+								<m:infinity/>
+							</m:apply>
+						</m:apply>
+					</m:math>
+				</para>
+				<figure id="figFin">
+					<media id="id2088059" alt=""><image src="../../media/finite.png" mime-type="image/png"/></media>
+					<caption>Finite-Length Signal.  Note that it only has
+	  nonzero values on a set, finite interval.</caption>
+				</figure>
+			</section>
+		</section>
+	</content>
+</document>

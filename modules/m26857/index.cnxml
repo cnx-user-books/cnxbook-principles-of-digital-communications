@@ -1,0 +1,504 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+	<title>System Classifications and Properties</title>
+	<metadata>
+  <md:content-id>m26857</md:content-id><md:title>System Classifications and Properties</md:title>
+  <md:abstract/>
+  <md:uuid>f6275b4c-d3da-41f6-a991-2036497ab982</md:uuid>
+</metadata>
+
+<content>
+		<section id="intro">
+			<title>Introduction</title>
+			<para id="p1_intro">In this module some of the basic classifications of systems
+	will be briefly introduced and the most important properties
+	of these systems are explained.  As can be seen, the
+	properties of a system provide an easy way to separate one
+	system from another.  Understanding these basic difference's
+	between systems, and their properties, will be a fundamental
+	concept used in all signal and system courses, such as digital
+	signal processing (DSP).  Once a set of systems can be
+	identified as sharing particular properties, one no longer has
+	to deal with proving a certain characteristic of a system each
+	time, but it can simply be accepted do the systems
+	classification.  Also remember that this classification
+	presented here is neither exclusive (systems can belong to
+	several different classifications) nor is it unique.
+     </para></section>
+		<section id="overview">
+			<title>Classification of Systems</title>
+			<para id="p_over">Along with the classification of systems below, it is also
+	important to understand other <link document="m10212" strength="2">Classification of Signals</link>.
+      </para><section id="dis_cont">
+				<title>Continuous vs. Discrete</title>
+				<para id="p1_disc">
+	  This may be the simplest classification to understand as the
+	  idea of discrete-time and continuous-time is one of the most
+	  fundamental properties to all of signals and system.  A
+	  system where the input and output signals are continuous is a
+	  <term>continuous system</term>, and one where the input and
+	  output signals are discrete is a <term>discrete system</term>.
+	</para>
+			</section>
+			<section id="sect1">
+				<title>Linear vs. Nonlinear</title>
+				<para id="para1">
+	  A <term>linear</term> system is any system that obeys the
+	  properties of scaling (homogeneity) and superposition
+	  (additivity), while a <term>nonlinear</term> system is any
+	  system that does not obey at least one of these.
+	</para>
+				<para id="para2">
+	  To show that a system <m:math display="inline"><m:ci>H</m:ci></m:math> obeys the scaling
+	  property is to show that
+
+	  <equation id="eqn1">
+						<m:math display="inline">
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="function">H</m:ci>
+									<m:apply>
+										<m:times/>
+										<m:ci>k</m:ci>
+										<m:apply>
+											<m:ci type="function">f</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+								<m:apply>
+									<m:times/>
+									<m:ci>k</m:ci>
+									<m:apply>
+										<m:ci type="function">H</m:ci>
+										<m:apply>
+											<m:ci type="function">f</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+				</para>
+				<figure id="fig1">
+					<media id="id1170767066311" alt=""><image src="../../media/sysclass1.png" mime-type="image/png"/></media>
+					<caption>A block diagram demonstrating the scaling property of
+	    linearity</caption>
+				</figure>
+				<para id="para3">
+	  To demonstrate that a system <m:math display="inline"><m:ci>H</m:ci></m:math> obeys the
+	  superposition property of linearity is to show that
+	  <equation id="eqn2">
+						<m:math display="inline">
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="function">H</m:ci>
+									<m:apply>
+										<m:plus/>
+										<m:apply>
+											<m:ci type="function">
+												<m:msub>
+													<m:mi>f</m:mi>
+													<m:mn>1</m:mn>
+												</m:msub>
+											</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+										<m:apply>
+											<m:ci type="function">
+												<m:msub>
+													<m:mi>f</m:mi>
+													<m:mn>2</m:mn>
+												</m:msub>
+											</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+								<m:apply>
+									<m:plus/>
+									<m:apply>
+										<m:ci type="function">H</m:ci>
+										<m:apply>
+											<m:ci type="function">
+												<m:msub>
+													<m:mi>f</m:mi>
+													<m:mn>1</m:mn>
+												</m:msub>
+											</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+									<m:apply>
+										<m:ci type="function">H</m:ci>
+										<m:apply>
+											<m:ci type="function">
+												<m:msub>
+													<m:mi>f</m:mi>
+													<m:mn>2</m:mn>
+												</m:msub>
+											</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+				</para>
+				<figure id="fig2">
+					<media id="id1170766997193" alt=""><image src="../../media/sysclass2.png" mime-type="image/png"/></media>
+					<caption>A block
+	    diagram demonstrating the superposition property of
+	    linearity</caption>
+				</figure>
+				<para id="para4">
+	  It is possible to check a system for linearity in a single
+	  (though larger) step.  To do this, simply combine the first
+	  two steps to get
+	  <equation id="eqn3">
+						<m:math display="inline">
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="function">H</m:ci>
+									<m:apply>
+										<m:plus/>
+										<m:apply>
+											<m:times/>
+											<m:apply>
+												<m:ci>
+													<m:msub>
+														<m:mi>k</m:mi>
+														<m:mn>1</m:mn>
+													</m:msub>
+												</m:ci>
+											</m:apply>
+											<m:apply>
+												<m:ci>
+													<m:msub>
+														<m:mi>f</m:mi>
+														<m:mn>1</m:mn>
+													</m:msub>
+												</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+										</m:apply>
+										<m:apply>
+											<m:times/>
+											<m:apply>
+												<m:ci>
+													<m:msub>
+														<m:mi>k</m:mi>
+														<m:mn>2</m:mn>
+													</m:msub>
+												</m:ci>
+											</m:apply>
+											<m:apply>
+												<m:ci type="function">
+													<m:msub>
+														<m:mi>f</m:mi>
+														<m:mn>2</m:mn>
+													</m:msub>
+												</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+								<m:apply>
+									<m:plus/>
+									<m:apply>
+										<m:times/>
+										<m:apply>
+											<m:ci>
+												<m:msub>
+													<m:mi>k</m:mi>
+													<m:mn>2</m:mn>
+												</m:msub>
+											</m:ci>
+										</m:apply>
+										<m:apply>
+											<m:ci type="function">H</m:ci>
+											<m:apply>
+												<m:ci type="function">
+													<m:msub>
+														<m:mi>f</m:mi>
+														<m:mn>1</m:mn>
+													</m:msub>
+												</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+									<m:apply>
+										<m:times/>
+										<m:apply>
+											<m:ci>
+												<m:msub>
+													<m:mi>k</m:mi>
+													<m:mn>2</m:mn>
+												</m:msub>
+											</m:ci>
+										</m:apply>
+										<m:apply>
+											<m:ci type="function">H</m:ci>
+											<m:apply>
+												<m:ci type="function">
+													<m:msub>
+														<m:mi>f</m:mi>
+														<m:mn>2</m:mn>
+													</m:msub>
+												</m:ci>
+												<m:ci>t</m:ci>
+											</m:apply>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+				</para>
+			</section>
+			<section id="sect2">
+				<title>Time Invariant vs. Time Variant</title>
+				<para id="para5">
+	  A <term>time invariant</term> system is one that does not
+	  depend on when it occurs: the shape of the output does not
+	  change with a delay of the input.  That is to say that for a
+	  system <m:math display="inline"><m:ci>H</m:ci></m:math> where
+	  <m:math display="inline">
+						<m:apply>
+							<m:eq/>
+							<m:apply>
+								<m:ci type="function">H</m:ci>
+								<m:apply>
+									<m:ci type="function">f</m:ci>
+									<m:ci>t</m:ci>
+								</m:apply>
+							</m:apply>
+							<m:apply>
+								<m:ci type="function">y</m:ci>
+								<m:ci>t</m:ci>
+							</m:apply>
+						</m:apply>
+					</m:math>,
+	  <m:math display="inline">
+						<m:ci>H</m:ci>
+					</m:math> is time invariant if for all
+	  <m:math display="inline"><m:ci>T</m:ci></m:math>
+					<equation id="eqn4">
+						<m:math display="display">
+							<m:apply>
+								<m:eq/>
+								<m:apply>
+									<m:ci type="function">H</m:ci>
+									<m:apply>
+										<m:ci type="function">f</m:ci>
+										<m:apply>
+											<m:minus/>
+											<m:ci>t</m:ci>
+											<m:ci>T</m:ci>
+										</m:apply>
+									</m:apply>
+								</m:apply>
+								<m:apply>
+									<m:ci type="function">y</m:ci>
+									<m:apply>
+										<m:minus/>
+										<m:ci>t</m:ci>
+										<m:ci>T</m:ci>
+									</m:apply>
+								</m:apply>
+							</m:apply>
+						</m:math>
+					</equation>
+				</para>
+				<figure id="fig3">
+					<media id="id1170767835975" alt=""><image src="../../media/sysclass3.png" mime-type="image/png"/></media>
+					<caption>
+	    This block diagram shows what the condition for time
+	    invariance.  The output is the same whether the delay is put
+	    on the input or the output.
+	  </caption>
+				</figure>
+				<para id="p2_sect2">
+	  When this property does not hold for a system, then it is said
+	  to be <term>time variant</term>, or time-varying.
+	</para>
+			</section>
+			<section id="sect3">
+				<title>Causal vs. Noncausal</title>
+				<para id="para6">
+	  A <term>causal</term> system is one that is
+	  <term>nonanticipative</term>; that is, the output may depend
+	  on current and past inputs, but not future inputs.  All
+	  "realtime" systems must be causal, since they can not have
+	  future inputs available to them. 
+	</para>
+				<para id="p_futin">
+	  One may think the idea of future inputs does not seem to
+	  make much physical sense; however, we have only been
+	  dealing with time as our dependent variable so far, which is
+	  not always the case.  Imagine rather that we wanted to do
+	  image processing.  Then the dependent variable might represent
+	  pixels to the left and right (the "future") of the current
+	  position on the image, and we would have a
+	  <term>noncausal</term> system.
+	</para>
+				<figure id="fig4" orient="vertical">
+					<subfigure id="fig4a">
+						<media id="id1170767015784" alt=""><image src="../../media/sysclass4.png" mime-type="image/png"/></media>
+						<caption>For a typical system to be causal...</caption>
+					</subfigure>
+					<subfigure id="fig4b">
+						<media id="id1170767010738" alt=""><image src="../../media/sysclass5.png" mime-type="image/png"/></media>
+						<caption>...the output at time
+	      <m:math display="inline">
+								<m:apply>
+									<m:ci>
+										<m:msub>
+											<m:mi>t</m:mi>
+											<m:mn>0</m:mn>
+										</m:msub>
+									</m:ci>
+								</m:apply>
+							</m:math>,
+	      <m:math display="inline">
+								<m:apply>
+									<m:ci>y</m:ci>
+									<m:apply>
+										<m:ci>
+											<m:msub>
+												<m:mi>t</m:mi>
+												<m:mn>0</m:mn>
+											</m:msub>
+										</m:ci>
+									</m:apply>
+								</m:apply>
+							</m:math>,
+	      can only depend on the portion of the input signal before 
+	      <m:math display="inline">
+								<m:apply>
+									<m:ci>
+										<m:msub>
+											<m:mi>t</m:mi>
+											<m:mn>0</m:mn>
+										</m:msub>
+									</m:ci>
+								</m:apply>
+							</m:math>.
+	    </caption>
+					</subfigure>
+				</figure>
+			</section>
+			<section id="sect4">
+				<title>Stable vs. Unstable</title>
+				<para id="p1_sec4">
+	  A <term>stable</term> system is one where the output does
+	  not diverge as long as the input does not diverge.  There
+	  are many ways to say that a signal "diverges"; for example
+	  it could have infinite energy.  One particularly useful
+	  definition of divergence relates to whether the signal is
+	  bounded or not.  Then a system is referred to as
+	  <term>bounded input-bounded output (BIBO)</term> stable if
+	  <emphasis>every possible</emphasis> bounded input produces a
+	  bounded output.</para>
+				<para id="p2_sec4">
+	  Representing this in a mathematical way, a stable system
+	  must have the following property, where
+	  <m:math><m:apply><m:ci type="fn">x</m:ci><m:ci>t</m:ci></m:apply>
+					</m:math> is the
+	  input and <m:math><m:apply><m:ci type="fn">y</m:ci><m:ci>t</m:ci></m:apply>
+					</m:math> is the
+	  output.  The output must satisfy the condition
+
+	  <equation id="eq1_s">
+						<m:math>
+							<m:apply>
+								<m:lt/>
+								<m:apply>
+									<m:leq/>
+									<m:apply>
+										<m:abs/>
+										<m:apply>
+											<m:ci type="fn">y</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+									<m:apply>
+										<m:ci>
+											<m:msub>
+												<m:mi>M</m:mi>
+												<m:mi>y</m:mi>
+											</m:msub>
+										</m:ci>
+									</m:apply>
+								</m:apply>
+								<m:infinity/>
+							</m:apply>
+						</m:math>
+					</equation>
+	  
+	  when we have an input to the system that can be described as 
+
+	  <equation id="eq2_s">
+						<m:math>
+							<m:apply>
+								<m:lt/>
+								<m:apply>
+									<m:leq/>
+									<m:apply>
+										<m:abs/>
+										<m:apply>
+											<m:ci type="fn">x</m:ci>
+											<m:ci>t</m:ci>
+										</m:apply>
+									</m:apply>
+									<m:apply>
+										<m:ci>
+											<m:msub>
+												<m:mi>M</m:mi>
+												<m:mi>x</m:mi>
+											</m:msub>
+										</m:ci>
+									</m:apply>
+								</m:apply>
+								<m:infinity/>
+							</m:apply>
+						</m:math>
+					</equation>
+					<m:math>
+						<m:ci>
+							<m:msub>
+								<m:mi>M</m:mi>
+								<m:mi>x</m:mi>
+							</m:msub>
+						</m:ci>
+					</m:math>
+	  and
+	  <m:math>
+						<m:ci>
+							<m:msub>
+								<m:mi>M</m:mi>
+								<m:mi>y</m:mi>
+							</m:msub>
+						</m:ci>
+					</m:math>
+	  both represent a set of finite positive numbers and these
+	  relationships hold for all of <m:math><m:ci>t</m:ci>
+					</m:math>.
+	</para>
+				<para id="unstab">If these conditions are not met, <foreign>i.e.</foreign> a
+	  system's output grows without limit (diverges) from a
+	  bounded input, then the system is <term>unstable</term>.
+	  Note that the BIBO stability of a linear time-invariant
+	  system (LTI) is neatly described in terms of whether or not
+	  its impulse response is <term>absolutely integrable</term>.
+
+	</para></section>
+		</section>
+	</content>
+</document>
