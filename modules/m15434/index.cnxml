@@ -1,0 +1,24 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+	<title>Resources</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>941358ab-5cee-4f9b-933c-92387b8f11b3</md:uuid>
+</metadata>
+	<content>
+		<list list-type="bulleted" id="id10085174"><item>Connexions
+		<link url="http://cnx.org/">http://cnx.org/</link></item>
+		</list><list list-type="bulleted" id="id8836344">
+			<item>MIT’s OpenCourseWare <link url="http://ocw.mit.edu/index.html">http://ocw.mit.edu/index.html</link></item>
+		</list>
+		<list list-type="bulleted" id="id4606318">
+			<item>Computer resource: Matlab and Simulink</item>
+		</list>
+		<list list-type="bulleted" id="id4630768">
+			<item>Textbook(s):</item>
+		</list>
+		<para id="id3518500">[1] Bernard Sklar, Digital Communications: Fundamentals and Applications, 2nd edition, 2001, Prentice Hall.</para><list list-type="bulleted" id="id8442358">
+			<item>Recommended:</item>
+		</list>
+		<para id="id4587916">[2] John Proakis, Digital Communications, 4th edition, 2001, McGraw-Hill.</para>
+		<para id="id4037690">[3] Bruce Carlson et al., Communication Systems: An Introduction to Signals and Noise in Electrical Communication, 4th edition, 2001, McGraw-Hill.</para>
+		<para id="id4648798">[4] Rogger E. Ziemer, Roger W. Peterson, Introduction to Digital Communication, 2nd edition, 2000, Prenctice Hall.</para>
+	</content>
+</document>

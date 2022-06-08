@@ -1,0 +1,13 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Fading Channel</title>
+  <metadata>
+  <md:content-id>m28507</md:content-id><md:title>Fading Channel</md:title>
+  <md:abstract/>
+  <md:uuid>4a85af6b-a543-4995-8a71-94fb2582d1b3</md:uuid>
+</metadata>
+
+<content>
+    <para id="id10691510">Fading Channel</para>
+    <para id="id11173220">For most channels, where signal propagate in the atmosphere and near the ground, the free-space propagation model is inadequate to describe the channel behavior and predict system performance. In wireless system, s signal can travel from transmitter to receiver over multiple reflective paths. This phenomenon, called multipath fading, can cause fluctuations in the received signal’s amplitude, phase, and angle of arrival, giving rise to the terminology multipath fading. Another name, scintillation, is used to describe the fading caused by physical changes in the propagating medium, such as variations in the electron density of the ionosopheric layers that reflect high frequency radio signals. Both fading and scintillation refer to a signal’s random fluctuations.</para>
+  </content>
+</document>

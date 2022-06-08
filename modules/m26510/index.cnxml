@@ -1,0 +1,439 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Biến Đổi Fourier (Fourier Transform)</title>
+  <metadata>
+  <md:content-id>m26510</md:content-id><md:title>Biến Đổi Fourier (Fourier Transform)</md:title>
+  <md:abstract/>
+  <md:uuid>88ce1d44-a529-4a30-8189-c6d899fb40cf</md:uuid>
+</metadata>
+
+<content>
+<para id="id19511726">
+   
+   
+</para>
+<section id="id5457614">
+<title>The Fourier Transform</title>
+<para id="id11334242">Trong các bài tóan phân tích tín hiệu thực tế, tín hiệu cần phân tích có khỏang thời gian xác định rất dài hoặc vô hạn, khi đó phân tích dùng chuỗi Fourier (Fourier series) trở nên không thích hợp. Trong trường hợp này, biến đổi Fourier (Fourier transform (FT)) và biến đổi ngược của nó (inverse Fourier transform (IFT)) được sử dụng. Biến đổi Fourier được áp dụng thành công trong các lĩnh vực khoa học kỹ thuật ở đó khái niệm  tần số và miền tần số được sử dụng. Biến đổi Fourier được mở rộng từ chuỗi Fourier bằng cách đặt khỏang thời gian xác định của chuỗi Fourier vô hạn, hoặc biến đổi Fourier có thể định nghĩa độc lập và chuỗi Fourier là trường hợp đặc biệt của nó.
+    <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/><cite target-id="md59dbe5c1067a3050a90ea91f191045757"/>.
+</para>
+<section id="id18975229">
+<title>Definition of the Fourier Transform</title>
+<para id="id8916341">Biến đổi Fourier(FT) của hàm thực (hoặc phức) của biến thực 
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>t</m:mi>
+     </m:mrow>
+   </m:math>
+   được định nghĩa bởi
+   
+<equation id="md5547d9b61ebf6828f37f3f1616b06eb94">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>X</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>ω</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:msubsup>
+           <m:mo form="prefix" largeop="true">∫</m:mo>
+           <m:mrow>
+             <m:mo form="prefix">−</m:mo>
+             <m:mi>∞</m:mi>
+           </m:mrow>
+           <m:mi>∞</m:mi>
+         </m:msubsup>
+         <m:mrow>
+           <m:mrow>
+             <m:mi>x</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mi>t</m:mi>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+           <m:mo/>
+           <m:msup>
+             <m:mi>e</m:mi>
+             <m:mrow>
+               <m:mrow>
+                 <m:mo form="prefix">−</m:mo>
+                 <m:mi>j</m:mi>
+               </m:mrow>
+               <m:mo/>
+               <m:mi>ω</m:mi>
+               <m:mo/>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:msup>
+           <m:mo/>
+           <m:mrow>
+             <m:mo form="prefix">ⅆ</m:mo>
+             <m:mi>t</m:mi>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   cho hàm phức của biến thực
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>ω</m:mi>
+     </m:mrow>
+   </m:math>
+   biểu diễn tần số. Biến đổi Fourier ngược (IFT) được cho bởi (IFT) 
+<equation id="md57db183c15847634a301761dc8b88e035">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mi>x</m:mi>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>t</m:mi>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mfrac>
+             <m:mn>1</m:mn>
+             <m:mrow>
+               <m:mn>2</m:mn>
+               <m:mo/>
+               <m:mi>π</m:mi>
+             </m:mrow>
+           </m:mfrac>
+           <m:mo/>
+           <m:mrow>
+             <m:msubsup>
+               <m:mo form="prefix" largeop="true">∫</m:mo>
+               <m:mrow>
+                 <m:mo form="prefix">−</m:mo>
+                 <m:mi>∞</m:mi>
+               </m:mrow>
+               <m:mi>∞</m:mi>
+             </m:msubsup>
+             <m:mrow>
+               <m:mrow>
+                 <m:mi>X</m:mi>
+                 <m:mo/>
+                 <m:mrow>
+                   <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                   <m:mi>ω</m:mi>
+                   <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                 </m:mrow>
+               </m:mrow>
+               <m:mo/>
+               <m:msup>
+                 <m:mi>e</m:mi>
+                 <m:mrow>
+                   <m:mi>j</m:mi>
+                   <m:mo/>
+                   <m:mi>ω</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+               </m:msup>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo form="prefix">ⅆ</m:mo>
+                 <m:mi>ω</m:mi>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">.</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+   Vì các cận vô hạn của hai tích phân nên vấn đề hội tụ trở nên quan trọng, do đó giới hạn khả năng biểu diễn một số lọai tín hiệu. Sử dụng hàm delta (phân bố) trong miền thời gian và tần số cho phép biểu diễn nhiều lọai tín hiệu.
+   <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/>.
+</para>
+</section>
+<section id="id19512331">
+<title>Examples of the Fourier Transform</title>
+<para id="id19510570">Xác định các phép biến đổi cơ bản và dùng các tính chất của phép biến đổi Fourier cho phép khảo sát nhiều lọai tín hiệu (ví dụ: điều chế, lấy mẫu) một cách dễ dàng. </para>
+<list id="id12119770" list-type="bulleted"><item>
+      
+         Nếu
+         <m:math display="inline">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>x</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>t</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mi>δ</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>t</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+         thì
+         <m:math display="inline">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>X</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>ω</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mn>1</m:mn>
+     </m:mrow>
+   </m:math>
+      
+   </item>
+   <item>
+      
+         Nếu
+         <m:math display="inline">
+        <m:mrow>
+          <m:mrow>
+            <m:mi>x</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+            </m:mrow>
+          </m:mrow>
+          <m:mo form="infix">=</m:mo>
+          <m:mn>1</m:mn>
+        </m:mrow>
+      </m:math>
+         thì
+         <m:math display="inline">
+        <m:mrow>
+          <m:mrow>
+            <m:mi>X</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+              <m:mi>ω</m:mi>
+              <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+            </m:mrow>
+          </m:mrow>
+          <m:mo form="infix">=</m:mo>
+          <m:mrow>
+            <m:mn>2</m:mn>
+            <m:mo/>
+            <m:mi>π</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:mi>δ</m:mi>
+              <m:mo/>
+              <m:mrow>
+                <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+      
+   </item>
+   <item>
+      
+         Nếu
+         <m:math display="inline">
+        <m:mrow>
+          <m:mi>x</m:mi>
+          <m:mo/>
+          <m:mrow>
+            <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+         là chuỗi vô hạn của các hàm delta đặt cách nhau khỏang
+         <m:math display="inline">
+        <m:mrow>
+          <m:mi>T</m:mi>
+        </m:mrow>
+      </m:math>
+         ,
+         <m:math display="inline">
+        <m:mrow>
+          <m:mrow>
+            <m:mi>x</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+            </m:mrow>
+          </m:mrow>
+          <m:mo form="infix">=</m:mo>
+          <m:mrow>
+            <m:munderover>
+              <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+              <m:mrow>
+                <m:mi>n</m:mi>
+                <m:mo form="infix">=</m:mo>
+                <m:mrow>
+                  <m:mo form="prefix">−</m:mo>
+                  <m:mi>∞</m:mi>
+                </m:mrow>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:mrow>
+              <m:mi>δ</m:mi>
+              <m:mo/>
+              <m:mrow>
+                <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                <m:mrow>
+                  <m:mi>t</m:mi>
+                  <m:mo form="infix">−</m:mo>
+                  <m:mrow>
+                    <m:mi>n</m:mi>
+                    <m:mo/>
+                    <m:mi>T</m:mi>
+                  </m:mrow>
+                </m:mrow>
+                <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:mrow>
+        </m:mrow>
+      </m:math>,
+         biếb đổi của nó cũng là chuỗi vô hạn các hàm delta có trọng số
+         <m:math display="inline">
+        <m:mrow>
+          <m:mn>2</m:mn>
+          <m:mo/>
+          <m:mrow>
+            <m:mi>π</m:mi>
+            <m:mo form="infix">/</m:mo>
+            <m:mi>T</m:mi>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+         đặt cách nhau khỏang 
+         <m:math display="inline">
+        <m:mrow>
+          <m:mn>2</m:mn>
+          <m:mo/>
+          <m:mrow>
+            <m:mi>π</m:mi>
+            <m:mo form="infix">/</m:mo>
+            <m:mi>T</m:mi>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+         ,
+         <m:math display="inline">
+        <m:mrow>
+          <m:mrow>
+            <m:mi>X</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+              <m:mi>ω</m:mi>
+              <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+            </m:mrow>
+          </m:mrow>
+          <m:mo form="infix">=</m:mo>
+          <m:mrow>
+            <m:mn>2</m:mn>
+            <m:mo/>
+            <m:mi>π</m:mi>
+            <m:mo/>
+            <m:mrow>
+              <m:munderover>
+                <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+                <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mo form="infix">=</m:mo>
+                  <m:mrow>
+                    <m:mo form="prefix">−</m:mo>
+                    <m:mi>∞</m:mi>
+                  </m:mrow>
+                </m:mrow>
+                <m:mi>∞</m:mi>
+              </m:munderover>
+              <m:mrow>
+                <m:mi>δ</m:mi>
+                <m:mo/>
+                <m:mrow>
+                  <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:mi>ω</m:mi>
+                    <m:mo form="infix">−</m:mo>
+                    <m:mrow>
+                      <m:mn>2</m:mn>
+                      <m:mo/>
+                      <m:mi>π</m:mi>
+                      <m:mo/>
+                      <m:mrow>
+                        <m:mi>k</m:mi>
+                        <m:mo form="infix">/</m:mo>
+                        <m:mi>T</m:mi>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mrow>
+          </m:mrow>
+        </m:mrow>
+      </m:math>.
+      
+   </item>
+   <item>
+      
+         Các ví dụ khác có thể tham khảo trong
+         <cite target-id="md56efa61ac814aaa15937e00fd4ad01f80"/><cite target-id="md59dbe5c1067a3050a90ea91f191045757"/>.
+      
+   </item>
+</list>
+<para id="id19510438">Lưu ý rằng, biến đổi Fourier của hàm liên tục thời gian tạo nên hàm liên tục tần số. Nếu hàm delta được dùng, biến đổi Fourier của hàm tuần hòan sẽ là chuỗi vô hạn của hàm delta với trọng số là hệ số của chuỗi Fourier.</para>
+<para id="id19510448">
+   
+   
+</para>
+</section>
+</section>
+</content>
+<bib:file><bib:entry id="md56efa61ac814aaa15937e00fd4ad01f80">
+<bib:book><bib:author>A. Papoulis</bib:author>
+<bib:title>The Fourier Integral and Its Applications</bib:title>
+<bib:publisher>McGraw-Hill</bib:publisher>
+<bib:year>1962</bib:year>
+</bib:book>
+</bib:entry><bib:entry id="md59dbe5c1067a3050a90ea91f191045757">
+<bib:book><bib:author>R. N. Bracewell</bib:author>
+<bib:title>The Fourier Transform and Its Applications</bib:title>
+<bib:publisher>McGraw-Hill</bib:publisher>
+<bib:year>1985</bib:year>
+<bib:address>New York</bib:address>
+<bib:edition>Third</bib:edition>
+</bib:book>
+</bib:entry></bib:file></document>

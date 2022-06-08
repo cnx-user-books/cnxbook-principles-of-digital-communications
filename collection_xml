@@ -1,0 +1,113 @@
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10474</md:content-id>
+    <md:title>Principles of Digital Communications</md:title>
+    <md:language>en</md:language>
+    <md:license url="http://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution License</md:license>
+    <md:uuid>07337397-0718-43c1-a642-94251eddab27</md:uuid>
+<md:slug>principles-of-digital-communications</md:slug>
+</metadata>
+  <col:content>
+    <col:subcollection>
+      <md:title>Syllabus</md:title>
+      <col:content>
+        <col:module document="m15429"/>
+        <col:module document="m15431"/>
+        <col:module document="m15438"/>
+        <col:module document="m15433"/>
+        <col:module document="m15435"/>
+        <col:module document="m15448"/>
+        <col:module document="m15437"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 1: Signals and Systems</md:title>
+      <col:content>
+        <col:module document="m10057"/>
+        <col:module document="m10084"/>
+        <col:module document="m13873"/>
+        <col:module document="m13874"/>
+        <col:module document="m10224"/>
+        <col:module document="m10235"/>
+        <col:module document="m10236"/>
+        <col:module document="m10238"/>
+        <col:module document="m11105"/>
+        <col:module document="m10237"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 2: Source Coding</md:title>
+      <col:content>
+        <col:module document="m10162"/>
+        <col:module document="m10164"/>
+        <col:module document="m10175"/>
+        <col:module document="m10176"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 3: Communication over AWGN Channels</md:title>
+      <col:content>
+        <col:module document="m10115"/>
+        <col:module document="m10116"/>
+        <col:module document="m10035"/>
+        <col:module document="m10054"/>
+        <col:module document="m10141"/>
+        <col:module document="m10091"/>
+        <col:module document="m10149"/>
+        <col:module document="m10101"/>
+        <col:module document="m10150"/>
+        <col:module document="m10154"/>
+        <col:module document="m10155"/>
+        <col:module document="m10128"/>
+        <col:module document="m10163"/>
+        <col:module document="m10156"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 4: Communication over Band-limitted AWGN Channel</md:title>
+      <col:content>
+        <col:module document="m10056"/>
+        <col:module document="m15519"/>
+        <col:module document="m10094"/>
+        <col:module document="m10118"/>
+        <col:module document="m15520"/>
+        <col:module document="m15527"/>
+        <col:module document="m15521"/>
+        <col:module document="m15522"/>
+        <col:module document="m15524"/>
+        <col:module document="m15523"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 5: Channel Coding</md:title>
+      <col:content>
+        <col:module document="m10173"/>
+        <col:module document="m10178"/>
+        <col:module document="m10179"/>
+        <col:module document="m10180"/>
+        <col:module document="m10174"/>
+        <col:module document="m10181"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 6: Communication over Fading Channels</md:title>
+      <col:content>
+        <col:module document="m15525"/>
+        <col:module document="m15528"/>
+        <col:module document="m15526"/>
+        <col:module document="m15531"/>
+        <col:module document="m15533"/>
+        <col:module document="m15535"/>
+        <col:module document="m15537"/>
+        <col:module document="m15536"/>
+        <col:module document="m15538"/>
+        <col:module document="m15540"/>
+        <col:module document="m15541"/>
+        <col:module document="m15539"/>
+        <col:module document="m15542"/>
+        <col:module document="m15544"/>
+        <col:module document="m15534"/>
+      </col:content>
+    </col:subcollection>
+  </col:content>
+</col:collection>

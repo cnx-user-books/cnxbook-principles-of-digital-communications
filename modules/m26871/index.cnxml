@@ -1,0 +1,28 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Two Types of Error-Performance Degradation</title>
+  <metadata>
+  <md:content-id>m26871</md:content-id><md:title>Two Types of Error-Performance Degradation</md:title>
+  <md:abstract/>
+  <md:uuid>beef0768-12a9-4a0c-8dde-a2c10e7d484f</md:uuid>
+</metadata>
+
+<content>
+    
+    <para id="id7027020">Error-performance degradation can be classifyed in two group. The first one is due to a decrease in received signal power or an increase in noise or inteference power, giving rise to a loss in signal-to-noise ratio 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{B} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math>. The second one is due to signal distortion such as ISI.</para>
+    <para id="id7027092"/>
+    <para id="id7027096">
+      <media id="id1166740114294" alt=""><image src="../../media/graphics1-f590.png" mime-type="image/png" height="288" width="376"/></media>
+    </para>
+    <para id="id7027114"><emphasis>Figure 1</emphasis> Bit error probability</para>
+    <para id="id7027120"/>
+    <para id="id7027124">Suppose that we need a communication system with a bit-error probability 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mi>P</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{P rSub { size 8{B} } } {}</m:annotation></m:semantics></m:math> versus 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{b} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> characteristic corresponding to the solid-line curve plotted in Figure 1. Suppose that after the system is configured, the performance dose not follow the theoretical curve, but in facts follows the dashed line plot (1). A loss in 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{b} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> due to some signal losses or an increased level of noise or interference. This loss in 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{B} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> is not so terrible when compared with possible effects of degradation caused by a distortion mechanism corresponding to the dashed line plot (2). Instead of suffering a simple loss in signal-to-noise ratio there is a degradation effect brought about by ISI. If there is no solution to this problem, there is no a mount of 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{B} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> that will improve this problem. More 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{B} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> can not help the ISI problem because a incresing in 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{B} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math> dose not make change in overlapped pulses.</para>
+  </content>
+</document>
