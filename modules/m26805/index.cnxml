@@ -1,0 +1,35 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Mitigating the Degradation Effects of Fading</title>
+  <metadata>
+  <md:content-id>m26805</md:content-id><md:title>Mitigating the Degradation Effects of Fading</md:title>
+  <md:abstract/>
+  <md:uuid>867c3004-d56a-4f0f-a0de-52f22be19b3a</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6085078"><term>Figure 1</term> highlights three major performance categories in terms of bit-error probability 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mi>P</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{P rSub { size 8{B} } } {}</m:annotation></m:semantics></m:math>versus 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{b} } /N rSub { size 8{0} } } {}</m:annotation></m:semantics></m:math></para>
+    <figure id="id11490753">
+      <media id="id7560972" alt=""><image src="../../media/graphics1-a4ab.png" mime-type="image/png" height="509" width="379"/></media>
+    </figure>
+    <para id="id10218442">The leftmost exponentially shaped curve highlights the performance that can be expected when using any nominal modulation scheme in AWGN interference. Observe that at a reasonable 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {E rSub { size 8{b} } } slash {N rSub { size 8{0} } } } {}</m:annotation></m:semantics></m:math> level, good performance can be expected. </para>
+    <para id="id6005510">The middle curve, referred to as the <emphasis>Rayleigh limit</emphasis>, shows the performance degradation resulting from a loss in 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {E rSub { size 8{b} } } slash {N rSub { size 8{0} } } } {}</m:annotation></m:semantics></m:math> that is characteristic of flat fading or slow fading when there is no line-of-sight signal component present. The curve is a function of the reciprocal of 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {E rSub { size 8{b} } } slash {N rSub { size 8{0} } } } {}</m:annotation></m:semantics></m:math>, so for practical values of 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {E rSub { size 8{b} } } slash {N rSub { size 8{0} } } } {}</m:annotation></m:semantics></m:math>, performance will generally be “bad.” </para>
+    <para id="id3278936">The curve that reaches an irreducible error-rate level, sometimes called an <emphasis>error floor</emphasis>, represents “awful” performance, where the bit-error probability can level off at values nearly equal to 0.5. This shows the severe performance degrading effects that are possible with frequency-selective fading or fast fading.</para>
+    <para id="id8390647">If the channel introduces signal distortion as a result of fading, the system performance can exhibit an irreducible error rate at a level higher than the desired error rate. In such cases, the only approach available for improving performance is to use some forms of mitigation to remove or reduce the signal distortion.</para>
+    <para id="id11513339">The mitigation method depends on whether the distortion is caused by frequency-selective fading or fast fading. Once the signal distortion has been mitigated, the 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mi>P</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>B</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{P rSub { size 8{B} } } {}</m:annotation></m:semantics></m:math> versus 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>b</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {E rSub { size 8{b} } } slash {N rSub { size 8{0} } } } {}</m:annotation></m:semantics></m:math> performance can transition from the “awful” category to the merely “bad” Rayleigh-limit curve. </para>
+    <para id="id9964525">Next, it is possible to further ameliorate the effects of fading and strive to approach AWGN system performance by using some form of diversity to provide the receiver with a collection of uncorrelated replicas of the signal, and by using a powerful error-correction code.</para>
+    <para id="id11112496"><term>Figure 2</term> lists several mitigation techniques for combating the effects of both signal distortion and loss in SNR. The mitigation approaches to be used when designing a system should be considered in two basic steps: </para>
+    <para id="id6617608">1) choose the type of mitigation to reduce or remove any distortion degradation;</para>
+    <para id="id7522944">2) choose a diversity type that can best approach AWGN system performance.</para>
+    <figure id="id11176517">
+      <media id="id7527851" alt=""><image src="../../media/graphics2-46e7.png" mime-type="image/png" height="436" width="632"/></media>
+    </figure>
+  </content>
+</document>

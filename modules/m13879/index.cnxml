@@ -1,0 +1,1940 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>m02 - The Fourier Series</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>873fcd9b-4298-47fa-9d39-a043bbae6e89</md:uuid>
+</metadata>
+  <content>
+<para id="id7880971">
+   
+   
+</para>
+<section id="id7863503">
+<title>The Fourier Series</title>
+<para id="id15719702">
+   The problem of expanding a finite length signal in a trigonometric series was
+   posed and studied in the late 1700's by renown mathematicians such as
+   Bernoulli, d'Alembert, Euler, Lagrange, and Gauss. Indeed, what we now call
+   the Fourier series and the formulas for the coefficients were used by Euler in
+   1780. However, it was the presentation in 1807 and the paper in 1822 by
+   Fourier stating that an arbitrary function could be represented by a series of
+   sines and cosines that brought the problem to everyone's attention and started
+   serious theoretical investigations and practical applications that continue to
+   this day
+   <cite target-id="md5edee79ca8abaf126513ff78a9b6bf613"/><cite target-id="md56c620b2f99cac463bfa80536b370b309"/><cite target-id="md5cf842af094536ba42c3771077d483b19"/><cite target-id="md5cb901681799544e59cda31727776932c"/><cite target-id="md5a1dd9e40e6459ebd02e237b6d35bbcde"/>.
+   The theoretical work has been at the center of analysis and the practical
+   applications have been of major significance in virtually every field of
+   quantitative science and technology. For these reasons and others, the Fourier
+   series is worth our serious attention in a study of signal processing.
+</para>
+<section id="id7911124">
+<title>Definition of the Fourier Series</title>
+<para id="id7893606">
+   We assume that the signal
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   to be analyzed is well described by a real or complex valued function of a
+   real variable
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>t</m:mi>
+     </m:mrow>
+   </m:math>
+   defined over a finite interval
+   <m:math display="inline">
+     <m:mrow>
+       <m:mo fence="true" form="prefix" stretchy="false">{</m:mo>
+       <m:mrow>
+         <m:mn>0</m:mn>
+         <m:mo form="infix">≤</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo form="infix">≤</m:mo>
+         <m:mi>T</m:mi>
+       </m:mrow>
+       <m:mo fence="true" form="postfix" stretchy="false">}</m:mo>
+     </m:mrow>
+   </m:math>.
+   The trigonometric series expansion of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   is given by
+   
+<equation id="md5fa8dfb95a8992e21740443578065bfd1">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mi>x</m:mi>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>t</m:mi>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mfrac>
+             <m:mrow>
+               <m:mi>a</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mn>0</m:mn>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mn>2</m:mn>
+           </m:mfrac>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:munderover>
+               <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+               <m:mrow>
+                 <m:mi>k</m:mi>
+                 <m:mo form="infix">=</m:mo>
+                 <m:mn>1</m:mn>
+               </m:mrow>
+               <m:mi>∞</m:mi>
+             </m:munderover>
+             <m:mrow>
+               <m:mrow>
+                 <m:mi>a</m:mi>
+                 <m:mo/>
+                 <m:mrow>
+                   <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                   <m:mi>k</m:mi>
+                   <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                 </m:mrow>
+               </m:mrow>
+               <m:mo/>
+               <m:mrow>
+                 <m:mi mathcolor="gray">cos</m:mi>
+                 <m:mo/>
+                 <m:mrow>
+                   <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                   <m:mrow>
+                     <m:mfrac>
+                       <m:mrow>
+                         <m:mn>2</m:mn>
+                         <m:mo/>
+                         <m:mi>π</m:mi>
+                       </m:mrow>
+                       <m:mi>T</m:mi>
+                     </m:mfrac>
+                     <m:mo/>
+                     <m:mi>k</m:mi>
+                     <m:mo/>
+                     <m:mi>t</m:mi>
+                   </m:mrow>
+                   <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                 </m:mrow>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>b</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>k</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">.</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+</para>
+<para id="id7875616">where the sines and cosines are the basis functions for the expansion.   
+The energy or power in an electrical, mechanical, etc. system is a function of the
+   square of voltage, current, velocity, pressure, etc. For this reason, the
+   natural setting for a representation of signals is the Hilbert space of
+   <m:math display="inline">
+     <m:mrow>
+       <m:msup>
+         <m:mi>L</m:mi>
+         <m:mn>2</m:mn>
+       </m:msup>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">[</m:mo>
+         <m:mrow>
+           <m:mn>0</m:mn>
+           <m:mo form="infix">,</m:mo>
+           <m:mi>T</m:mi>
+         </m:mrow>
+         <m:mo fence="true" form="postfix" stretchy="false">]</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>.
+   This modern formulation of the problem is developed in
+   <cite target-id="md520ec091468880e9d60be1472efbf3b61"/><cite target-id="md5cf842af094536ba42c3771077d483b19"/>.
+   The sinusoidal basis functions in the trigonometric expansion form a complete
+   orthogonal set in
+   <m:math display="inline">
+     <m:mrow>
+       <m:msup>
+         <m:mi>L</m:mi>
+         <m:mn>2</m:mn>
+       </m:msup>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">[</m:mo>
+         <m:mrow>
+           <m:mn>0</m:mn>
+           <m:mo form="infix">,</m:mo>
+           <m:mi>T</m:mi>
+         </m:mrow>
+         <m:mo fence="true" form="postfix" stretchy="false">]</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>.
+   The orthogonality is easily seen from inner products
+   
+<equation id="md5278571846829dfd761550039130ff75f">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mrow>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo form="infix">,</m:mo>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>ℓ</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>ℓ</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       <m:mrow>
+         <m:mrow>
+           <m:mo form="prefix">ⅆ</m:mo>
+           <m:mi>t</m:mi>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mi>δ</m:mi>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mrow>
+               <m:mi>k</m:mi>
+               <m:mo form="infix">−</m:mo>
+               <m:mi>ℓ</m:mi>
+             </m:mrow>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   and
+   
+<equation id="md530f5eef91a397e4bbab4d93aeb286aef">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mrow>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo form="infix">,</m:mo>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>ℓ</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>ℓ</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       <m:mrow>
+         <m:mrow>
+           <m:mo form="prefix">ⅆ</m:mo>
+           <m:mi>t</m:mi>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mn>0</m:mn>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   where the Kronecker delta function 
+   <m:math display="inline">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>δ</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mn>0</m:mn>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mn>1</m:mn>
+     </m:mrow>
+   </m:math>
+   and
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>δ</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mrow>
+             <m:mi>k</m:mi>
+             <m:mo form="infix">≠</m:mo>
+             <m:mn>0</m:mn>
+           </m:mrow>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mn>0</m:mn>
+       </m:mrow>
+     </m:mrow>
+   </m:math>.
+   Because of this, the
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>k</m:mi>
+     </m:mrow>
+   </m:math>th
+   coefficients in the series can be found by taking the inner product of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   with the
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>k</m:mi>
+     </m:mrow>
+   </m:math>th
+   basis functions. This gives for the coefficients
+   
+<equation id="md5693a9fdd4c2fd0700968fba0d07ff3c0">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>a</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>k</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mfrac>
+           <m:mn>2</m:mn>
+           <m:mi>T</m:mi>
+         </m:mfrac>
+         <m:mo/>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>x</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>t</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mo form="prefix">ⅆ</m:mo>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   and
+   
+<equation id="md5bd93bb39eb2bc4c2d7caa5ec9d0fb7f2">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>b</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>k</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mfrac>
+           <m:mn>2</m:mn>
+           <m:mi>T</m:mi>
+         </m:mfrac>
+         <m:mo/>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>x</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>t</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mo form="prefix">ⅆ</m:mo>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   where
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>T</m:mi>
+     </m:mrow>
+   </m:math>
+   is the time interval of interest or the period of the periodic signal. Because of the orthogonality of the
+   basis functions, a finite Fourier series formed by truncating the infinite
+   series is an optimal least squared error approximation to
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>.
+   If the finite series is defined by
+   
+<equation id="md5577a65b2fb326eb099cf34f8742a6a84">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mover accent="true">
+             <m:mi>x</m:mi>
+             <m:mo accent="true" form="postfix">̂</m:mo>
+           </m:mover>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>t</m:mi>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mfrac>
+             <m:mrow>
+               <m:mi>a</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mn>0</m:mn>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mn>2</m:mn>
+           </m:mfrac>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:munderover>
+               <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+               <m:mrow>
+                 <m:mi>k</m:mi>
+                 <m:mo form="infix">=</m:mo>
+                 <m:mn>1</m:mn>
+               </m:mrow>
+               <m:mi>N</m:mi>
+             </m:munderover>
+             <m:mrow>
+               <m:mrow>
+                 <m:mi>a</m:mi>
+                 <m:mo/>
+                 <m:mrow>
+                   <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                   <m:mi>k</m:mi>
+                   <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                 </m:mrow>
+               </m:mrow>
+               <m:mo/>
+               <m:mrow>
+                 <m:mi mathcolor="gray">cos</m:mi>
+                 <m:mo/>
+                 <m:mrow>
+                   <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                   <m:mrow>
+                     <m:mfrac>
+                       <m:mrow>
+                         <m:mn>2</m:mn>
+                         <m:mo/>
+                         <m:mi>π</m:mi>
+                       </m:mrow>
+                       <m:mi>T</m:mi>
+                     </m:mfrac>
+                     <m:mo/>
+                     <m:mi>k</m:mi>
+                     <m:mo/>
+                     <m:mi>t</m:mi>
+                   </m:mrow>
+                   <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                 </m:mrow>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>b</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>k</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mfrac>
+                     <m:mrow>
+                       <m:mn>2</m:mn>
+                       <m:mo/>
+                       <m:mi>π</m:mi>
+                     </m:mrow>
+                     <m:mi>T</m:mi>
+                   </m:mfrac>
+                   <m:mo/>
+                   <m:mi>k</m:mi>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">,</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+   the squared error is
+   
+<equation id="md52da8a51f1cf0f6ea50581a84e195c9c3">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mi>ɛ</m:mi>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mfrac>
+           <m:mn>1</m:mn>
+           <m:mi>T</m:mi>
+         </m:mfrac>
+         <m:mo/>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:msup>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">|</m:mo>
+                 <m:mrow>
+                   <m:mrow>
+                     <m:mi>x</m:mi>
+                     <m:mo/>
+                     <m:mrow>
+                       <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                       <m:mi>t</m:mi>
+                       <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                     </m:mrow>
+                   </m:mrow>
+                   <m:mo form="infix">−</m:mo>
+                   <m:mrow>
+                     <m:mover accent="true">
+                       <m:mi>x</m:mi>
+                       <m:mo accent="true" form="postfix">̂</m:mo>
+                     </m:mover>
+                     <m:mo/>
+                     <m:mrow>
+                       <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                       <m:mi>t</m:mi>
+                       <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                     </m:mrow>
+                   </m:mrow>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">|</m:mo>
+               </m:mrow>
+               <m:mn>2</m:mn>
+             </m:msup>
+             <m:mo/>
+             <m:mrow>
+               <m:mo form="prefix">ⅆ</m:mo>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   which is minimized over all
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>a</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>b</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   by (<link target-id="md5693a9fdd4c2fd0700968fba0d07ff3c0"/>) and
+   (<link target-id="md5bd93bb39eb2bc4c2d7caa5ec9d0fb7f2"/>). This is an
+   extraordinarily important property.
+</para>
+<para id="id15058890">
+   It follows that if
+   <m:math display="inline">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>x</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>t</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">∈</m:mo>
+       <m:mrow>
+         <m:msup>
+           <m:mi>L</m:mi>
+           <m:mn>2</m:mn>
+         </m:msup>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">[</m:mo>
+           <m:mrow>
+             <m:mn>0</m:mn>
+             <m:mo form="infix">,</m:mo>
+             <m:mi>T</m:mi>
+           </m:mrow>
+           <m:mo fence="true" form="postfix" stretchy="false">]</m:mo>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>,
+   then the series converges to
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   in the sense that
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>ɛ</m:mi>
+       <m:mo form="infix">→</m:mo>
+       <m:mn>0</m:mn>
+     </m:mrow>
+   </m:math>
+   as
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>N</m:mi>
+       <m:mo form="infix">→</m:mo>
+       <m:mi>∞</m:mi>
+     </m:mrow>
+   </m:math>
+   <cite target-id="md520ec091468880e9d60be1472efbf3b61"/><cite target-id="md5cf842af094536ba42c3771077d483b19"/>.
+   The question of point-wise convergence is more difficult. A sufficient
+   condition that is adequate for most application states: If
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>f</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>x</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   is bounded, is piece-wise continuous, and has no more than a finite number of
+   maxima over an interval, the Fourier series converges point-wise to
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>f</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>x</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   at all points of continuity and to the arithmetic mean at points of
+   discontinuities. If
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>f</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>x</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   is continuous, the series converges uniformly at all points
+   <cite target-id="md5cf842af094536ba42c3771077d483b19"/><cite target-id="md5edee79ca8abaf126513ff78a9b6bf613"/><cite target-id="md56c620b2f99cac463bfa80536b370b309"/>.
+</para>
+<para id="id14983218">
+   A useful condition
+   <cite target-id="md520ec091468880e9d60be1472efbf3b61"/><cite target-id="md5cf842af094536ba42c3771077d483b19"/>
+   states that if
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and its derivatives through the
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>q</m:mi>
+     </m:mrow>
+   </m:math>th
+   derivative are defined and have bounded variation, the Fourier coefficients
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>a</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>b</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   asymptotically drop off at least as fast as
+   <m:math display="inline">
+     <m:mrow>
+       <m:mfrac>
+         <m:mn>1</m:mn>
+         <m:msup>
+           <m:mi>k</m:mi>
+           <m:mrow>
+             <m:mi>q</m:mi>
+             <m:mo form="infix">+</m:mo>
+             <m:mn>1</m:mn>
+           </m:mrow>
+         </m:msup>
+       </m:mfrac>
+     </m:mrow>
+   </m:math>
+   as
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>k</m:mi>
+       <m:mo form="infix">→</m:mo>
+       <m:mi>∞</m:mi>
+     </m:mrow>
+   </m:math>.
+   This ties global rates of convergence of the coefficients to local smoothness
+   conditions of the function.
+</para>
+<para id="id15467016">
+   The form of the Fourier series using both sines and cosines makes
+   determination of the peak value or of the location of a particular frequency
+   term difficult. A form that explicitly gives the peak value of the sinusoid of
+   that frequency and the location or phase shift of that sinusoid is given by
+   
+<equation id="md531c5989ca368854b2f106c3255f3ec17">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>x</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>t</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mfrac>
+           <m:mrow>
+             <m:mi>d</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mn>0</m:mn>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+           <m:mn>2</m:mn>
+         </m:mfrac>
+         <m:mo form="infix">+</m:mo>
+         <m:mrow>
+           <m:munderover>
+             <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+             <m:mrow>
+               <m:mi>k</m:mi>
+               <m:mo form="infix">=</m:mo>
+               <m:mn>1</m:mn>
+             </m:mrow>
+             <m:mi>∞</m:mi>
+           </m:munderover>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>d</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>k</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">cos</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mrow>
+                     <m:mfrac>
+                       <m:mrow>
+                         <m:mn>2</m:mn>
+                         <m:mo/>
+                         <m:mi>π</m:mi>
+                       </m:mrow>
+                       <m:mi>T</m:mi>
+                     </m:mfrac>
+                     <m:mo/>
+                     <m:mi>k</m:mi>
+                     <m:mo/>
+                     <m:mi>t</m:mi>
+                   </m:mrow>
+                   <m:mo form="infix">+</m:mo>
+                   <m:mrow>
+                     <m:mi>θ</m:mi>
+                     <m:mo/>
+                     <m:mrow>
+                       <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                       <m:mi>k</m:mi>
+                       <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                     </m:mrow>
+                   </m:mrow>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   and, using Euler's relation and the usual electrical engineering notation of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>j</m:mi>
+       <m:mo form="infix">=</m:mo>
+       <m:msqrt>
+         <m:mo form="prefix">−</m:mo>
+         <m:mn>1</m:mn>
+       </m:msqrt>
+     </m:mrow>
+   </m:math>,
+   
+<equation id="md577374c3056487b34b2bc8197958bcb80">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:msup>
+           <m:mi>e</m:mi>
+           <m:mrow>
+             <m:mi>j</m:mi>
+             <m:mo/>
+             <m:mi>x</m:mi>
+           </m:mrow>
+         </m:msup>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mrow>
+             <m:mi mathcolor="gray">cos</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mi>x</m:mi>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:mi>j</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mi mathcolor="gray">sin</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>x</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">,</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+   the complex exponential form is obtained as
+   
+<equation id="md568c42382c8b93fc29c2fcb6a444aeda5">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>x</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>t</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:munderover>
+           <m:mo form="prefix" largeop="true" movablelimits="true">∑</m:mo>
+           <m:mrow>
+             <m:mi>k</m:mi>
+             <m:mo form="infix">=</m:mo>
+             <m:mrow>
+               <m:mo form="prefix">−</m:mo>
+               <m:mi>∞</m:mi>
+             </m:mrow>
+           </m:mrow>
+           <m:mi>∞</m:mi>
+         </m:munderover>
+         <m:mrow>
+           <m:mrow>
+             <m:mi>c</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mi>k</m:mi>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+           <m:mo/>
+           <m:msup>
+             <m:mi>e</m:mi>
+             <m:mrow>
+               <m:mi>j</m:mi>
+               <m:mo/>
+               <m:mfrac>
+                 <m:mrow>
+                   <m:mn>2</m:mn>
+                   <m:mo/>
+                   <m:mi>π</m:mi>
+                 </m:mrow>
+                 <m:mi>T</m:mi>
+               </m:mfrac>
+               <m:mo/>
+               <m:mi>k</m:mi>
+               <m:mo/>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:msup>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   where
+   
+<equation id="md53d1e97d18e692ca5484d1abfe617b6c1">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mi>c</m:mi>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>k</m:mi>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mrow>
+           <m:mrow>
+             <m:mi>a</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mi>k</m:mi>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+           <m:mo form="infix">+</m:mo>
+           <m:mrow>
+             <m:mi>j</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mi>b</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>k</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">.</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+   The coefficient equation is
+   
+<equation id="md548881d728a96516e0e886c09603e7eee">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>c</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>k</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mfrac>
+           <m:mn>1</m:mn>
+           <m:mi>T</m:mi>
+         </m:mfrac>
+         <m:mo/>
+         <m:mrow>
+           <m:msubsup>
+             <m:mo form="prefix" largeop="true">∫</m:mo>
+             <m:mn>0</m:mn>
+             <m:mi>T</m:mi>
+           </m:msubsup>
+           <m:mrow>
+             <m:mrow>
+               <m:mi>x</m:mi>
+               <m:mo/>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mi>t</m:mi>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+             </m:mrow>
+             <m:mo/>
+             <m:msup>
+               <m:mi>e</m:mi>
+               <m:mrow>
+                 <m:mrow>
+                   <m:mo form="prefix">−</m:mo>
+                   <m:mi>j</m:mi>
+                 </m:mrow>
+                 <m:mo/>
+                 <m:mfrac>
+                   <m:mrow>
+                     <m:mn>2</m:mn>
+                     <m:mo/>
+                     <m:mi>π</m:mi>
+                   </m:mrow>
+                   <m:mi>T</m:mi>
+                 </m:mfrac>
+                 <m:mo/>
+                 <m:mi>k</m:mi>
+                 <m:mo/>
+                 <m:mi>t</m:mi>
+               </m:mrow>
+             </m:msup>
+             <m:mo/>
+             <m:mrow>
+               <m:mo form="prefix">ⅆ</m:mo>
+               <m:mi>t</m:mi>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   The coefficients in these three forms are related by
+   
+<equation id="md511340131feec68e7ca463f960f0f341c">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:msup>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">|</m:mo>
+           <m:mi>d</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">|</m:mo>
+         </m:mrow>
+         <m:mn>2</m:mn>
+       </m:msup>
+       <m:mo form="infix">=</m:mo>
+       <m:msup>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">|</m:mo>
+           <m:mi>c</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">|</m:mo>
+         </m:mrow>
+         <m:mn>2</m:mn>
+       </m:msup>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:msup>
+           <m:mi>a</m:mi>
+           <m:mn>2</m:mn>
+         </m:msup>
+         <m:mo form="infix">+</m:mo>
+         <m:msup>
+           <m:mi>b</m:mi>
+           <m:mn>2</m:mn>
+         </m:msup>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   and
+   
+<equation id="md5ed20a959d410ccd843d9e1dfcee04228">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mi>θ</m:mi>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:mi>a</m:mi>
+         <m:mo/>
+         <m:mi>r</m:mi>
+         <m:mo/>
+         <m:mi>g</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">{</m:mo>
+           <m:mi>c</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">}</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mrow>
+         <m:msup>
+           <m:mi mathcolor="gray">tan</m:mi>
+           <m:mrow>
+             <m:mo form="prefix">−</m:mo>
+             <m:mn>1</m:mn>
+           </m:mrow>
+         </m:msup>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mfrac>
+             <m:mi>b</m:mi>
+             <m:mi>a</m:mi>
+           </m:mfrac>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+</equation>
+   It is easier to evaluate a signal in terms of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>c</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   or
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>d</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>θ</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   than in terms of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>a</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>b</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>k</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>.
+   The first two are polar representation of a complex value and the last is
+   rectangular. The exponential form is easier to work with mathematically.
+</para>
+<para id="id5566875">
+   Although the function to be expanded is defined only over a specific finite
+   region, the series converges to a function that is defined over the real line
+   and is periodic. It is equal to the original function over the region of
+   definition and is a periodic extension outside of the region. Indeed, one
+   could artificially extend the given function at the outset and then the
+   expansion would converge everywhere.
+</para>
+</section>
+<section id="id15143649">
+<title>A Geometric View</title>
+<para id="id15175560">
+   It can be very helpful to develop a geometric view of the Fourier series where
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   is considered to be a vector and the basis functions are the coordinate or
+   basis vectors. The coefficients become the projections of
+   <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   on the coordinates. The ideas of a measure of distance, size, and
+   orthogonality are important and the definition of error is easy to picture.
+   This is done in
+   <cite target-id="md520ec091468880e9d60be1472efbf3b61"/><cite target-id="md5cf842af094536ba42c3771077d483b19"/><cite target-id="md5f6182f0359f72aae12fb90d305ccf9eb"/>
+   using Hilbert space methods.
+</para>
+</section>
+<section id="id15659467">
+<title>Examples</title>
+<list id="id15711174" list-type="bulleted">
+   <item>
+      
+         An example of the Fourier series is the expansion of a square wave signal with
+         period
+         <m:math display="inline">
+     <m:mrow>
+       <m:mn>2</m:mn>
+       <m:mo/>
+       <m:mi>π</m:mi>
+     </m:mrow>
+   </m:math>.
+         The expansion is
+         
+<equation id="md59c8a0632757d66bb9ae533b2d0a7a0fa">
+<m:math display="block" mode="display">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mi>x</m:mi>
+           <m:mo/>
+           <m:mrow>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>t</m:mi>
+             <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">=</m:mo>
+         <m:mfrac>
+           <m:mn>4</m:mn>
+           <m:mi>π</m:mi>
+         </m:mfrac>
+       </m:mrow>
+       <m:mo/>
+       <m:mrow>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">[</m:mo>
+           <m:mrow>
+             <m:mi mathcolor="gray">sin</m:mi>
+             <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+             <m:mi>t</m:mi>
+           </m:mrow>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+         <m:mo form="infix">+</m:mo>
+         <m:mrow>
+           <m:mfrac>
+             <m:mn>1</m:mn>
+             <m:mn>3</m:mn>
+           </m:mfrac>
+           <m:mo/>
+           <m:mrow>
+             <m:mi mathcolor="gray">sin</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+               <m:mrow>
+                 <m:mn>3</m:mn>
+                 <m:mo/>
+                 <m:mi>t</m:mi>
+               </m:mrow>
+               <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+         <m:mo form="infix">+</m:mo>
+         <m:mrow>
+           <m:mfrac>
+             <m:mn>1</m:mn>
+             <m:mn>5</m:mn>
+           </m:mfrac>
+           <m:mo/>
+           <m:mrow>
+             <m:mi mathcolor="gray">sin</m:mi>
+             <m:mo/>
+             <m:mrow>
+               <m:mrow>
+                 <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                 <m:mrow>
+                   <m:mn>5</m:mn>
+                   <m:mo/>
+                   <m:mi>t</m:mi>
+                 </m:mrow>
+                 <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+               </m:mrow>
+               <m:mo/>
+               <m:mi>⋯</m:mi>
+             </m:mrow>
+           </m:mrow>
+         </m:mrow>
+       </m:mrow>
+       <m:mo fence="true" form="postfix" stretchy="false">]</m:mo>
+       <m:mo form="infix">.</m:mo>
+     </m:mrow>
+   </m:math>
+</equation>
+         Because
+         <m:math display="inline">
+     <m:mrow>
+       <m:mi>x</m:mi>
+       <m:mo/>
+       <m:mrow>
+         <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+         <m:mi>t</m:mi>
+         <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+         is odd, there are no cosine terms (all
+         <m:math display="inline">
+     <m:mrow>
+       <m:mrow>
+         <m:mi>a</m:mi>
+         <m:mo/>
+         <m:mrow>
+           <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+           <m:mi>k</m:mi>
+           <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+         </m:mrow>
+       </m:mrow>
+       <m:mo form="infix">=</m:mo>
+       <m:mn>0</m:mn>
+     </m:mrow>
+   </m:math>)
+         and, because of its symmetries, there are no even harmonics (even
+         <m:math display="inline">
+     <m:mrow>
+       <m:mi>k</m:mi>
+     </m:mrow>
+   </m:math>
+         terms are zero). The function is well defined and bounded; its derivative is
+         not, therefore, the coefficients drop off as
+         <m:math display="inline">
+     <m:mrow>
+       <m:mfrac>
+         <m:mn>1</m:mn>
+         <m:mi>k</m:mi>
+       </m:mfrac>
+     </m:mrow>
+   </m:math>.
+      
+   </item>
+   <item>
+      
+         A second example is a triangle wave of period
+         <m:math display="inline">
+        <m:mrow>
+          <m:mn>2</m:mn>
+          <m:mo/>
+          <m:mi>π</m:mi>
+        </m:mrow>
+      </m:math>.
+         This is a continuous function where the square wave was not. The expansion of
+         the triangle wave is
+         
+<equation id="md5d7b24e66a3c4ea77a4a224995bc3899a">
+<m:math display="block" mode="display">
+        <m:mrow>
+          <m:mrow>
+            <m:mrow>
+              <m:mi>x</m:mi>
+              <m:mo/>
+              <m:mrow>
+                <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+              </m:mrow>
+            </m:mrow>
+            <m:mo form="infix">=</m:mo>
+            <m:mfrac>
+              <m:mn>4</m:mn>
+              <m:mi>π</m:mi>
+            </m:mfrac>
+          </m:mrow>
+          <m:mo/>
+          <m:mrow>
+            <m:mrow>
+              <m:mo fence="true" form="prefix" stretchy="false">[</m:mo>
+              <m:mrow>
+                <m:mi mathcolor="gray">sin</m:mi>
+                <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                <m:mi>t</m:mi>
+              </m:mrow>
+              <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+            </m:mrow>
+            <m:mo form="infix">+</m:mo>
+            <m:mrow>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msup>
+                  <m:mn>3</m:mn>
+                  <m:mn>2</m:mn>
+                </m:msup>
+              </m:mfrac>
+              <m:mo/>
+              <m:mrow>
+                <m:mi mathcolor="gray">sin</m:mi>
+                <m:mo/>
+                <m:mrow>
+                  <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:mn>3</m:mn>
+                    <m:mo/>
+                    <m:mi>t</m:mi>
+                  </m:mrow>
+                  <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mrow>
+            <m:mo form="infix">+</m:mo>
+            <m:mrow>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msup>
+                  <m:mn>5</m:mn>
+                  <m:mn>2</m:mn>
+                </m:msup>
+              </m:mfrac>
+              <m:mo/>
+              <m:mrow>
+                <m:mi mathcolor="gray">sin</m:mi>
+                <m:mo/>
+                <m:mrow>
+                  <m:mo fence="true" form="prefix" stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:mn>5</m:mn>
+                    <m:mo/>
+                    <m:mi>t</m:mi>
+                  </m:mrow>
+                  <m:mo fence="true" form="postfix" stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mrow>
+            <m:mo form="infix">+</m:mo>
+            <m:mi>⋯</m:mi>
+          </m:mrow>
+          <m:mo fence="true" form="postfix" stretchy="false">]</m:mo>
+          <m:mo form="infix">.</m:mo>
+        </m:mrow>
+      </m:math>
+</equation>
+         Here the coefficients drop off as
+         <m:math display="inline">
+        <m:mrow>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:msup>
+              <m:mi>k</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+         since the function and its first derivative exist and are bounded.
+      
+   </item>
+</list>
+<para id="id6888882">Note the derivative of a triangle wave is a square wave.  Examine the series coefficients to see this.  There are many books and web sites on the Fourier series that give insight through examples and demos.
+   
+   
+</para>
+</section>
+</section>
+</content>
+<bib:file><bib:entry id="md5edee79ca8abaf126513ff78a9b6bf613">
+<bib:book><bib:author>E. W. Hobson</bib:author>
+<bib:title>The Theory of Functions of a Real Variable and the Theory of Fourier's Series</bib:title>
+<bib:publisher>Dover</bib:publisher>
+<bib:year>1926</bib:year>
+<bib:volume>2</bib:volume>
+<bib:address>New York</bib:address>
+<bib:edition>Second</bib:edition>
+</bib:book>
+</bib:entry><bib:entry id="md56c620b2f99cac463bfa80536b370b309">
+<bib:book><bib:author>H. S. Carslaw</bib:author>
+<bib:title>Theory of Fourier's Series and Integrals</bib:title>
+<bib:publisher>Dover</bib:publisher>
+<bib:year>1906, 1930</bib:year>
+<bib:address>New York</bib:address>
+<bib:edition>third</bib:edition>
+</bib:book>
+</bib:entry><bib:entry id="md5cf842af094536ba42c3771077d483b19">
+<bib:book><bib:author>C. Lanczos</bib:author>
+<bib:title>Applied Analysis</bib:title>
+<bib:publisher>Prentice Hall</bib:publisher>
+<bib:year>1956</bib:year>
+<!--<bib:chapter>IV</bib:chapter>-->
+<!--<bib:pages>225-229</bib:pages>-->
+<bib:address>Englewood Cliffs, NJ</bib:address>
+</bib:book>
+</bib:entry><bib:entry id="md5cb901681799544e59cda31727776932c">
+<bib:book><bib:author>T. W. Körner</bib:author>
+<bib:title>Fourier Analysis</bib:title>
+<bib:publisher>Cambridge University Press</bib:publisher>
+<bib:year>1988</bib:year>
+<bib:address>Cambridge</bib:address>
+</bib:book>
+</bib:entry><bib:entry id="md5a1dd9e40e6459ebd02e237b6d35bbcde">
+<bib:book><bib:author>Gerald B. Folland</bib:author>
+<bib:title>Fourier Analysis and its Applications</bib:title>
+<bib:publisher>Wadsworth &amp; Brooks/Cole</bib:publisher>
+<bib:year>1992</bib:year>
+<bib:address>Pacific Grove</bib:address>
+</bib:book>
+</bib:entry><bib:entry id="md520ec091468880e9d60be1472efbf3b61">
+<bib:book><bib:author>H. Dym and H. P. McKean</bib:author>
+<bib:title>Fourier Series and Integrals</bib:title>
+<bib:publisher>Academic Press</bib:publisher>
+<bib:year>1972</bib:year>
+<bib:address>New York</bib:address>
+</bib:book>
+</bib:entry><bib:entry id="md5f6182f0359f72aae12fb90d305ccf9eb">
+<bib:book><bib:author>R. M. Young</bib:author>
+<bib:title>An Introduction to Nonharmonic Fourier Series</bib:title>
+<bib:publisher>Academic Press</bib:publisher>
+<bib:year>1980</bib:year>
+<bib:address>New York</bib:address>
+</bib:book>
+</bib:entry></bib:file></document>

@@ -1,0 +1,167 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Small-Scale Fading</title>
+  <metadata>
+  <md:content-id>m26733</md:content-id><md:title>Small-Scale Fading</md:title>
+  <md:abstract/>
+  <md:uuid>f6dec291-3d10-4946-a269-305677909115</md:uuid>
+</metadata>
+
+<content>
+    
+    <para id="id10847978"><emphasis>Small-scale fading</emphasis> refers to the dramatic changes in signal amplitude and phase that can be experienced as a result of small changes (as small as half wavelength) in the spatial position between transmitter and receiver.</para>
+    <para id="id10831570">In this section, we will develop the small-scale fading component 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{r rSub { size 8{0} }  \( t \) } {}</m:annotation></m:semantics></m:math>. Analysis proceeds on the assumption that the antenna remains within a limited trajectory so that the effect of large-scale fading m(t) is constant. Assume that the antenna is traveling and there are multiple scatter paths, each associated with a time-variant propagation delay 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{τ rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math> and a time variant multiplicative factor 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{α rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math>. Neglecting noise, the received bandpass signal can be written as below:</para>
+    <para id="id11123947"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>r</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:munder><m:mo stretchy="false">∑</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:munder><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{r \( t \) = Sum cSub { size 8{n} }  {α rSub { size 8{n} } }  \( t \) s \( t - τ rSub { size 8{n} }  \( t \)  \) } {}</m:annotation></m:semantics></m:math>(1)</para>
+    <para id="id10831058">Substituting Equation (1) in the module of Characterizing Mobile-Radio Propagation into Equation (1), we can write the received bandpass signal as follow:</para>
+    <para id="id10617185"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>r</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mtext>=Re</m:mtext><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">(</m:mo><m:mrow><m:munder><m:mo stretchy="false">∑</m:mo><m:mi>n</m:mi></m:munder><m:mrow><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mi>g</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo><m:msup><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:msub><m:mi fontstyle="italic">j2πf</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle></m:msup></m:mrow></m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{r \( t \) "=Re" \(  \(  Sum cSub {n}  {α rSub { size 8{n} }  \( t \) g \( t - τ rSub { size 8{n} }  \( t \)  \) e rSup { size 8{j2πf rSub { size 6{c} }  \( t - τ rSub { size 6{n} }  \( t \)  \) } } }  size 12{ \) }} {}</m:annotation></m:semantics></m:math><m:math><m:semantics><m:mrow/><m:annotation encoding="StarMath 5.0">{}</m:annotation></m:semantics></m:math>(2)</para>
+    <para id="id10231990">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow/>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mtext>Re</m:mtext>
+                  </m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:munder>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mi>n</m:mi>
+                    </m:munder>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>α</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>n</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo stretchy="false">)</m:mo>
+                      <m:msup>
+                        <m:mi>e</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mo stretchy="false">−</m:mo>
+                                <m:msub>
+                                  <m:mi fontstyle="italic">j2πf</m:mi>
+                                  <m:mstyle fontsize="6pt">
+                                    <m:mrow>
+                                      <m:mi>c</m:mi>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:msub>
+                              </m:mrow>
+                              <m:msub>
+                                <m:mi>τ</m:mi>
+                                <m:mstyle fontsize="6pt">
+                                  <m:mrow>
+                                    <m:mi>n</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mo stretchy="false">(</m:mo>
+                              <m:mi>t</m:mi>
+                              <m:mo stretchy="false">)</m:mo>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msup>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mstyle fontsize="12pt">
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:mrow>
+                          <m:mi>t</m:mi>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:msub>
+                            <m:mi>τ</m:mi>
+                            <m:mi>n</m:mi>
+                          </m:msub>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mstyle>
+                  <m:mstyle fontsize="12pt">
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:mi>t</m:mi>
+                        <m:mo stretchy="false">)</m:mo>
+                        <m:mo stretchy="false">)</m:mo>
+                        <m:mo stretchy="false">)</m:mo>
+                        <m:msup>
+                          <m:mi>e</m:mi>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi fontstyle="italic">j2πf</m:mi>
+                              <m:mstyle fontsize="6pt">
+                                <m:mrow>
+                                  <m:mi>c</m:mi>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mi>t</m:mi>
+                          </m:mrow>
+                        </m:msup>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mstyle>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {}="Re" \(  \(  Sum cSub {n}  {α rSub { size 8{n} }  \( t \) e rSup { size 8{ - j2πf rSub { size 6{c} } τ rSub { size 6{n} }  \( t \) } } }  size 12{g \( t - τ rSub {n} } size 12{ \( t \)  \)  \) e rSup {j2πf rSub { size 6{c} } t} }} {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id10583633">We have the equivalent received bandpass signal is</para>
+    <para id="id10583645"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:munder><m:mo stretchy="false">∑</m:mo><m:mi>n</m:mi></m:munder><m:mrow><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:msup><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:msub><m:mi fontstyle="italic">j2πfτ</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:msub><m:mo stretchy="false">)</m:mo><m:mstyle fontsize="6pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle></m:msup><m:mi>g</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>τ</m:mi><m:mi>n</m:mi></m:msub></m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{s \( t \) = Sum cSub {n}  {α rSub { size 8{n} }  \( t \) e rSup { size 8{ - j2πfτ rSub { size 6{n} }  \( t \)  rSub { size 6{c} } } } g \( t - τ rSub {n}  size 12{ \( t \)  \) }} } {}</m:annotation></m:semantics></m:math>(3)</para>
+    <para id="id11275919">Consider the transmission of an unmodulated carrier at frequency 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{f rSub { size 8{c} } } {}</m:annotation></m:semantics></m:math> or in other words, for all time, g(t)=1. Then the received bandpass signal becomes as follow:</para>
+    <para id="id10278625"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:munder><m:mo stretchy="false">∑</m:mo><m:mi>n</m:mi></m:munder><m:mrow><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mrow><m:msup><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:msub><m:mi fontstyle="italic">j2πf</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle></m:msup><m:mo stretchy="false">=</m:mo><m:mrow><m:munder><m:mo stretchy="false">∑</m:mo><m:mi>n</m:mi></m:munder><m:mrow><m:msub><m:mi>α</m:mi><m:mi>n</m:mi></m:msub><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:msup><m:mi>e</m:mi><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:msub><m:mi fontstyle="italic">jθ</m:mi><m:mstyle fontsize="6pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:msup></m:mrow></m:mrow></m:mstyle></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{s \( t \) = Sum cSub {n}  {α rSub { size 8{n} }  \( t \) e rSup { size 8{ - j2πf rSub { size 6{c} } τ rSub { size 6{n} }  \( t \) } } = Sum cSub {n}  {α rSub {n}  size 12{ \( t \) e rSup { - jθ rSub { size 6{n} }  \( t \) } }} } } {}</m:annotation></m:semantics></m:math>(4)</para>
+    <para id="id10382282">The baseband signal s(t) consists of a sum of time-variant components having amplitudes 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>α</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{α rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math> and phases 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>θ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{θ rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math>. Notice that 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>θ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{θ rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math> will change by 2π radians whenever 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>τ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{τ rSub { size 8{n} }  \( t \) } {}</m:annotation></m:semantics></m:math> changes by 1/
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{f rSub { size 8{c} } } {}</m:annotation></m:semantics></m:math> (very small delay). These multipath components combine either constructively or destructively, resulting in amplitude variations or fading of s(t). Equation (4) is very important because it tell us that a bandpass signal s(t) is the signal that experienced the fading effects and gave rise to the received signal r(t), these effects can be described by analyzing r(t) at the baseband level.</para>
+    <figure id="id10889227">
+      <media id="id5458940" alt=""><image src="../../media/moi1.png" mime-type="image/png" height="302" width="550"/></media>
+    </figure>
+    <para id="id10206926">When the received signal is made up of multiple reflective arrays plus a significant line-of-sight (non-faded) component, the received envelope amplitude has a Rician pdf as below, and the fading is preferred to as Rician fading</para>
+    <para id="id8824278"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>p</m:mi><m:mo stretchy="false">(</m:mo><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="true">{</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:mfrac><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:msup><m:mi>σ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac><m:mtext>exp</m:mtext><m:mfenced open="[" close="]"><m:mrow><m:mo stretchy="false">−</m:mo><m:mfrac><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:msubsup><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msubsup><m:mo stretchy="false">+</m:mo><m:msup><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:msup><m:mn>2σ</m:mn><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac></m:mrow></m:mfenced><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mfrac><m:mrow><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mi>A</m:mi></m:mrow><m:msup><m:mi>σ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac><m:mo stretchy="false">)</m:mo><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">≥</m:mo><m:mn>0,</m:mn></m:mrow><m:mrow><m:mi>A</m:mi><m:mo stretchy="false">≥</m:mo><m:mn>0</m:mn></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mn>0</m:mn><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>otherwise</m:mtext></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{p \( r rSub { size 8{0} }  \) = left lbrace  matrix {
+ {  {r rSub { size 8{0} } }  over  {σ rSup { size 8{2} } } } "exp" left [ -  {  { \( r rSub { size 8{0} }  rSup { size 8{2} } +A rSup { size 8{2} }  \) }  over  {2σ rSup { size 8{2} } } }  right ]I rSub { size 8{0} }  \(  {  {r rSub { size 8{0} } A}  over  {σ rSup { size 8{2} } } }  \)  {} # r rSub { size 8{0} }  &gt;= 0,A &gt;= 0 {} ##
+0 {} #  ital "otherwise"{}
+}  right none } {}</m:annotation></m:semantics></m:math>(5)</para>
+    <para id="id10253946">The parameter 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msup><m:mi>σ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{σ rSup { size 8{2} } } {}</m:annotation></m:semantics></m:math> is the pre-detection mean power of the multipath signal. A denotes the peak magnitude of the non-faded signal component and 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{0} }  \(  -  \) } {}</m:annotation></m:semantics></m:math> is the modified Bessel function. The Rician distribution is often described in terms of a parameter K, which is defined as the ratio of the power in the specular component to the power in the multipath signal. It is given by 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>K</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:msup><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mo stretchy="false">/</m:mo><m:msup><m:mn>2σ</m:mn><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{K=A rSup { size 8{2} } /2σ rSup { size 8{2} } } {}</m:annotation></m:semantics></m:math>.</para>
+    <para id="id11413573">When the magnitude of the specular component A approach zero, the Rician pdf approachs a Rayleigh pdf, shown as</para>
+    <para id="id11413579"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>p</m:mi><m:mo stretchy="false">(</m:mo><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="true">{</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:mfrac><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:msup><m:mi>σ</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac><m:mtext>exp</m:mtext><m:mfenced open="[" close="]"><m:mrow><m:mo stretchy="false">−</m:mo><m:mfrac><m:msubsup><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msubsup><m:msup><m:mn>2σ</m:mn><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac></m:mrow></m:mfenced><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow><m:msub><m:mi>r</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">≥</m:mo><m:mn>0</m:mn></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mn>0</m:mn><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>otherwise</m:mtext></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{p \( r rSub { size 8{0} }  \) = left lbrace  matrix {
+ {  {r rSub { size 8{0} } }  over  {σ rSup { size 8{2} } } } "exp" left [ -  {  {r rSub { size 8{0} }  rSup { size 8{2} } }  over  {2σ rSup { size 8{2} } } }  right ] {} # r rSub { size 8{0} }  &gt;= 0 {} ##
+0 {} #  ital "otherwise"{}
+}  right none } {}</m:annotation></m:semantics></m:math>(6)</para>
+    <para id="id10520464">The Rayleigh pdf results from having no specular signal component, it represents the pdf associated with the worst case of fading per mean received signal power.</para>
+    <para id="id11407968">Small scale manifests itself in two mechanisms - time spreading of signal (or signal dispersion) and time-variant behavior of the channel (Figure 2). It is important to distinguish between two different time references- delay time τ and transmission time t. Delay time refers to the time spreading effect resulting from the fading channel’s non-optimum impulse response. The transmission time, however, is related to the motion of antenna or spatial changes, accounting for propagation path changes that are perceived as the channel’s time-variant behavior.</para>
+    <figure id="id11407993">
+      <media id="id7095182" alt=""><image src="../../media/moi3.png" mime-type="image/png" height="364" width="674"/></media>
+    </figure>
+  </content>
+</document>
