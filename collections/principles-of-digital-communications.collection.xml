@@ -1,3 +1,117 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" type="Course">  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">  <md:content-id>col10805</md:content-id>  <md:title>Principles of Digital Communications</md:title>      <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>  <md:language>en</md:language>        <md:uuid>f57cada7-1253-46b0-ba4f-3e1a9258a484</md:uuid>
-<md:slug>principles-of-digital-communications</md:slug>
-</metadata>  <col:content>                        <col:subcollection>        <md:title>Syllabus</md:title>                                <col:content>                    <col:module document="m26790"/>                            <col:module document="m26748"/>                            <col:module document="m15434"/>                            <col:module document="m26751"/>                            <col:module document="m15448"/>                            <col:module document="m26836"/>                            <col:module document="m15437"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 1: Signals and Systems</md:title>                                <col:content>                    <col:module document="m26849"/>                            <col:module document="m26857"/>                            <col:module document="m13879"/>                            <col:module document="m26510"/>                            <col:module document="m26834"/>                            <col:module document="m26859"/>                            <col:module document="m26824"/>                            <col:module document="m26841"/>                            <col:module document="m26782"/>                            <col:module document="m26842"/>                            <col:module document="m26861"/>                            <col:module document="m26884"/>                            <col:module document="m26865"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 2: Source Coding</md:title>                                <col:content>                    <col:module document="m26779"/>                            <col:module document="m26765"/>                            <col:module document="m26856"/>                            <col:module document="m26776"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 3: Communication over AWGN Channels</md:title>                                <col:content>                    <col:module document="m26753"/>                            <col:module document="m26851"/>                            <col:module document="m26774"/>                            <col:module document="m26758"/>                            <col:module document="m26756"/>                            <col:module document="m26759"/>                            <col:module document="m26768"/>                            <col:module document="m26792"/>                            <col:module document="m26770"/>                            <col:module document="m26816"/>                            <col:module document="m26817"/>                            <col:module document="m26744"/>                            <col:module document="m26760"/>                            <col:module document="m26740"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 4: Communication over Band-limitted AWGN Channels</md:title>                                <col:content>                    <col:module document="m26761"/>                            <col:module document="m26781"/>                            <col:module document="m26828"/>                            <col:module document="m26820"/>                            <col:module document="m26835"/>                            <col:module document="m26871"/>                            <col:module document="m28510"/>                            <col:module document="m28948"/>                            <col:module document="m28534"/>                            <col:module document="m28572"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 5: Channel Coding</md:title>                                <col:content>                    <col:module document="m26745"/>                            <col:module document="m26815"/>                            <col:module document="m26877"/>                            <col:module document="m26843"/>                            <col:module document="m26746"/>                            <col:module document="m26749"/>                          </col:content>      </col:subcollection>                            <col:subcollection>        <md:title>Chapter 6: Communication over Fading Channels</md:title>                                <col:content>                    <col:module document="m28507"/>                            <col:module document="m28343"/>                            <col:module document="m26787"/>                            <col:module document="m26733"/>                            <col:module document="m26732"/>                            <col:module document="m26805"/>                            <col:module document="m26797"/>                            <col:module document="m26803"/>                            <col:module document="m26808"/>                            <col:module document="m26763"/>                            <col:module document="m28892"/>                            <col:module document="m26813"/>                            <col:module document="m26862"/>                            <col:module document="m28937"/>                            <col:module document="m28934"/>                          </col:content>      </col:subcollection>      </col:content></col:collection>
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" type="Course" authors="Tuan Do-Hong">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10805</md:content-id>
+    <md:title>Principles of Digital Communications</md:title>
+    <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>
+    <md:language>en</md:language>
+    <md:uuid>f57cada7-1253-46b0-ba4f-3e1a9258a484</md:uuid>
+    <md:slug>principles-of-digital-communications</md:slug>
+  </metadata>
+  <col:content>
+    <col:subcollection>
+      <md:title>Syllabus</md:title>
+      <col:content>
+        <col:module document="m26790"/>
+        <col:module document="m26748"/>
+        <col:module document="m15434"/>
+        <col:module document="m26751"/>
+        <col:module document="m15448"/>
+        <col:module document="m26836"/>
+        <col:module document="m15437"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 1: Signals and Systems</md:title>
+      <col:content>
+        <col:module document="m26849"/>
+        <col:module document="m26857"/>
+        <col:module document="m13879"/>
+        <col:module document="m26510"/>
+        <col:module document="m26834"/>
+        <col:module document="m26859"/>
+        <col:module document="m26824"/>
+        <col:module document="m26841"/>
+        <col:module document="m26782"/>
+        <col:module document="m26842"/>
+        <col:module document="m26861"/>
+        <col:module document="m26884"/>
+        <col:module document="m26865"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 2: Source Coding</md:title>
+      <col:content>
+        <col:module document="m26779"/>
+        <col:module document="m26765"/>
+        <col:module document="m26856"/>
+        <col:module document="m26776"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 3: Communication over AWGN Channels</md:title>
+      <col:content>
+        <col:module document="m26753"/>
+        <col:module document="m26851"/>
+        <col:module document="m26774"/>
+        <col:module document="m26758"/>
+        <col:module document="m26756"/>
+        <col:module document="m26759"/>
+        <col:module document="m26768"/>
+        <col:module document="m26792"/>
+        <col:module document="m26770"/>
+        <col:module document="m26816"/>
+        <col:module document="m26817"/>
+        <col:module document="m26744"/>
+        <col:module document="m26760"/>
+        <col:module document="m26740"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 4: Communication over Band-limitted AWGN Channels</md:title>
+      <col:content>
+        <col:module document="m26761"/>
+        <col:module document="m26781"/>
+        <col:module document="m26828"/>
+        <col:module document="m26820"/>
+        <col:module document="m26835"/>
+        <col:module document="m26871"/>
+        <col:module document="m28510"/>
+        <col:module document="m28948"/>
+        <col:module document="m28534"/>
+        <col:module document="m28572"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 5: Channel Coding</md:title>
+      <col:content>
+        <col:module document="m26745"/>
+        <col:module document="m26815"/>
+        <col:module document="m26877"/>
+        <col:module document="m26843"/>
+        <col:module document="m26746"/>
+        <col:module document="m26749"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Chapter 6: Communication over Fading Channels</md:title>
+      <col:content>
+        <col:module document="m28507"/>
+        <col:module document="m28343"/>
+        <col:module document="m26787"/>
+        <col:module document="m26733"/>
+        <col:module document="m26732"/>
+        <col:module document="m26805"/>
+        <col:module document="m26797"/>
+        <col:module document="m26803"/>
+        <col:module document="m26808"/>
+        <col:module document="m26763"/>
+        <col:module document="m28892"/>
+        <col:module document="m26813"/>
+        <col:module document="m26862"/>
+        <col:module document="m28937"/>
+        <col:module document="m28934"/>
+      </col:content>
+    </col:subcollection>
+  </col:content>
+</col:collection>
