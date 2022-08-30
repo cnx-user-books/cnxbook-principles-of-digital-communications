@@ -290,7 +290,7 @@
 					</m:math> is time invariant if for all
 	  <m:math display="inline"><m:ci>T</m:ci></m:math>
 					<equation id="eqn4">
-						<m:math display="display">
+						<m:math>
 							<m:apply>
 								<m:eq/>
 								<m:apply>
